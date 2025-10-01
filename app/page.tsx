@@ -2,8 +2,8 @@
 
 import { useEffect, useState } from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
 import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
 import { ChevronRight, AudioLines, ArrowUp, MessageSquare, Layout, Video, Scissors, Upload, Heart } from 'lucide-react';
 import { ThemeToggle } from '@/components/theme-toggle';
 import { Marquee } from '@/components/ui/marquee';
@@ -49,7 +49,7 @@ export default function Home() {
               <a href="#" className="text-sm text-gray-700 hover:text-gray-900 dark:text-gray-300 dark:hover:text-gray-100">Community</a>
               <a href="#" className="text-sm text-gray-700 hover:text-gray-900 dark:text-gray-300 dark:hover:text-gray-100">Testimonials</a>
               <a href="#" className="text-sm text-gray-700 hover:text-gray-900 dark:text-gray-300 dark:hover:text-gray-100">Contact</a>
-              <a href="/blog" className="text-sm text-gray-700 hover:text-gray-900 dark:text-gray-300 dark:hover:text-gray-100">Blog</a>
+              <Link href="/blog" className="text-sm text-gray-700 hover:text-gray-900 dark:text-gray-300 dark:hover:text-gray-100">Blog</Link>
             </nav>
           </div>
 
@@ -137,7 +137,7 @@ export default function Home() {
                     Mercor
                   </div>
                   <div className="flex items-center justify-center h-12 px-8 text-gray-400 dark:text-gray-500 font-semibold text-lg">
-                    Zareen's Restaurant
+                    Zareen&apos;s Restaurant
                   </div>
                   <div className="flex items-center justify-center h-12 px-8 text-gray-400 dark:text-gray-500 font-semibold text-lg">
                     Agapé

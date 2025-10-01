@@ -45,7 +45,7 @@ interface TestimonialCardProps {
   className?: string;
 }
 
-export function TestimonialCard({ id, text, user, url, className }: TestimonialCardProps) {
+export function TestimonialCard({ text, user, url, className }: TestimonialCardProps) {
   return (
     <div
       className={cn(

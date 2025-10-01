@@ -212,11 +212,11 @@ export const TweetMedia = ({ tweet }: { tweet: EnrichedTweet }) => {
       )}
       {!tweet.video &&
         !tweet.photos &&
-        // @ts-ignore
+        // @ts-expect-error - Twitter API types don't include card binding values
         tweet?.card?.binding_values?.thumbnail_image_large?.image_value.url && (
           <img
             src={
-              // @ts-ignore
+              // @ts-expect-error - Twitter API types don't include card binding values
               tweet.card.binding_values.thumbnail_image_large.image_value.url
             }
             className="h-64 rounded-xl border object-cover shadow-sm"
@@ -229,7 +229,6 @@ export const TweetMedia = ({ tweet }: { tweet: EnrichedTweet }) => {
 
 export const MagicTweet = ({
   tweet,
-  components,
   className,
   ...props
 }: {
