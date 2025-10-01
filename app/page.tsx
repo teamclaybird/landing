@@ -14,6 +14,7 @@ import testimonials from '@/data/testimonials.json';
 import DemoVideo from '@/components/DemoVideo';
 import { LightRays } from '@/components/ui/light-rays';
 import { AnimatedPlaceholderInput } from '@/components/ui/animated-placeholder-input';
+import { FloatingCTA } from '@/components/floating-cta';
 
 export default function Home() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -48,7 +49,7 @@ export default function Home() {
               <a href="#" className="text-sm text-gray-700 hover:text-gray-900 dark:text-gray-300 dark:hover:text-gray-100">Community</a>
               <a href="#" className="text-sm text-gray-700 hover:text-gray-900 dark:text-gray-300 dark:hover:text-gray-100">Testimonials</a>
               <a href="#" className="text-sm text-gray-700 hover:text-gray-900 dark:text-gray-300 dark:hover:text-gray-100">Contact</a>
-              <a href="#" className="text-sm text-gray-700 hover:text-gray-900 dark:text-gray-300 dark:hover:text-gray-100">Blog</a>
+              <a href="/blog" className="text-sm text-gray-700 hover:text-gray-900 dark:text-gray-300 dark:hover:text-gray-100">Blog</a>
             </nav>
           </div>
 
@@ -228,7 +229,7 @@ export default function Home() {
                 name="Collaborate"
                 className="col-span-3 lg:col-span-1"
                 background={
-                  <div className="absolute inset-0 bg-gradient-to-br from-blue-500/20 to-purple-500/20 dark:from-blue-500/10 dark:to-purple-500/10" />
+                  <div className="absolute inset-0 bg-gradient-to-br from-blue-100/40 to-gray-100/40 dark:from-blue-950/20 dark:to-gray-950/20" />
                 }
                 Icon={MessageSquare}
                 description="First, share your idea, and it helps you refine your idea into a detailed script."
@@ -239,7 +240,7 @@ export default function Home() {
                 name="Storyboard"
                 className="col-span-3 lg:col-span-1"
                 background={
-                  <div className="absolute inset-0 bg-gradient-to-br from-purple-500/20 to-pink-500/20 dark:from-purple-500/10 dark:to-pink-500/10" />
+                  <div className="absolute inset-0 bg-gradient-to-br from-blue-50/50 to-slate-100/50 dark:from-blue-950/15 dark:to-slate-950/15" />
                 }
                 Icon={Layout}
                 description="Agent automatically creates a detailed storyboard with each shot visualized and planned."
@@ -250,7 +251,7 @@ export default function Home() {
                 name="Generate"
                 className="col-span-3 lg:col-span-1"
                 background={
-                  <div className="absolute inset-0 bg-gradient-to-br from-pink-500/20 to-orange-500/20 dark:from-pink-500/10 dark:to-orange-500/10" />
+                  <div className="absolute inset-0 bg-gradient-to-br from-sky-100/40 to-blue-100/40 dark:from-sky-950/20 dark:to-blue-950/20" />
                 }
                 Icon={Video}
                 description="Agent generates each shot for you using AI video models, ensuring character and dialogue consistency."
@@ -261,7 +262,7 @@ export default function Home() {
                 name="Edit"
                 className="col-span-3 lg:col-span-1"
                 background={
-                  <div className="absolute inset-0 bg-gradient-to-br from-orange-500/20 to-red-500/20 dark:from-orange-500/10 dark:to-red-500/10" />
+                  <div className="absolute inset-0 bg-gradient-to-br from-slate-100/40 to-gray-100/40 dark:from-slate-950/20 dark:to-gray-950/20" />
                 }
                 Icon={Scissors}
                 description="Agent autonomously edits clips together with captions, transitions, and effects."
@@ -272,10 +273,10 @@ export default function Home() {
                 name="Publish"
                 className="col-span-3 lg:col-span-1"
                 background={
-                  <div className="absolute inset-0 bg-gradient-to-br from-red-500/20 to-purple-500/20 dark:from-red-500/10 dark:to-purple-500/10" />
+                  <div className="absolute inset-0 bg-gradient-to-br from-blue-100/35 to-indigo-100/35 dark:from-blue-950/18 dark:to-indigo-950/18" />
                 }
                 Icon={Upload}
-                description="Publish directly to your TikTok, Reels, and Shorts accounts, or use a phone farm account within Claybird."
+                description="Publish directly to your TikTok, Reels, and Shorts accounts, or use a phone farm via DoubleSpeed."
                 href="#"
                 cta="Learn more"
               />
@@ -365,6 +366,9 @@ export default function Home() {
           </div>
         </footer>
       </main>
+
+      {/* Floating CTA */}
+      <FloatingCTA />
     </div>
   );
 }
