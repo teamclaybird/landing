@@ -118,7 +118,7 @@ export default function Home() {
 
             {/* Subheading */}
             <p className="text-xl text-gray-700 dark:text-gray-300 mb-12">
-              Claybird is the AI platform for creating video ads.
+              Claybird plans, creates, and edits your AI video ad.
               <br />
               Post directly to managed accounts or export videos anywhere.
             </p>
