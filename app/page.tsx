@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
@@ -14,10 +14,14 @@ import testimonials from '@/data/testimonials.json';
 import DemoVideo from '@/components/DemoVideo';
 import { LightRays } from '@/components/ui/light-rays';
 import { AnimatedPlaceholderInput } from '@/components/ui/animated-placeholder-input';
+import { AnimatedShinyText } from '@/components/ui/animated-shiny-text';
 import { FloatingCTA } from '@/components/floating-cta';
 
 export default function Home() {
   const [isScrolled, setIsScrolled] = useState(false);
+  const [email, setEmail] = useState('');
+  const [showError, setShowError] = useState(false);
+  const emailInputRef = useRef<HTMLInputElement>(null);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -27,6 +31,21 @@ export default function Home() {
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+
+  const handleSmoothScroll = (e: React.MouseEvent<HTMLAnchorElement>, targetId: string) => {
+    e.preventDefault();
+    const element = document.getElementById(targetId);
+    if (element) {
+      const headerOffset = 80; // Adjust this value based on your header height
+      const elementPosition = element.getBoundingClientRect().top;
+      const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: 'smooth'
+      });
+    }
+  };
 
   return (
     <div className="min-h-screen">
@@ -39,16 +58,16 @@ export default function Home() {
           {/* Left side: Logo + Navigation */}
           <div className="flex items-center gap-8">
             {/* Logo */}
-            <div className="flex items-center gap-1">
+            <a href="#" onClick={(e) => { e.preventDefault(); window.scrollTo({ top: 0, behavior: 'smooth' }); }} className="flex items-center gap-1 cursor-pointer">
               <Image src="/logo.svg" alt="Claybird logo" width={24} height={24} className="dark:invert" />
               <span className="text-xl font-semibold text-gray-900 dark:text-gray-100">Claybird</span>
-            </div>
+            </a>
 
             {/* Navigation */}
             <nav className="hidden md:flex items-center gap-8">
-              <a href="#" className="text-sm text-gray-700 hover:text-gray-900 dark:text-gray-300 dark:hover:text-gray-100">Community</a>
-              <a href="#" className="text-sm text-gray-700 hover:text-gray-900 dark:text-gray-300 dark:hover:text-gray-100">Testimonials</a>
-              <a href="#" className="text-sm text-gray-700 hover:text-gray-900 dark:text-gray-300 dark:hover:text-gray-100">Contact</a>
+              <a href="#community" onClick={(e) => handleSmoothScroll(e, 'community')} className="text-sm text-gray-700 hover:text-gray-900 dark:text-gray-300 dark:hover:text-gray-100">Community</a>
+              <a href="#testimonials" onClick={(e) => handleSmoothScroll(e, 'testimonials')} className="text-sm text-gray-700 hover:text-gray-900 dark:text-gray-300 dark:hover:text-gray-100">Testimonials</a>
+              <a href="https://calendar.app.google/WnAhPmPW456bKBJ89" target="_blank" rel="noopener noreferrer" className="text-sm text-gray-700 hover:text-gray-900 dark:text-gray-300 dark:hover:text-gray-100">Contact</a>
               <Link href="/blog" className="text-sm text-gray-700 hover:text-gray-900 dark:text-gray-300 dark:hover:text-gray-100">Blog</Link>
             </nav>
           </div>
@@ -59,8 +78,10 @@ export default function Home() {
             <Button variant="ghost" className="text-sm text-gray-900 dark:text-gray-100 bg-white/60 dark:bg-white/10 hover:bg-white/80 dark:hover:bg-white/20 rounded-xl font-medium">
               Log in
             </Button>
-            <Button className="bg-black dark:bg-white text-white dark:text-black text-sm rounded-xl hover:bg-gray-800 dark:hover:bg-gray-200 font-medium">
-              Get started
+            <Button asChild className="bg-black dark:bg-white text-white dark:text-black text-sm rounded-xl hover:bg-gray-800 dark:hover:bg-gray-200 font-medium">
+              <a href="https://calendar.app.google/WnAhPmPW456bKBJ89" target="_blank" rel="noopener noreferrer">
+                Get started
+              </a>
             </Button>
           </div>
         </div>
@@ -69,7 +90,7 @@ export default function Home() {
       {/* Main content */}
       <main>
         {/* Hero Section */}
-        <section className="min-h-screen flex items-start justify-center px-6 relative pt-[25vh]">
+        <section className="flex items-start justify-center px-6 relative pt-[25vh] pb-16 md:pb-24">
           {/* Light rays decoration */}
           <LightRays count={10} color="rgba(160, 210, 255, 0.3)" blur={40} speed={16} length="60vh" />
 
@@ -95,11 +116,13 @@ export default function Home() {
 
             {/* Subheading */}
             <p className="text-xl text-gray-700 dark:text-gray-300 mb-12">
-              Create vertical videos for your brand with AI
+              Claybird is the AI platform for creating video ads.
+              <br />
+              Post directly to managed accounts or export videos anywhere.
             </p>
 
-            {/* Search Input */}
-            <div className="max-w-2xl mx-auto bg-[#eeedf2] dark:bg-gray-800/90 backdrop-blur-sm rounded-3xl shadow-lg p-4">
+            {/* Search Input - Commented Out */}
+            {/* <div className="max-w-2xl mx-auto bg-[#eeedf2] dark:bg-gray-800/90 backdrop-blur-sm rounded-3xl shadow-lg p-4">
               <AnimatedPlaceholderInput
                 type="text"
                 staticPrefix="Ask Claybird to make "
@@ -124,12 +147,58 @@ export default function Home() {
                   </Button>
                 </div>
               </div>
+            </div> */}
+
+            {/* Email Input with Get Started Button */}
+            <div className="max-w-2xl mx-auto">
+              <div className={`bg-[#eeedf2] dark:bg-gray-800/90 backdrop-blur-sm rounded-2xl shadow-lg p-4 ring-1 transition-all duration-300 ${showError ? 'ring-[#3b82f6] ring-2' : 'ring-gray-200/50 dark:ring-gray-700/50'}`}>
+                <div className="flex items-center gap-2">
+                  <div className="flex-1 relative group">
+                    <input
+                      ref={emailInputRef}
+                      type="email"
+                      value={email}
+                      onChange={(e) => {
+                        setEmail(e.target.value);
+                        setShowError(false);
+                      }}
+                      placeholder={showError ? "Enter a valid email address to get started" : "Enter your company email"}
+                      className="w-full text-sm text-gray-900 dark:text-gray-100 bg-transparent border-0 outline-none px-3 py-2 focus-visible:ring-0 focus-visible:ring-offset-0 caret-gray-900 dark:caret-gray-100 placeholder:text-gray-400 dark:placeholder:text-gray-500"
+                    />
+                  </div>
+                  <ShimmerButton
+                    className="text-sm px-8 py-3"
+                    borderRadius="0.5rem"
+                    background="rgba(0, 0, 0, 1)"
+                    shimmerColor="#ffffff"
+                    onClick={() => {
+                      if (!email) {
+                        setShowError(true);
+                        emailInputRef.current?.focus();
+                      } else {
+                        window.open('https://calendar.app.google/WnAhPmPW456bKBJ89', '_blank', 'noopener,noreferrer');
+                      }
+                    }}
+                  >
+                    Get started
+                  </ShimmerButton>
+                </div>
+              </div>
             </div>
 
             {/* Trusted By Section */}
             <div className="mt-16">
-              <p className="text-center text-sm text-gray-500 dark:text-gray-400 mb-8 uppercase tracking-wider">
-                Trusted by growth teams at
+              <p className="text-center text-sm text-gray-500 dark:text-gray-400 mb-8 uppercase tracking-wider flex items-center justify-center gap-2">
+                Backed by
+                <a
+                  href="https://www.ycombinator.com/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex w-5 h-5 bg-[#FF6600] items-center justify-center hover:bg-[#FF7700] transition-colors cursor-pointer"
+                >
+                  <span className="text-white font-bold text-sm">Y</span>
+                </a>
+                and trusted by growth teams at
               </p>
               <Marquee pauseOnHover className="[--duration:30s]">
                 <div className="flex items-center gap-12 mx-6">
@@ -161,7 +230,7 @@ export default function Home() {
         </section>
 
         {/* Video Showcase Section */}
-        <section className="pt-4 pb-16 px-6">
+        <section id="community" className="pt-4 pb-16 px-6">
           <div className="max-w-7xl mx-auto">
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
               {/* Video 1 */}
@@ -286,13 +355,16 @@ export default function Home() {
 
         {/* Book a Demo Section */}
         <section className="px-6 pb-16 flex justify-center">
-          <ShimmerButton className="text-xl font-semibold px-12 py-6">
+          <ShimmerButton
+            className="text-xl font-semibold px-12 py-6"
+            onClick={() => window.open('https://calendar.app.google/WnAhPmPW456bKBJ89', '_blank', 'noopener,noreferrer')}
+          >
             Book a demo and get started
           </ShimmerButton>
         </section>
 
         {/* Twitter Testimonials Section */}
-        <section className="py-16 px-6">
+        <section id="testimonials" className="py-16 px-6">
           <div className="max-w-7xl mx-auto mb-12 text-center">
             <h2 className="text-xl md:text-2xl font-mono text-gray-900 dark:text-gray-100 flex items-center justify-center gap-3">
               Marketers <Heart className="w-6 h-6 fill-white text-white" /> Claybird
@@ -321,7 +393,10 @@ export default function Home() {
 
         {/* Book a Demo Section */}
         <section className="px-6 pb-16 flex justify-center">
-          <ShimmerButton className="text-xl font-semibold px-12 py-6">
+          <ShimmerButton
+            className="text-xl font-semibold px-12 py-6"
+            onClick={() => window.open('https://calendar.app.google/WnAhPmPW456bKBJ89', '_blank', 'noopener,noreferrer')}
+          >
             Book a demo and get started
           </ShimmerButton>
         </section>
