@@ -243,7 +243,7 @@ export default function Home() {
                   muted
                   playsInline
                   className="w-full h-full object-cover"
-                  src="/videos/demo.mov"
+                  src="/videos/mercor_1.mp4"
                 />
               </div>
 
@@ -255,7 +255,7 @@ export default function Home() {
                   muted
                   playsInline
                   className="w-full h-full object-cover"
-                  src="/videos/demo.mov"
+                  src="/videos/handshake_short.mp4"
                 />
               </div>
 
@@ -267,7 +267,7 @@ export default function Home() {
                   muted
                   playsInline
                   className="w-full h-full object-cover"
-                  src="/videos/demo.mov"
+                  src="/videos/agape.mp4"
                 />
               </div>
 
@@ -279,7 +279,7 @@ export default function Home() {
                   muted
                   playsInline
                   className="w-full h-full object-cover"
-                  src="/videos/demo.mov"
+                  src="/videos/handshake_alex_phd.mp4"
                 />
               </div>
             </div>

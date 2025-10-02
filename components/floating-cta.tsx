@@ -40,10 +40,10 @@ export function FloatingCTA() {
         {/* Content */}
         <div className="pr-4">
           <h3 className="text-gray-900 dark:text-gray-900 text-base font-semibold mb-2">
-            10x your video campaigns
+            Meet your content expert
           </h3>
           <p className="text-gray-600 dark:text-gray-600 text-sm mb-5">
-            Schedule a personalized demo to see how Claybird can fit into your content workflow.
+            We match you with an expert on our team who learns your company&apos;s key goals and values.
           </p>
           <Button className="w-full bg-black dark:bg-black text-white dark:text-white hover:bg-gray-800 dark:hover:bg-gray-800 rounded-full font-medium py-5 flex items-center justify-center gap-2">
             <span>Book a demo</span>
