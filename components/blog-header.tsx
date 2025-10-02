@@ -51,8 +51,10 @@ export function BlogHeader() {
 
         {/* Right side: CTA Buttons */}
         <div className="flex items-center gap-3">
-          <Button variant="ghost" className="text-sm text-gray-900 dark:text-gray-100 bg-white/60 dark:bg-white/10 hover:bg-white/80 dark:hover:bg-white/20 rounded-xl font-medium">
-            Log in
+          <Button asChild variant="ghost" className="text-sm text-gray-900 dark:text-gray-100 bg-white/60 dark:bg-white/10 hover:bg-white/80 dark:hover:bg-white/20 rounded-xl font-medium">
+            <a href="https://app.claybird.ai" target="_blank" rel="noopener noreferrer">
+              Log in
+            </a>
           </Button>
           <Button className="bg-black dark:bg-white text-white dark:text-black text-sm rounded-xl hover:bg-gray-800 dark:hover:bg-gray-200 font-medium">
             Get started
