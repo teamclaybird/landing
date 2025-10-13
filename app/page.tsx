@@ -76,7 +76,7 @@ export default function Home() {
           <div className="flex items-center gap-3">
             <ThemeToggle />
             <Button asChild variant="ghost" className="text-sm text-gray-900 dark:text-gray-100 bg-white/60 dark:bg-white/10 hover:bg-white/80 dark:hover:bg-white/20 rounded-xl font-medium">
-              <a href="https://app.claybird.ai" target="_blank" rel="noopener noreferrer">
+              <a href="https://calendar.app.google/WnAhPmPW456bKBJ89" target="_blank" rel="noopener noreferrer">
                 Log in
               </a>
             </Button>
@@ -106,10 +106,15 @@ export default function Home() {
 
           <div className="w-full mx-auto text-center relative z-10 px-8">
             {/* Badge */}
-            <div className="inline-flex items-center gap-2 px-4 py-2 mb-8 bg-white/20 dark:bg-white/10 backdrop-blur-sm border border-white/30 dark:border-white/20 rounded-full">
+            <a
+              href="https://www.youtube.com/watch?v=tjBOwU3I27g"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 px-4 py-2 mb-8 bg-white/20 dark:bg-white/10 backdrop-blur-sm border border-white/30 dark:border-white/20 rounded-full hover:bg-white/30 dark:hover:bg-white/20 transition-colors cursor-pointer"
+            >
               <span className="text-sm text-blue-600 dark:text-blue-400">Introducing Claybird Agent</span>
               <ChevronRight className="w-4 h-4 text-blue-600 dark:text-blue-400" />
-            </div>
+            </a>
 
             {/* Main Heading */}
             <h1 className="text-3xl md:text-5xl font-bold font-serif text-gray-900 dark:text-gray-100 mb-4">
@@ -153,7 +158,7 @@ export default function Home() {
 
             {/* Email Input with Get Started Button */}
             <div className="max-w-2xl mx-auto">
-              <div className={`bg-[#eeedf2] dark:bg-gray-800/90 backdrop-blur-sm rounded-2xl shadow-lg p-4 ring-1 transition-all duration-300 ${showError ? 'ring-[#3b82f6] ring-2' : 'ring-gray-200/50 dark:ring-gray-700/50'}`}>
+              <div className={`bg-white dark:bg-gray-100 rounded-2xl shadow-lg p-4 ring-1 transition-all duration-300 ${showError ? 'ring-[#3b82f6] ring-2' : 'ring-gray-200/50 dark:ring-gray-700/50'}`}>
                 <div className="flex items-center gap-2">
                   <div className="flex-1 relative group">
                     <input
@@ -165,7 +170,7 @@ export default function Home() {
                         setShowError(false);
                       }}
                       placeholder={showError ? "Enter a valid email address to get started" : "Enter your company email"}
-                      className="w-full text-sm text-gray-900 dark:text-gray-100 bg-transparent border-0 outline-none px-3 py-2 focus-visible:ring-0 focus-visible:ring-offset-0 caret-gray-900 dark:caret-gray-100 placeholder:text-gray-400 dark:placeholder:text-gray-500"
+                      className="w-full text-sm text-gray-900 dark:text-gray-900 bg-transparent border-0 outline-none px-3 py-2 focus-visible:ring-0 focus-visible:ring-offset-0 caret-gray-900 dark:caret-gray-900 placeholder:text-gray-400 dark:placeholder:text-gray-600"
                     />
                   </div>
                   <ShimmerButton
@@ -190,15 +195,18 @@ export default function Home() {
 
             {/* Trusted By Section */}
             <div className="mt-16">
-              <p className="text-center text-sm text-gray-500 dark:text-gray-400 mb-8 uppercase tracking-wider flex items-center justify-center gap-2">
+              <p className="text-center text-sm text-gray-500 dark:text-gray-400 mb-8 uppercase tracking-wider flex items-center justify-center gap-1">
                 Backed by
                 <a
                   href="https://www.ycombinator.com/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex w-5 h-5 bg-[#FF6600] items-center justify-center hover:bg-[#FF7700] transition-colors cursor-pointer"
+                  className="inline-flex items-center gap-1 hover:opacity-80 transition-opacity"
                 >
-                  <span className="text-white font-bold text-sm">Y</span>
+                  <span className="inline-flex w-5 h-5 bg-[#FF6600] items-center justify-center ml-1">
+                    <span className="text-white font-bold text-sm">Y</span>
+                  </span>
+                  <span className="text-[#FFFFFF] normal-case"> Combinator</span>
                 </a>
                 and trusted by growth teams at
               </p>
@@ -215,6 +223,9 @@ export default function Home() {
                   </div>
                   <div className="flex items-center justify-center h-12 px-8 text-gray-400 dark:text-gray-500 font-semibold text-lg">
                     InterviewCoder
+                  </div>
+                  <div className="flex items-center justify-center h-12 px-8 text-gray-400 dark:text-gray-500 font-semibold text-lg">
+                    SellRaze
                   </div>
                   <div className="flex items-center justify-center h-12 px-8 text-gray-400 dark:text-gray-500 font-semibold text-lg">
                     Headstarter
@@ -285,6 +296,9 @@ export default function Home() {
             </div>
           </div>
         </section>
+
+        {/* Demo Video Section */}
+        <DemoVideo />
 
         {/* How It Works - Bento Grid */}
         <section className="py-16 px-6">
@@ -358,10 +372,12 @@ export default function Home() {
         {/* Book a Demo Section */}
         <section className="px-6 pb-16 flex justify-center">
           <ShimmerButton
-            className="text-xl font-semibold px-12 py-6"
+            className="text-xl font-semibold px-12 py-6 text-gray-900"
+            background="rgb(243, 244, 246)"
+            shimmerColor="rgba(59, 130, 246, 0.5)"
             onClick={() => window.open('https://calendar.app.google/WnAhPmPW456bKBJ89', '_blank', 'noopener,noreferrer')}
           >
-            Book a demo and get started
+            Start your first campaign
           </ShimmerButton>
         </section>
 
@@ -390,16 +406,15 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Demo Video Section */}
-        <DemoVideo />
-
         {/* Book a Demo Section */}
         <section className="px-6 pb-16 flex justify-center">
           <ShimmerButton
-            className="text-xl font-semibold px-12 py-6"
+            className="text-xl font-semibold px-12 py-6 text-gray-900"
+            background="rgb(243, 244, 246)"
+            shimmerColor="rgba(59, 130, 246, 0.5)"
             onClick={() => window.open('https://calendar.app.google/WnAhPmPW456bKBJ89', '_blank', 'noopener,noreferrer')}
           >
-            Book a demo and get started
+            Start your first campaign
           </ShimmerButton>
         </section>
 
