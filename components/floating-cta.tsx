@@ -46,7 +46,7 @@ export function FloatingCTA() {
             We match you with an expert on our team who learns your company&apos;s key goals and values.
           </p>
           <Button className="w-full bg-black dark:bg-black text-white dark:text-white hover:bg-gray-800 dark:hover:bg-gray-800 rounded-full font-medium py-5 flex items-center justify-center gap-2">
-            <span>Book a demo</span>
+            <span>Book a call</span>
             <div className="flex items-center -space-x-2">
               <Image
                 src="/testimonials/saad.jpg"
