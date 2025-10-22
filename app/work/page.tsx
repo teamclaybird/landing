@@ -75,10 +75,9 @@ export default function Work() {
 
             {/* Navigation */}
             <nav className="hidden md:flex items-center gap-8">
-              <Link href="/#community" className="text-sm text-gray-700 hover:text-gray-900 dark:text-gray-300 dark:hover:text-gray-100">Community</Link>
+              <Link href="/work" className="text-sm text-gray-700 hover:text-gray-900 dark:text-gray-300 dark:hover:text-gray-100">Portfolio</Link>
               <Link href="/#testimonials" className="text-sm text-gray-700 hover:text-gray-900 dark:text-gray-300 dark:hover:text-gray-100">Testimonials</Link>
               <Link href="/book" className="text-sm text-gray-700 hover:text-gray-900 dark:text-gray-300 dark:hover:text-gray-100">Contact</Link>
-              <Link href="/blog" className="text-sm text-gray-700 hover:text-gray-900 dark:text-gray-300 dark:hover:text-gray-100">Blog</Link>
             </nav>
           </div>
 
@@ -184,7 +183,7 @@ export default function Work() {
               </div>
 
               {/* Shorts Section */}
-              <div>
+              <div className="pt-8">
                 <div className="flex items-center justify-between mb-6">
                   <h2 className="text-2xl font-bold text-gray-900 dark:text-gray-100">Shorts</h2>
                   <button
@@ -215,7 +214,7 @@ export default function Work() {
               </div>
 
               {/* Images Section */}
-              <div>
+              <div className="pt-8">
                 <div className="flex items-center justify-between mb-6">
                   <h2 className="text-2xl font-bold text-gray-900 dark:text-gray-100">Images</h2>
                   <button
