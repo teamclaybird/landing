@@ -143,6 +143,11 @@ export default function Work() {
             </div>
 
             <TabsContent value="all" className="space-y-12">
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 0 }}
+              >
               {/* Videos Section */}
               <div>
                 <div className="flex items-center justify-between mb-6">
@@ -238,9 +243,15 @@ export default function Work() {
                   ))}
                 </div>
               </div>
+              </motion.div>
             </TabsContent>
 
             <TabsContent value="videos">
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 0 }}
+              >
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
                 {horizontalVideos.map((video, index) => (
                   <div
@@ -263,9 +274,15 @@ export default function Work() {
                   </div>
                 ))}
               </div>
+              </motion.div>
             </TabsContent>
 
             <TabsContent value="shorts">
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 0 }}
+              >
               <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4">
                 {shorts.map((video, index) => (
                   <div
@@ -284,9 +301,15 @@ export default function Work() {
                   </div>
                 ))}
               </div>
+              </motion.div>
             </TabsContent>
 
             <TabsContent value="images">
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 0 }}
+              >
               <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4">
                 {images.map((image, index) => (
                   <div
@@ -304,6 +327,7 @@ export default function Work() {
                   </div>
                 ))}
               </div>
+              </motion.div>
             </TabsContent>
           </Tabs>
         </div>
