@@ -133,13 +133,13 @@ export default function Home() {
             {/* CTA Buttons */}
             <div className="mb-8 flex items-center justify-center gap-4">
               <Button asChild variant="secondary" size="sm" className="rounded-full px-6">
-                <Link href="/book">
-                  Book a call
+                <Link href="/work">
+                  See our work
                 </Link>
               </Button>
               <Button asChild variant="default" size="sm" className="rounded-full px-6 min-w-[240px] justify-center">
                 <Link href="/book" className="gap-2 flex items-center justify-center">
-                  Design your first campaign
+                  Book a call
                   <ChevronRight className="w-4 h-4" />
                 </Link>
               </Button>
@@ -372,8 +372,10 @@ export default function Home() {
                   <Button size="sm" onClick={() => setOpenVideo('/videos/agape.mp4')}>
                     Watch ad
                   </Button>
-                  <Button variant="secondary" size="sm">
-                    Read more
+                  <Button asChild variant="secondary" size="sm">
+                    <Link href="/book">
+                      Read more
+                    </Link>
                   </Button>
                 </CardFooter>
               </Card>
@@ -403,8 +405,10 @@ export default function Home() {
                   <Button size="sm" onClick={() => setOpenVideo('/videos/kepo_cinematic_ecom.mp4')}>
                     Watch ad
                   </Button>
-                  <Button variant="secondary" size="sm">
-                    Read more
+                  <Button asChild variant="secondary" size="sm">
+                    <Link href="/book">
+                      Read more
+                    </Link>
                   </Button>
                 </CardFooter>
               </Card>
@@ -434,8 +438,10 @@ export default function Home() {
                   <Button size="sm" onClick={() => setOpenVideo('/videos/mercor_1.mp4')}>
                     Watch ad
                   </Button>
-                  <Button variant="secondary" size="sm">
-                    Read more
+                  <Button asChild variant="secondary" size="sm">
+                    <Link href="/book">
+                      Read more
+                    </Link>
                   </Button>
                 </CardFooter>
               </Card>
