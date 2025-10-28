@@ -20,7 +20,7 @@ export function TrustedBySection() {
         </a>
         and trusted by growth teams at
       </p>
-      <Marquee pauseOnHover className="[--duration:30s]">
+      <Marquee className="[--duration:30s]">
         <div className="flex items-center gap-12 mx-6">
           <div className="flex items-center justify-center h-12 px-8 text-gray-400 dark:text-gray-500 font-semibold text-lg">
             Mercor

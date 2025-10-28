@@ -15,7 +15,7 @@ interface HeroSectionProps {
 
 export function HeroSection({ showBadge = true, heading, subheading, splitSubheading = true }: HeroSectionProps) {
   return (
-    <section className="flex items-start justify-center px-6 relative pt-[15vh] pb-8 md:pb-12">
+    <section className="flex items-start justify-center px-6 relative pt-[12vh] pb-4 md:pb-6">
       {/* Light rays decoration */}
       <LightRays count={10} color="rgba(160, 210, 255, 0.3)" blur={40} speed={16} length="60vh" />
 
