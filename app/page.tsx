@@ -1,19 +1,17 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { Button } from '@/components/ui/button';
-import { ChevronRight, Heart } from 'lucide-react';
-import { ThemeToggle } from '@/components/theme-toggle';
+import { Heart } from 'lucide-react';
 import { Marquee } from '@/components/ui/marquee';
 import { BentoCard } from '@/components/ui/bento-grid';
 import { ShimmerButton } from '@/components/ui/shimmer-button';
 import { TestimonialCard } from '@/components/testimonial-card';
 import testimonials from '@/data/testimonials.json';
 import DemoVideo from '@/components/DemoVideo';
-import { LightRays } from '@/components/ui/light-rays';
 import { FloatingCTA } from '@/components/floating-cta';
 import { Lens } from '@/components/ui/lens';
 import { Card, CardContent, CardFooter, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
@@ -22,321 +20,27 @@ import { ProcessNotification } from '@/components/process-notification';
 import { motion, AnimatePresence } from 'motion/react';
 import { BsCircleFill } from 'react-icons/bs';
 import { PersonIcon } from '@radix-ui/react-icons';
+import { Header } from '@/components/Header';
+import { HeroSection } from '@/components/HeroSection';
+import { VideoShowcaseSection } from '@/components/VideoShowcaseSection';
 
 export default function Home() {
   const router = useRouter();
-  const [isScrolled, setIsScrolled] = useState(false);
   const [openVideo, setOpenVideo] = useState<string | null>(null);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 10);
-    };
-
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
-
-  const handleSmoothScroll = (e: React.MouseEvent<HTMLAnchorElement>, targetId: string) => {
-    e.preventDefault();
-    const element = document.getElementById(targetId);
-    if (element) {
-      const headerOffset = 80; // Adjust this value based on your header height
-      const elementPosition = element.getBoundingClientRect().top;
-      const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
-
-      window.scrollTo({
-        top: offsetPosition,
-        behavior: 'smooth'
-      });
-    }
-  };
 
   return (
     <div className="min-h-screen">
-      {/* Header */}
-      <header
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? 'bg-white dark:bg-black/95 backdrop-blur-sm' : 'bg-transparent'
-          }`}
-      >
-        <div className="max-w-[1400px] mx-auto px-6 py-4 flex items-center justify-between">
-          {/* Left side: Logo + Navigation */}
-          <div className="flex items-center gap-8">
-            {/* Logo */}
-            <a href="#" onClick={(e) => { e.preventDefault(); window.scrollTo({ top: 0, behavior: 'smooth' }); }} className="flex items-center gap-1 cursor-pointer">
-              <Image src="/logo.svg" alt="Claybird logo" width={24} height={24} className="dark:invert" />
-              <span className="text-xl font-semibold text-gray-900 dark:text-gray-100">Cla<span className="italic">y</span><span className="italic">b</span>ird</span>
-            </a>
-
-            {/* Navigation */}
-            <nav className="hidden md:flex items-center gap-8">
-              <Link href="/work" className="text-sm text-gray-700 hover:text-gray-900 dark:text-gray-300 dark:hover:text-gray-100">Portfolio</Link>
-              <a href="#testimonials" onClick={(e) => handleSmoothScroll(e, 'testimonials')} className="text-sm text-gray-700 hover:text-gray-900 dark:text-gray-300 dark:hover:text-gray-100">Testimonials</a>
-              <Link href="/book" className="text-sm text-gray-700 hover:text-gray-900 dark:text-gray-300 dark:hover:text-gray-100">Contact</Link>
-            </nav>
-          </div>
-
-          {/* Right side: CTA Buttons */}
-          <div className="flex items-center gap-3">
-            <ThemeToggle />
-            <Button asChild variant="ghost" className="text-sm text-gray-900 dark:text-gray-100 bg-white/60 dark:bg-white/10 hover:bg-white/80 dark:hover:bg-white/20 rounded-xl font-medium">
-              <Link href="/book">
-                Log in
-              </Link>
-            </Button>
-            <Button asChild className="bg-black dark:bg-white text-white dark:text-black text-sm rounded-xl hover:bg-gray-800 dark:hover:bg-gray-200 font-medium">
-              <Link href="/book">
-                Get started
-              </Link>
-            </Button>
-          </div>
-        </div>
-      </header>
+      <Header />
 
       {/* Main content */}
       <main>
-        {/* Hero Section */}
-        <section className="flex items-start justify-center px-6 relative pt-[15vh] pb-8 md:pb-12">
-          {/* Light rays decoration */}
-          <LightRays count={10} color="rgba(160, 210, 255, 0.3)" blur={40} speed={16} length="60vh" />
+        <HeroSection
+          showBadge={true}
+          heading="The award-winning AI video ad agency"
+          subheading="We write and produce AI brand ads - then intelligently generate tailored retargeting videos for every audience segment."
+        />
 
-          {/* Cloud decorations - commented out for testing
-          <div className="absolute top-32 left-1/2 -translate-x-1/2 w-[600px] h-[200px] opacity-30">
-            <div className="absolute top-0 left-20 w-32 h-32 bg-blue-300/40 rounded-full blur-3xl"></div>
-            <div className="absolute top-10 left-40 w-40 h-40 bg-blue-400/40 rounded-full blur-3xl"></div>
-            <div className="absolute top-5 right-20 w-36 h-36 bg-blue-300/40 rounded-full blur-3xl"></div>
-          </div>
-          */}
-
-          <div className="w-full mx-auto text-center relative z-10 px-8">
-            {/* Badge */}
-            <a
-              href="https://www.youtube.com/watch?v=tjBOwU3I27g"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-4 py-2 mb-8 bg-white/20 dark:bg-white/10 backdrop-blur-sm border border-white/30 dark:border-white/20 rounded-full hover:bg-white/30 dark:hover:bg-white/20 transition-colors cursor-pointer"
-            >
-              <span className="text-sm text-blue-600 dark:text-blue-400">Introducing Claybird Agent</span>
-              <ChevronRight className="w-4 h-4 text-blue-600 dark:text-blue-400" />
-            </a>
-
-            {/* Main Heading */}
-            <h1 className="text-3xl md:text-5xl font-bold font-serif text-gray-900 dark:text-gray-100 mb-4">
-              The award-winning AI video ad agency
-            </h1>
-
-            {/* Subheading */}
-            <p className="text-xl text-gray-700 dark:text-gray-300 mb-8">
-              We write and produce AI brand ads - then intelligently <br /> generate tailored retargeting videos for every audience segment.
-            </p>
-
-            {/* CTA Buttons */}
-            <div className="mb-8 flex items-center justify-center gap-4">
-              <Button asChild variant="secondary" size="sm" className="rounded-full px-6">
-                <Link href="/work">
-                  See our work
-                </Link>
-              </Button>
-              <Button asChild variant="default" size="sm" className="rounded-full px-6 min-w-[240px] justify-center">
-                <Link href="/book" className="gap-2 flex items-center justify-center">
-                  Book a call
-                  <ChevronRight className="w-4 h-4" />
-                </Link>
-              </Button>
-            </div>
-
-            {/* Search Input - Commented Out */}
-            {/* <div className="max-w-2xl mx-auto bg-[#eeedf2] dark:bg-gray-800/90 backdrop-blur-sm rounded-3xl shadow-lg p-4">
-              <AnimatedPlaceholderInput
-                type="text"
-                staticPrefix="Ask Claybird to make "
-                placeholders={[
-                  "Ask Claybird to make a skit about a physics postdoc hating his life until he discovers making money online.",
-                  "Ask Claybird to make an ad where someone drinks coffee and their world bursts into color.",
-                  "Ask Claybird to make a short video where a person struggles to work out… then finds a fitness app.",
-                  "Ask Claybird to make a clip where a young professional drowns in bills until budgeting becomes simple.",
-                ]}
-                typingSpeed={40}
-                deletingSpeed={25}
-                pauseDuration={2500}
-                className="w-full text-sm text-gray-700 dark:text-gray-200 bg-transparent dark:bg-transparent border-0 outline-none mb-3 px-2 py-1 h-auto focus-visible:ring-0 focus-visible:ring-offset-0 shadow-none"
-              />
-              <div className="flex items-center justify-end">
-                <div className="flex items-center gap-3">
-                  <Button variant="ghost" size="icon" className="text-gray-400 dark:text-gray-500 h-auto w-auto p-0 hover:bg-transparent">
-                    <AudioLines className="w-5 h-5" />
-                  </Button>
-                  <Button size="icon" className="w-8 h-8 bg-gray-400 dark:bg-gray-600 rounded-full hover:bg-gray-500 dark:hover:bg-gray-500">
-                    <ArrowUp className="w-4 h-4" />
-                  </Button>
-                </div>
-              </div>
-            </div> */}
-
-            {/* Email Input with Get Started Button */}
-            {/* <div className="max-w-2xl mx-auto">
-              <div className={`bg-gray-50 dark:bg-gray-100 rounded-2xl shadow-lg p-4 ring-1 transition-all duration-300 ${showError ? 'ring-[#3b82f6] ring-2' : 'ring-gray-200/50 dark:ring-gray-700/50'}`}>
-                <div className="flex items-center gap-2">
-                  <div className="flex-1 relative group">
-                    <input
-                      ref={emailInputRef}
-                      type="email"
-                      value={email}
-                      onChange={(e) => {
-                        setEmail(e.target.value);
-                        setShowError(false);
-                      }}
-                      placeholder={showError ? "Enter a valid email address to get started" : "Enter your company email"}
-                      className="w-full text-sm text-gray-900 dark:text-gray-900 bg-transparent border-0 outline-none px-3 py-2 focus-visible:ring-0 focus-visible:ring-offset-0 caret-gray-900 dark:caret-gray-900 placeholder:text-gray-400 dark:placeholder:text-gray-600"
-                    />
-                  </div>
-                  <ShimmerButton
-                    className="text-sm px-8 py-3"
-                    borderRadius="0.5rem"
-                    background="rgba(0, 0, 0, 1)"
-                    shimmerColor="#ffffff"
-                    onClick={() => {
-                      if (!email) {
-                        setShowError(true);
-                        emailInputRef.current?.focus();
-                      } else {
-                        window.open('https://calendar.app.google/WnAhPmPW456bKBJ89', '_blank', 'noopener,noreferrer');
-                      }
-                    }}
-                  >
-                    Get started
-                  </ShimmerButton>
-                </div>
-              </div>
-            </div> */}
-
-            {/* Trusted By Section */}
-            <div className="mt-4">
-              <p className="text-center text-sm text-gray-500 dark:text-gray-400 mb-8 uppercase tracking-wider flex items-center justify-center gap-1">
-                Backed by
-                <a
-                  href="https://www.ycombinator.com/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-1 hover:opacity-80 transition-opacity"
-                >
-                  <span className="inline-flex w-5 h-5 bg-[#FF6600] items-center justify-center ml-1">
-                    <span className="text-white font-bold text-sm">Y</span>
-                  </span>
-                  <span className="text-gray-500 dark:text-gray-400 normal-case"> Combinator</span>
-                </a>
-                and trusted by growth teams at
-              </p>
-              <Marquee pauseOnHover className="[--duration:30s]">
-                <div className="flex items-center gap-12 mx-6">
-                  <div className="flex items-center justify-center h-12 px-8 text-gray-400 dark:text-gray-500 font-semibold text-lg">
-                    Mercor
-                  </div>
-                  <div className="flex items-center justify-center h-12 px-8 text-gray-400 dark:text-gray-500 font-semibold text-lg">
-                    Eight Sleep
-                  </div>
-                  <div className="flex items-center justify-center h-12 px-8 text-gray-400 dark:text-gray-500 font-semibold text-lg">
-                    Agapé
-                  </div>
-                  <div className="flex items-center justify-center h-12 px-8 text-gray-400 dark:text-gray-500 font-semibold text-lg">
-                    InterviewCoder
-                  </div>
-                  <div className="flex items-center justify-center h-12 px-8 text-gray-400 dark:text-gray-500 font-semibold text-lg">
-                    SellRaze
-                  </div>
-                  <div className="flex items-center justify-center h-12 px-8 text-gray-400 dark:text-gray-500 font-semibold text-lg">
-                    Headstarter
-                  </div>
-                  <div className="flex items-center justify-center h-12 px-8 text-gray-400 dark:text-gray-500 font-semibold text-lg">
-                    kēpos
-                  </div>
-                  <div className="flex items-center justify-center h-12 px-8 text-gray-400 dark:text-gray-500 font-semibold text-lg">
-                    Stratus
-                  </div>
-                </div>
-              </Marquee>
-            </div>
-          </div>
-        </section>
-
-        {/* Video Showcase Section */}
-        <section id="community" className="pt-4 pb-8">
-          <Marquee pauseOnHover className="[--duration:40s]">
-            <div className="flex gap-4 mx-2">
-              {/* Video 1 */}
-              <div className="w-[280px] aspect-[9/16] overflow-hidden rounded-2xl bg-gray-900/50">
-                <video
-                  autoPlay
-                  loop
-                  muted
-                  playsInline
-                  className="w-full h-full object-cover"
-                  src="/videos/mercor_1.mp4"
-                />
-              </div>
-
-              {/* Video 2 */}
-              <div className="w-[280px] aspect-[9/16] overflow-hidden rounded-2xl bg-gray-900/50">
-                <video
-                  autoPlay
-                  loop
-                  muted
-                  playsInline
-                  className="w-full h-full object-cover"
-                  src="/videos/handshake_short.mp4"
-                />
-              </div>
-
-              {/* Video 3 */}
-              <div className="w-[280px] aspect-[9/16] overflow-hidden rounded-2xl bg-gray-900/50">
-                <video
-                  autoPlay
-                  loop
-                  muted
-                  playsInline
-                  className="w-full h-full object-cover"
-                  src="/videos/kepo_cinematic_ecom.mp4"
-                />
-              </div>
-
-              {/* Video 4 */}
-              <div className="w-[280px] aspect-[9/16] overflow-hidden rounded-2xl bg-gray-900/50">
-                <video
-                  autoPlay
-                  loop
-                  muted
-                  playsInline
-                  className="w-full h-full object-cover"
-                  src="/videos/handshake_alex_phd.mp4"
-                />
-              </div>
-
-              {/* Video 5 */}
-              <div className="w-[280px] aspect-[9/16] overflow-hidden rounded-2xl bg-gray-900/50">
-                <video
-                  autoPlay
-                  loop
-                  muted
-                  playsInline
-                  className="w-full h-full object-cover"
-                  src="/videos/agape.mp4"
-                />
-              </div>
-
-              {/* Video 6 - New */}
-              <div className="w-[280px] aspect-[9/16] overflow-hidden rounded-2xl bg-gray-900/50">
-                <video
-                  autoPlay
-                  loop
-                  muted
-                  playsInline
-                  className="w-full h-full object-cover"
-                  src="/videos/sellraze_gorilla_gen_z_video.mp4"
-                />
-              </div>
-            </div>
-          </Marquee>
-        </section>
+        <VideoShowcaseSection />
 
         {/* Case Studies Section */}
         <section className="pt-8 pb-16 px-6">

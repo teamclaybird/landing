@@ -1,19 +1,32 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, Suspense } from 'react';
+import { useSearchParams } from 'next/navigation';
 // import Image from 'next/image';
 // import Link from 'next/link';
 import { LightRays } from '@/components/ui/light-rays';
 
-const questions = [
+const videoQuestions = [
   { id: 'name', question: "What's your name?", placeholder: "Your name", inputType: 'text' },
   { id: 'company', question: "What's your company?", placeholder: "Company name", inputType: 'text' },
   { id: 'email', question: "What's your email address?", placeholder: "you@company.com", inputType: 'email' },
   { id: 'runsAds', question: "Do you currently run video ads?", inputType: 'yesno' },
-  { id: 'investment', question: "Are you prepared to invest a minimum of $4k into video ads for your company?", inputType: 'yesno' },
+  { id: 'investment', question: "Are you prepared to invest a minimum of $1k into video ads for your company?", inputType: 'yesno' },
 ];
 
-export default function BookPage() {
+const imagesQuestions = [
+  { id: 'name', question: "What's your name?", placeholder: "Your name", inputType: 'text' },
+  { id: 'company', question: "What's your company?", placeholder: "Company name", inputType: 'text' },
+  { id: 'email', question: "What's your email address?", placeholder: "you@company.com", inputType: 'email' },
+  { id: 'hasProducts', question: "Do you currently have product photos?", inputType: 'yesno' },
+  { id: 'investment', question: "Are you prepared to invest a minimum of $500 into product photography for your company?", inputType: 'yesno' },
+];
+
+function BookingForm() {
+  const searchParams = useSearchParams();
+  const serviceType = searchParams.get('service') || 'video'; // Default to video
+  const questions = serviceType === 'images' ? imagesQuestions : videoQuestions;
+
   const [currentStep, setCurrentStep] = useState(0);
   const [answers, setAnswers] = useState<Record<string, string>>({});
   const [currentAnswer, setCurrentAnswer] = useState('');
@@ -23,7 +36,7 @@ export default function BookPage() {
   const isLastQuestion = currentStep === questions.length - 1;
 
   const handleAnswer = (answer: string) => {
-    const newAnswers = { ...answers, [currentQuestion.id]: answer };
+    const newAnswers = { ...answers, [currentQuestion.id]: answer, service: serviceType };
     setAnswers(newAnswers);
 
     // Check if they said "no" to the investment question
@@ -184,5 +197,17 @@ export default function BookPage() {
         </div>
       </div>
     </div>
+  );
+}
+
+export default function BookPage() {
+  return (
+    <Suspense fallback={
+      <div className="min-h-screen flex items-center justify-center">
+        <LightRays count={10} color="rgba(160, 210, 255, 0.3)" blur={40} speed={16} length="60vh" />
+      </div>
+    }>
+      <BookingForm />
+    </Suspense>
   );
 }
