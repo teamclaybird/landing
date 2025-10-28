@@ -5,7 +5,7 @@ import { Marquee } from '@/components/ui/marquee';
 export function VideoShowcaseSection() {
   return (
     <section id="community" className="pt-4 pb-8">
-      <Marquee pauseOnHover className="[--duration:40s]">
+      <Marquee className="[--duration:40s]">
         <div className="flex gap-4 mx-2">
           {/* Video 1 */}
           <div className="w-[280px] aspect-[9/16] overflow-hidden rounded-2xl bg-gray-900/50">
@@ -39,7 +39,7 @@ export function VideoShowcaseSection() {
               muted
               playsInline
               className="w-full h-full object-cover"
-              src="/videos/kepo_cinematic_ecom.mp4"
+              src="/videos/kepos_new.mp4"
             />
           </div>
 
@@ -51,7 +51,7 @@ export function VideoShowcaseSection() {
               muted
               playsInline
               className="w-full h-full object-cover"
-              src="/videos/handshake_alex_phd.mp4"
+              src="/videos/stratus.mp4"
             />
           </div>
 
@@ -63,11 +63,23 @@ export function VideoShowcaseSection() {
               muted
               playsInline
               className="w-full h-full object-cover"
-              src="/videos/agape.mp4"
+              src="/videos/handshake_alex_phd.mp4"
             />
           </div>
 
           {/* Video 6 */}
+          <div className="w-[280px] aspect-[9/16] overflow-hidden rounded-2xl bg-gray-900/50">
+            <video
+              autoPlay
+              loop
+              muted
+              playsInline
+              className="w-full h-full object-cover"
+              src="/videos/agape.mp4"
+            />
+          </div>
+
+          {/* Video 7 */}
           <div className="w-[280px] aspect-[9/16] overflow-hidden rounded-2xl bg-gray-900/50">
             <video
               autoPlay

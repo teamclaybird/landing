@@ -14,7 +14,8 @@ import { ChevronRight } from 'lucide-react';
 const shorts = [
   { src: '/videos/mercor_1.mp4', type: 'short' },
   { src: '/videos/handshake_short.mp4', type: 'short' },
-  { src: '/videos/kepo_cinematic_ecom.mp4', type: 'short' },
+  { src: '/videos/kepos_new.mp4', type: 'short' },
+  { src: '/videos/stratus.mp4', type: 'short' },
   { src: '/videos/handshake_alex_phd.mp4', type: 'short' },
   { src: '/videos/agape.mp4', type: 'short' },
   { src: '/videos/sellraze_gorilla_gen_z_video.mp4', type: 'short' },

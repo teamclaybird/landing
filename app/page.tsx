@@ -106,7 +106,7 @@ export default function Home() {
                   </CardDescription>
                 </CardContent>
                 <CardFooter className="gap-3">
-                  <Button size="sm" onClick={() => setOpenVideo('/videos/kepo_cinematic_ecom.mp4')}>
+                  <Button size="sm" onClick={() => setOpenVideo('/videos/kepos_new.mp4')}>
                     Watch ad
                   </Button>
                   <Button asChild variant="secondary" size="sm">
@@ -372,14 +372,14 @@ export default function Home() {
 
           <div className="relative flex flex-col gap-4">
             {/* First row - moving right */}
-            <Marquee pauseOnHover className="[--duration:40s]">
+            <Marquee className="[--duration:40s]">
               {testimonials.slice(0, 4).map((tweet) => (
                 <TestimonialCard key={tweet.id} {...tweet} className="mx-2" />
               ))}
             </Marquee>
 
             {/* Second row - moving left */}
-            <Marquee reverse pauseOnHover className="[--duration:40s]">
+            <Marquee reverse className="[--duration:40s]">
               {testimonials.slice(4, 8).map((tweet) => (
                 <TestimonialCard key={tweet.id} {...tweet} className="mx-2" />
               ))}
