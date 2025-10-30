@@ -24,6 +24,7 @@ const shorts = [
 // Horizontal videos data
 const horizontalVideos = [
   { src: '/videos/audi_ad.mp4', title: 'Audi F1 Spec Ad' },
+  { src: '/videos/coke_holiday.mp4', title: 'Coke Holiday Ad' },
   { src: '/videos/running_brand.mp4', title: 'Running Brand Project' },
 ];
 
