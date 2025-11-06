@@ -31,6 +31,18 @@ export function VideoShowcaseSection() {
             />
           </div>
 
+          {/* Video 10 */}
+          <div className="w-[280px] aspect-[9/16] overflow-hidden rounded-2xl bg-gray-900/50">
+            <video
+              autoPlay
+              loop
+              muted
+              playsInline
+              className="w-full h-full object-cover"
+              src="/videos/american_eagle_2.mp4"
+            />
+          </div>
+
           {/* Video 3 */}
           <div className="w-[280px] aspect-[9/16] overflow-hidden rounded-2xl bg-gray-900/50">
             <video
@@ -88,6 +100,30 @@ export function VideoShowcaseSection() {
               playsInline
               className="w-full h-full object-cover"
               src="/videos/sellraze_gorilla_gen_z_video.mp4"
+            />
+          </div>
+
+          {/* Video 8 */}
+          <div className="w-[280px] aspect-[9/16] overflow-hidden rounded-2xl bg-gray-900/50">
+            <video
+              autoPlay
+              loop
+              muted
+              playsInline
+              className="w-full h-full object-cover"
+              src="/videos/channl.mp4"
+            />
+          </div>
+
+          {/* Video 9 */}
+          <div className="w-[280px] aspect-[9/16] overflow-hidden rounded-2xl bg-gray-900/50">
+            <video
+              autoPlay
+              loop
+              muted
+              playsInline
+              className="w-full h-full object-cover"
+              src="/videos/american_eagle_1.mp4"
             />
           </div>
         </div>

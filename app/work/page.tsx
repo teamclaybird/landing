@@ -12,13 +12,16 @@ import { ChevronRight } from 'lucide-react';
 
 // Shorts data (vertical videos)
 const shorts = [
-  { src: '/videos/mercor_1.mp4', type: 'short' },
+  { src: '/videos/american_eagle_1.mp4', type: 'short' },
+  { src: '/videos/american_eagle_2.mp4', type: 'short' },
   { src: '/videos/handshake_short.mp4', type: 'short' },
   { src: '/videos/kepos_new.mp4', type: 'short' },
   { src: '/videos/stratus.mp4', type: 'short' },
-  { src: '/videos/handshake_alex_phd.mp4', type: 'short' },
+  { src: '/videos/channl.mp4', type: 'short' },
+  { src: '/videos/mercor_1.mp4', type: 'short' },
   { src: '/videos/agape.mp4', type: 'short' },
   { src: '/videos/sellraze_gorilla_gen_z_video.mp4', type: 'short' },
+  { src: '/videos/handshake_alex_phd.mp4', type: 'short' },
 ];
 
 // Horizontal videos data
@@ -26,22 +29,28 @@ const horizontalVideos = [
   { src: '/videos/audi_ad.mp4', title: 'Audi F1 Spec Ad' },
   { src: '/videos/coke_holiday.mp4', title: 'Coke Holiday Ad' },
   { src: '/videos/running_brand.mp4', title: 'Running Brand Project' },
+  { src: '/videos/lunavo_launch_video.mp4', title: 'Lunavo Lauch Video' },
 ];
 
 // Image data
 const images = [
   { src: '/images/portfolio/soap_1.jpg', alt: 'Brooklyn Soap Company 1' },
-  { src: '/images/portfolio/adidas_1.png', alt: 'Adidas 1' },
+  { src: '/images/portfolio/rizz_2.jpg', alt: 'Rizz 2' },
   { src: '/images/portfolio/soap_2.jpg', alt: 'Brooklyn Soap Company 2' },
+  { src: '/images/portfolio/rizz_1.jpg', alt: 'Rizz 1' },
+  { src: '/images/portfolio/adidas_1.png', alt: 'Adidas 1' },
   { src: '/images/portfolio/soap_3.jpg', alt: 'Brooklyn Soap Company 3' },
   { src: '/images/portfolio/adidas_2.png', alt: 'Adidas 2' },
-  { src: '/images/portfolio/soap_4.jpg', alt: 'Brooklyn Soap Company 4' },
   { src: '/images/portfolio/adidas_3.png', alt: 'Adidas 3' },
-  { src: '/images/portfolio/soap_5.jpg', alt: 'Brooklyn Soap Company 5' },
-  { src: '/images/portfolio/soap_6.jpg', alt: 'Brooklyn Soap Company 6' },
+  { src: '/images/portfolio/rizz_3.jpg', alt: 'Rizz 3' },
+  { src: '/images/portfolio/soap_4.jpg', alt: 'Brooklyn Soap Company 4' },
   { src: '/images/portfolio/adidas_4.png', alt: 'Adidas 4' },
-  { src: '/images/portfolio/soap_7.jpg', alt: 'Brooklyn Soap Company 7' },
+  { src: '/images/portfolio/rizz_4.jpg', alt: 'Rizz 4' },
+  { src: '/images/portfolio/soap_5.jpg', alt: 'Brooklyn Soap Company 5' },
   { src: '/images/portfolio/adidas_5.png', alt: 'Adidas 5' },
+  { src: '/images/portfolio/rizz_5.jpg', alt: 'Rizz 5' },
+  { src: '/images/portfolio/soap_6.jpg', alt: 'Brooklyn Soap Company 6' },
+  { src: '/images/portfolio/soap_7.jpg', alt: 'Brooklyn Soap Company 7' },
   { src: '/images/portfolio/soap_8.jpg', alt: 'Brooklyn Soap Company 8' },
 ];
 
@@ -149,21 +158,114 @@ export default function Work() {
                 animate={{ opacity: 1 }}
                 transition={{ duration: 0 }}
               >
-              {/* Videos Section */}
-              <div>
-                <div className="flex items-center justify-between mb-6">
-                  <h2 className="text-2xl font-bold text-gray-900 dark:text-gray-100">Videos</h2>
-                  <button
-                    onClick={() => setActiveTab('videos')}
-                    className="text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 font-medium"
-                  >
-                    View more →
-                  </button>
+                {/* Videos Section */}
+                <div>
+                  <div className="flex items-center justify-between mb-6">
+                    <h2 className="text-2xl font-bold text-gray-900 dark:text-gray-100">Videos</h2>
+                    <button
+                      onClick={() => setActiveTab('videos')}
+                      className="text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 font-medium"
+                    >
+                      View more →
+                    </button>
+                  </div>
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    {horizontalVideos.slice(0, 2).map((video, index) => (
+                      <div
+                        key={`horizontal-${index}`}
+                        className="aspect-video overflow-hidden rounded-2xl bg-gray-900/50 cursor-pointer"
+                        onClick={() => setOpenMedia({ src: video.src, type: 'video' })}
+                      >
+                        <video
+                          autoPlay
+                          loop
+                          muted
+                          playsInline
+                          className="w-full h-full object-cover"
+                          src={video.src}
+                          onLoadedMetadata={(e) => {
+                            const videoElement = e.currentTarget;
+                            videoElement.currentTime = 2.5;
+                          }}
+                        />
+                      </div>
+                    ))}
+                  </div>
                 </div>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                  {horizontalVideos.slice(0, 2).map((video, index) => (
+
+                {/* Shorts Section */}
+                <div className="pt-8">
+                  <div className="flex items-center justify-between mb-6">
+                    <h2 className="text-2xl font-bold text-gray-900 dark:text-gray-100">Shorts</h2>
+                    <button
+                      onClick={() => setActiveTab('shorts')}
+                      className="text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 font-medium"
+                    >
+                      View more →
+                    </button>
+                  </div>
+                  <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 gap-4">
+                    {shorts.slice(0, 6).map((video, index) => (
+                      <div
+                        key={`short-${index}`}
+                        className="aspect-[9/16] overflow-hidden rounded-2xl bg-gray-900/50 cursor-pointer"
+                        onClick={() => setOpenMedia({ src: video.src, type: 'video' })}
+                      >
+                        <video
+                          autoPlay
+                          loop
+                          muted
+                          playsInline
+                          className="w-full h-full object-cover"
+                          src={video.src}
+                        />
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Images Section */}
+                <div className="pt-8">
+                  <div className="flex items-center justify-between mb-6">
+                    <h2 className="text-2xl font-bold text-gray-900 dark:text-gray-100">Images</h2>
+                    <button
+                      onClick={() => setActiveTab('images')}
+                      className="text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 font-medium"
+                    >
+                      View more →
+                    </button>
+                  </div>
+                  <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 gap-4">
+                    {images.slice(0, 6).map((image, index) => (
+                      <div
+                        key={`image-${index}`}
+                        className="aspect-[9/16] overflow-hidden rounded-2xl bg-gray-900/50 cursor-pointer"
+                        onClick={() => setOpenMedia({ src: image.src, type: 'image', alt: image.alt })}
+                      >
+                        <Image
+                          src={image.src}
+                          alt={image.alt}
+                          width={600}
+                          height={1067}
+                          className="w-full h-full object-cover"
+                        />
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </motion.div>
+            </TabsContent>
+
+            <TabsContent value="videos">
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 0 }}
+              >
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                  {horizontalVideos.map((video, index) => (
                     <div
-                      key={`horizontal-${index}`}
+                      key={index}
                       className="aspect-video overflow-hidden rounded-2xl bg-gray-900/50 cursor-pointer"
                       onClick={() => setOpenMedia({ src: video.src, type: 'video' })}
                     >
@@ -182,23 +284,19 @@ export default function Work() {
                     </div>
                   ))}
                 </div>
-              </div>
+              </motion.div>
+            </TabsContent>
 
-              {/* Shorts Section */}
-              <div className="pt-8">
-                <div className="flex items-center justify-between mb-6">
-                  <h2 className="text-2xl font-bold text-gray-900 dark:text-gray-100">Shorts</h2>
-                  <button
-                    onClick={() => setActiveTab('shorts')}
-                    className="text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 font-medium"
-                  >
-                    View more →
-                  </button>
-                </div>
-                <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 gap-4">
-                  {shorts.slice(0, 6).map((video, index) => (
+            <TabsContent value="shorts">
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 0 }}
+              >
+                <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4">
+                  {shorts.map((video, index) => (
                     <div
-                      key={`short-${index}`}
+                      key={index}
                       className="aspect-[9/16] overflow-hidden rounded-2xl bg-gray-900/50 cursor-pointer"
                       onClick={() => setOpenMedia({ src: video.src, type: 'video' })}
                     >
@@ -213,23 +311,19 @@ export default function Work() {
                     </div>
                   ))}
                 </div>
-              </div>
+              </motion.div>
+            </TabsContent>
 
-              {/* Images Section */}
-              <div className="pt-8">
-                <div className="flex items-center justify-between mb-6">
-                  <h2 className="text-2xl font-bold text-gray-900 dark:text-gray-100">Images</h2>
-                  <button
-                    onClick={() => setActiveTab('images')}
-                    className="text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 font-medium"
-                  >
-                    View more →
-                  </button>
-                </div>
-                <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 gap-4">
-                  {images.slice(0, 6).map((image, index) => (
+            <TabsContent value="images">
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 0 }}
+              >
+                <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4">
+                  {images.map((image, index) => (
                     <div
-                      key={`image-${index}`}
+                      key={index}
                       className="aspect-[9/16] overflow-hidden rounded-2xl bg-gray-900/50 cursor-pointer"
                       onClick={() => setOpenMedia({ src: image.src, type: 'image', alt: image.alt })}
                     >
@@ -243,91 +337,6 @@ export default function Work() {
                     </div>
                   ))}
                 </div>
-              </div>
-              </motion.div>
-            </TabsContent>
-
-            <TabsContent value="videos">
-              <motion.div
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ duration: 0 }}
-              >
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-                {horizontalVideos.map((video, index) => (
-                  <div
-                    key={index}
-                    className="aspect-video overflow-hidden rounded-2xl bg-gray-900/50 cursor-pointer"
-                    onClick={() => setOpenMedia({ src: video.src, type: 'video' })}
-                  >
-                    <video
-                      autoPlay
-                      loop
-                      muted
-                      playsInline
-                      className="w-full h-full object-cover"
-                      src={video.src}
-                      onLoadedMetadata={(e) => {
-                        const videoElement = e.currentTarget;
-                        videoElement.currentTime = 2.5;
-                      }}
-                    />
-                  </div>
-                ))}
-              </div>
-              </motion.div>
-            </TabsContent>
-
-            <TabsContent value="shorts">
-              <motion.div
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ duration: 0 }}
-              >
-              <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4">
-                {shorts.map((video, index) => (
-                  <div
-                    key={index}
-                    className="aspect-[9/16] overflow-hidden rounded-2xl bg-gray-900/50 cursor-pointer"
-                    onClick={() => setOpenMedia({ src: video.src, type: 'video' })}
-                  >
-                    <video
-                      autoPlay
-                      loop
-                      muted
-                      playsInline
-                      className="w-full h-full object-cover"
-                      src={video.src}
-                    />
-                  </div>
-                ))}
-              </div>
-              </motion.div>
-            </TabsContent>
-
-            <TabsContent value="images">
-              <motion.div
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ duration: 0 }}
-              >
-              <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4">
-                {images.map((image, index) => (
-                  <div
-                    key={index}
-                    className="aspect-[9/16] overflow-hidden rounded-2xl bg-gray-900/50 cursor-pointer"
-                    onClick={() => setOpenMedia({ src: image.src, type: 'image', alt: image.alt })}
-                  >
-                    <Image
-                      src={image.src}
-                      alt={image.alt}
-                      width={600}
-                      height={1067}
-                      className="w-full h-full object-cover"
-                    />
-                  </div>
-                ))}
-              </div>
               </motion.div>
             </TabsContent>
           </Tabs>
