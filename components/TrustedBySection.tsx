@@ -5,20 +5,20 @@ import { Marquee } from '@/components/ui/marquee';
 export function TrustedBySection() {
   return (
     <div className="mt-4">
-      <p className="text-center text-sm text-gray-500 dark:text-gray-400 mb-8 uppercase tracking-wider flex items-center justify-center gap-1">
-        Backed by
+      <p className="text-center text-xs md:text-sm text-gray-500 dark:text-gray-400 mb-8 uppercase tracking-wider flex flex-wrap items-center justify-center gap-x-1.5 gap-y-1 px-4">
+        <span>Backed by</span>
         <a
           href="https://www.ycombinator.com/"
           target="_blank"
           rel="noopener noreferrer"
           className="inline-flex items-center gap-1 hover:opacity-80 transition-opacity"
         >
-          <span className="inline-flex w-5 h-5 bg-[#FF6600] items-center justify-center ml-1">
+          <span className="inline-flex w-5 h-5 bg-[#FF6600] items-center justify-center">
             <span className="text-white font-bold text-sm">Y</span>
           </span>
-          <span className="text-gray-500 dark:text-gray-400 normal-case"> Combinator</span>
+          <span className="text-gray-500 dark:text-gray-400 normal-case">Combinator</span>
         </a>
-        and trusted by growth teams at
+        <span>and trusted by growth teams at</span>
       </p>
       <Marquee className="[--duration:30s]">
         <div className="flex items-center gap-12 mx-6">

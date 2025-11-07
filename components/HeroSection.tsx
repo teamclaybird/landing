@@ -34,12 +34,12 @@ export function HeroSection({ showBadge = true, heading, subheading, splitSubhea
         )}
 
         {/* Main Heading */}
-        <h1 className="text-3xl md:text-5xl font-bold font-serif text-gray-900 dark:text-gray-100 mb-4">
+        <h1 className="text-3xl md:text-5xl font-bold font-serif text-gray-900 dark:text-gray-100 mb-8 md:mb-4">
           {heading}
         </h1>
 
         {/* Subheading */}
-        <p className="text-xl text-gray-700 dark:text-gray-300 mb-8">
+        <p className="hidden md:block text-xl text-gray-700 dark:text-gray-300 mb-8 max-w-3xl mx-auto">
           {splitSubheading && subheading.length > 54 ? (
             <>
               {subheading.slice(0, 54)}
@@ -52,11 +52,11 @@ export function HeroSection({ showBadge = true, heading, subheading, splitSubhea
         </p>
 
         {/* CTA Buttons */}
-        <div className="mb-8 flex items-center justify-center gap-4">
-          <Button asChild variant="secondary" size="sm" className="rounded-full px-6">
+        <div className="mb-8 flex flex-col-reverse md:flex-row items-stretch md:items-center justify-center gap-3 max-w-md md:max-w-none mx-auto">
+          <Button asChild variant="secondary" size="lg" className="rounded-full px-6 w-full md:w-auto">
             <Link href="/work">See our work</Link>
           </Button>
-          <Button asChild variant="default" size="sm" className="rounded-full px-6 min-w-[240px] justify-center">
+          <Button asChild variant="default" size="lg" className="rounded-full px-6 w-full md:w-auto md:min-w-[240px] justify-center">
             <Link href="/book" className="gap-2 flex items-center justify-center">
               Book a call
               <ChevronRight className="w-4 h-4" />

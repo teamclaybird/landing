@@ -58,15 +58,57 @@ export default function Work() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [activeTab, setActiveTab] = useState('all');
   const [openMedia, setOpenMedia] = useState<{ src: string; type: 'video' | 'image'; alt?: string } | null>(null);
+  const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 10);
     };
 
+    // Check if mobile
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+
+    checkMobile();
     window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    window.addEventListener('resize', checkMobile);
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener('resize', checkMobile);
+    };
   }, []);
+
+  const handleMediaClick = (e: React.MouseEvent, media: { src: string; type: 'video' | 'image'; alt?: string }) => {
+    // On mobile, fullscreen the existing video player
+    if (isMobile && media.type === 'video') {
+      const videoElement = e.currentTarget.querySelector('video');
+      if (videoElement) {
+        videoElement.controls = true;
+        videoElement.muted = false;
+        videoElement.style.objectFit = 'contain';
+
+        if (videoElement.requestFullscreen) {
+          videoElement.requestFullscreen();
+        }
+
+        // Reset when exiting fullscreen
+        const handleFullscreenChange = () => {
+          if (!document.fullscreenElement) {
+            videoElement.controls = false;
+            videoElement.muted = true;
+            videoElement.style.objectFit = 'cover';
+            document.removeEventListener('fullscreenchange', handleFullscreenChange);
+          }
+        };
+        document.addEventListener('fullscreenchange', handleFullscreenChange);
+      }
+    } else {
+      // On desktop or for images, use the modal
+      setOpenMedia(media);
+    }
+  };
 
   return (
     <div className="min-h-screen">
@@ -174,7 +216,7 @@ export default function Work() {
                       <div
                         key={`horizontal-${index}`}
                         className="aspect-video overflow-hidden rounded-2xl bg-gray-900/50 cursor-pointer"
-                        onClick={() => setOpenMedia({ src: video.src, type: 'video' })}
+                        onClick={(e) => handleMediaClick(e, { src: video.src, type: 'video' })}
                       >
                         <video
                           autoPlay
@@ -209,7 +251,7 @@ export default function Work() {
                       <div
                         key={`short-${index}`}
                         className="aspect-[9/16] overflow-hidden rounded-2xl bg-gray-900/50 cursor-pointer"
-                        onClick={() => setOpenMedia({ src: video.src, type: 'video' })}
+                        onClick={(e) => handleMediaClick(e, { src: video.src, type: 'video' })}
                       >
                         <video
                           autoPlay
@@ -240,7 +282,7 @@ export default function Work() {
                       <div
                         key={`image-${index}`}
                         className="aspect-[9/16] overflow-hidden rounded-2xl bg-gray-900/50 cursor-pointer"
-                        onClick={() => setOpenMedia({ src: image.src, type: 'image', alt: image.alt })}
+                        onClick={(e) => handleMediaClick(e, { src: image.src, type: 'image', alt: image.alt })}
                       >
                         <Image
                           src={image.src}
@@ -267,7 +309,7 @@ export default function Work() {
                     <div
                       key={index}
                       className="aspect-video overflow-hidden rounded-2xl bg-gray-900/50 cursor-pointer"
-                      onClick={() => setOpenMedia({ src: video.src, type: 'video' })}
+                      onClick={(e) => handleMediaClick(e, { src: video.src, type: 'video' })}
                     >
                       <video
                         autoPlay
@@ -298,7 +340,7 @@ export default function Work() {
                     <div
                       key={index}
                       className="aspect-[9/16] overflow-hidden rounded-2xl bg-gray-900/50 cursor-pointer"
-                      onClick={() => setOpenMedia({ src: video.src, type: 'video' })}
+                      onClick={(e) => handleMediaClick(e, { src: video.src, type: 'video' })}
                     >
                       <video
                         autoPlay
@@ -325,7 +367,7 @@ export default function Work() {
                     <div
                       key={index}
                       className="aspect-[9/16] overflow-hidden rounded-2xl bg-gray-900/50 cursor-pointer"
-                      onClick={() => setOpenMedia({ src: image.src, type: 'image', alt: image.alt })}
+                      onClick={(e) => handleMediaClick(e, { src: image.src, type: 'image', alt: image.alt })}
                     >
                       <Image
                         src={image.src}
