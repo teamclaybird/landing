@@ -25,14 +25,6 @@ export const metadata: Metadata = {
     description: "We write and produce AI brand ads - then intelligently generate tailored retargeting videos for every audience segment.",
     url: "https://claybird.com",
     siteName: "Claybird",
-    images: [
-      {
-        url: "/images/portfolio/soap_3.jpg",
-        width: 1200,
-        height: 630,
-        alt: "Claybird - AI Video Ads",
-      },
-    ],
     locale: "en_US",
     type: "website",
   },
@@ -40,7 +32,6 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Claybird | AI Video Ads",
     description: "We write and produce AI brand ads - then intelligently generate tailored retargeting videos for every audience segment.",
-    images: ["/images/portfolio/soap_3.jpg"],
   },
 };
 
