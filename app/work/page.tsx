@@ -30,6 +30,8 @@ const horizontalVideos = [
   { src: '/videos/coke_holiday.mp4', title: 'Coke Holiday Ad' },
   { src: '/videos/running_brand.mp4', title: 'Running Brand Project' },
   { src: '/videos/lunavo_launch_video.mp4', title: 'Lunavo Lauch Video' },
+  { src: '/videos/automax_v1.mp4', title: 'Automax' },
+  { src: '/videos/lunabill_v5_compressed.mp4', title: 'Lunabill' },
 ];
 
 // Image data
