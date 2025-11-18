@@ -126,6 +126,18 @@ export function VideoShowcaseSection() {
               src="/videos/american_eagle_1.mp4"
             />
           </div>
+
+          {/* Video 10 - Delve */}
+          <div className="w-[280px] aspect-[9/16] overflow-hidden rounded-2xl bg-gray-900/50">
+            <video
+              autoPlay
+              loop
+              muted
+              playsInline
+              className="w-full h-full object-cover"
+              src="/videos/delve.mp4"
+            />
+          </div>
         </div>
       </Marquee>
     </section>

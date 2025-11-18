@@ -13,6 +13,7 @@ import { ChevronRight } from 'lucide-react';
 // Shorts data (vertical videos)
 const shorts = [
   { src: '/videos/american_eagle_1.mp4', type: 'short' },
+  { src: '/videos/delve.mp4', type: 'short' },
   { src: '/videos/american_eagle_2.mp4', type: 'short' },
   { src: '/videos/handshake_short.mp4', type: 'short' },
   { src: '/videos/kepos_new.mp4', type: 'short' },
