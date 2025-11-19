@@ -36,7 +36,7 @@ export default function Home() {
       <main>
         <HeroSection
           showBadge={true}
-          heading="The award-winning AI video ad agency"
+          heading="The Award-Winning AI Ad Company"
           subheading="We write and produce AI brand ads - then intelligently generate tailored retargeting videos for every audience segment."
         />
 
