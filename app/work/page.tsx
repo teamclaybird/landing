@@ -20,7 +20,6 @@ const shorts = [
   { src: '/videos/stratus.mp4', type: 'short' },
   { src: '/videos/channl.mp4', type: 'short' },
   { src: '/videos/mercor_1.mp4', type: 'short' },
-  { src: '/videos/agape.mp4', type: 'short' },
   { src: '/videos/sellraze_gorilla_gen_z_video.mp4', type: 'short' },
   { src: '/videos/handshake_alex_phd.mp4', type: 'short' },
 ];

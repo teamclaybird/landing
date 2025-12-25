@@ -51,14 +51,14 @@ export default function Home() {
               </h2>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              {/* Case Study 1 */}
+              {/* Case Study 1 - Lunavo */}
               <Card className="shadow-none">
                 <CardHeader>
                   <Lens>
                     <div className="aspect-video w-full rounded-xl overflow-hidden">
                       <Image
-                        src="/testimonials/agape-case-study-thumbnail.png"
-                        alt="Agapé case study"
+                        src="/testimonials/lunavo-case-study-thumbnail.png"
+                        alt="Lunavo case study"
                         width={600}
                         height={338}
                         className="w-full h-full object-cover"
@@ -67,13 +67,13 @@ export default function Home() {
                   </Lens>
                 </CardHeader>
                 <CardContent>
-                  <CardTitle className="text-xl mb-2">Agapé</CardTitle>
+                  <CardTitle className="text-xl mb-2">Lunavo</CardTitle>
                   <CardDescription className="line-clamp-2">
-                    To retarget Bay Area engineers, we crafted a funny love story tracing a couple&apos;s journey from childhood Kumon classes to Silicon Valley careers—creating authentic connection through deeply personal, relatable narratives.
+                    For Lunavo&apos;s launch, we produced a cinematic brand video showcasing their innovative technology, blending stunning visuals with compelling storytelling to introduce a new era of logistics.
                   </CardDescription>
                 </CardContent>
                 <CardFooter className="gap-3">
-                  <Button size="sm" onClick={() => setOpenVideo('/videos/agape.mp4')}>
+                  <Button size="sm" onClick={() => setOpenVideo('/videos/lunavo_launch_video.mp4')}>
                     Watch ad
                   </Button>
                   <Button asChild variant="secondary" size="sm">
@@ -84,7 +84,7 @@ export default function Home() {
                 </CardFooter>
               </Card>
 
-              {/* Case Study 2 */}
+              {/* Case Study 2 - kēpos */}
               <Card className="shadow-none">
                 <CardHeader>
                   <Lens>
@@ -117,7 +117,7 @@ export default function Home() {
                 </CardFooter>
               </Card>
 
-              {/* Case Study 3 */}
+              {/* Case Study 3 - Mercor */}
               <Card className="shadow-none">
                 <CardHeader>
                   <Lens>

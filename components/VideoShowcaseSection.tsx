@@ -87,18 +87,6 @@ export function VideoShowcaseSection() {
               muted
               playsInline
               className="w-full h-full object-cover"
-              src="/videos/agape.mp4"
-            />
-          </div>
-
-          {/* Video 7 */}
-          <div className="w-[280px] aspect-[9/16] overflow-hidden rounded-2xl bg-gray-900/50">
-            <video
-              autoPlay
-              loop
-              muted
-              playsInline
-              className="w-full h-full object-cover"
               src="/videos/sellraze_gorilla_gen_z_video.mp4"
             />
           </div>
