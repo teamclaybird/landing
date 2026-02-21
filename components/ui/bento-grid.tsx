@@ -47,26 +47,28 @@ const BentoCard = ({
     key={name}
     className={cn(
       "group relative col-span-3 flex flex-col overflow-hidden rounded-xl",
-      // light styles
-      "bg-background border border-gray-200",
-      // dark styles
-      "dark:bg-background transform-gpu dark:[border:1px_solid_rgba(255,255,255,.1)]",
+      // Glossy black background
+      "bg-black backdrop-blur-xl border border-white/20",
+      // Glossy gradient overlay
+      "before:absolute before:inset-0 before:bg-gradient-to-br before:from-white/10 before:via-transparent before:to-transparent before:opacity-50",
+      // Shine effect on hover
+      "after:absolute after:inset-0 after:bg-gradient-to-r after:from-transparent after:via-white/5 after:to-transparent after:translate-x-[-200%] after:transition-transform after:duration-700 hover:after:translate-x-[200%]",
       className
     )}
     {...props}
   >
     <div>{background}</div>
-    <div className="p-6 flex flex-col h-full">
+    <div className="p-6 flex flex-col h-full relative z-10">
       {/* Header: Name on left, Icon on right */}
       <div className="flex items-start justify-between mb-4">
-        <h3 className="text-lg font-semibold text-neutral-700 dark:text-neutral-300">
+        <h3 className="text-lg font-semibold text-white drop-shadow-lg">
           {name}
         </h3>
-        <Icon className="h-5 w-5 text-neutral-700 dark:text-neutral-300 flex-shrink-0" />
+        <Icon className="h-5 w-5 text-white flex-shrink-0 drop-shadow-lg" />
       </div>
 
       {/* Description */}
-      <p className="text-sm text-neutral-500 dark:text-neutral-400 mb-4 flex-grow">{description}</p>
+      <p className="text-sm text-gray-300 mb-4 flex-grow drop-shadow-md">{description}</p>
 
       {/* CTA Link - Only show if cta and href are provided */}
       {cta && href && (
@@ -75,7 +77,7 @@ const BentoCard = ({
             variant="link"
             asChild
             size="sm"
-            className="p-0 h-auto text-sm"
+            className="p-0 h-auto text-sm text-white hover:text-gray-200"
           >
             <a href={href}>
               {cta}
@@ -86,7 +88,8 @@ const BentoCard = ({
       )}
     </div>
 
-    <div className="pointer-events-none absolute inset-0 transform-gpu transition-all duration-300 group-hover:bg-black/[.03] group-hover:dark:bg-neutral-800/10" />
+    {/* Glossy reflection overlay */}
+    <div className="pointer-events-none absolute inset-0 transform-gpu transition-all duration-300 bg-gradient-to-b from-white/5 to-transparent opacity-60 group-hover:opacity-80" />
   </div>
 )
 

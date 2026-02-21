@@ -1,13 +1,16 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import { ThemeToggle } from '@/components/theme-toggle';
+import { ChevronRight } from 'lucide-react';
 
 export function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
+  const [isExpanded, setIsExpanded] = useState(false);
+  const timeoutRef = useRef<NodeJS.Timeout | null>(null);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -17,6 +20,19 @@ export function Header() {
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+
+  const handleMouseEnter = () => {
+    if (timeoutRef.current) {
+      clearTimeout(timeoutRef.current);
+    }
+    setIsExpanded(true);
+  };
+
+  const handleMouseLeave = () => {
+    timeoutRef.current = setTimeout(() => {
+      setIsExpanded(false);
+    }, 500);
+  };
 
   const handleSmoothScroll = (e: React.MouseEvent<HTMLAnchorElement>, targetId: string) => {
     e.preventDefault();
@@ -35,62 +51,60 @@ export function Header() {
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled ? 'bg-white dark:bg-black/95 backdrop-blur-sm' : 'bg-transparent'
-      }`}
+      className={`fixed top-0 left-0 z-50 transition-all duration-300`}
     >
-      <div className="max-w-[1400px] mx-auto px-6 py-4 flex items-center justify-between">
-        {/* Left side: Logo + Navigation */}
-        <div className="flex items-center gap-8">
-          {/* Logo */}
-          <a
-            href="#"
-            onClick={(e) => {
-              e.preventDefault();
-              window.scrollTo({ top: 0, behavior: 'smooth' });
-            }}
-            className="flex items-center gap-1 cursor-pointer"
-          >
-            <Image src="/logo.svg" alt="Claybird logo" width={24} height={24} className="dark:invert" />
-            <span className="text-xl font-semibold text-gray-900 dark:text-gray-100">
-              Cla<span className="italic">y</span><span className="italic">b</span>ird
-            </span>
-          </a>
+      <div
+        onMouseEnter={handleMouseEnter}
+        onMouseLeave={handleMouseLeave}
+        className={`flex items-center gap-3 px-6 py-4 transition-all duration-500 ease-out ${
+          isExpanded ? 'bg-white/5 backdrop-blur-sm' : 'bg-transparent'
+        }`}
+      >
+        {/* Logo */}
+        <a
+          href="#"
+          onClick={(e) => {
+            e.preventDefault();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+          }}
+          className="flex items-center gap-1 cursor-pointer"
+        >
+          <Image src="/White_Logo.png" alt="Claybird logo" width={24} height={24} />
+          <span className="text-xl font-semibold text-white italic">
+            Claybird
+          </span>
+        </a>
 
+        {/* Arrow indicator */}
+        <div className={`transition-opacity duration-300 ${
+          isExpanded ? 'opacity-0' : 'opacity-100'
+        }`}>
+          <ChevronRight className="w-4 h-4 text-white/60" />
+        </div>
+
+        {/* Expandable content */}
+        <div className={`flex items-center gap-8 overflow-hidden transition-all duration-500 ease-out ${
+          isExpanded ? 'max-w-[1000px] opacity-100' : 'max-w-0 opacity-0'
+        }`}>
           {/* Navigation */}
-          <nav className="hidden md:flex items-center gap-8">
-            <Link href="/work" className="text-sm text-gray-700 hover:text-gray-900 dark:text-gray-300 dark:hover:text-gray-100">
+          <nav className="flex items-center gap-8 whitespace-nowrap">
+            <Link href="/work" className="text-sm text-white hover:text-gray-200">
               Portfolio
             </Link>
-            <a
-              href="#testimonials"
-              onClick={(e) => handleSmoothScroll(e, 'testimonials')}
-              className="text-sm text-gray-700 hover:text-gray-900 dark:text-gray-300 dark:hover:text-gray-100"
-            >
-              Testimonials
-            </a>
-            <Link href="/book" className="text-sm text-gray-700 hover:text-gray-900 dark:text-gray-300 dark:hover:text-gray-100">
+            <Link href="/book" className="text-sm text-white hover:text-gray-200">
               Contact
             </Link>
           </nav>
-        </div>
 
-        {/* Right side: CTA Buttons */}
-        <div className="flex items-center gap-3">
-          <ThemeToggle />
-          <Button
-            asChild
-            variant="ghost"
-            className="text-sm text-gray-900 dark:text-gray-100 bg-white/60 dark:bg-white/10 hover:bg-white/80 dark:hover:bg-white/20 rounded-xl font-medium"
-          >
-            <Link href="/book">Log in</Link>
-          </Button>
-          <Button
-            asChild
-            className="bg-black dark:bg-white text-white dark:text-black text-sm rounded-xl hover:bg-gray-800 dark:hover:bg-gray-200 font-medium"
-          >
-            <Link href="/book">Get started</Link>
-          </Button>
+          {/* CTA Buttons */}
+          <div className="flex items-center gap-3 whitespace-nowrap">
+            <Button
+              asChild
+              className="bg-white text-black text-sm rounded-xl hover:bg-gray-200 font-medium"
+            >
+              <Link href="/book">Launch 🚀</Link>
+            </Button>
+          </div>
         </div>
       </div>
     </header>

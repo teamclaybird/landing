@@ -12,35 +12,40 @@ interface ProcessNotificationProps {
 export function ProcessNotification({ step, description, status, className, showShadow = false }: ProcessNotificationProps) {
   return (
     <div className={cn(
-      "w-full max-w-md rounded-lg border bg-white dark:bg-gray-800 p-4",
+      "relative w-full max-w-md rounded-lg border border-white/20 bg-black backdrop-blur-xl p-4 overflow-hidden",
+      // Glossy gradient overlay
+      "before:absolute before:inset-0 before:bg-gradient-to-br before:from-white/10 before:via-transparent before:to-transparent before:opacity-50",
       showShadow && "shadow-sm",
       className
     )}>
-      <div className="flex items-start gap-3">
+      {/* Glossy reflection */}
+      <div className="absolute inset-0 bg-gradient-to-b from-white/5 to-transparent opacity-60 pointer-events-none" />
+
+      <div className="flex items-start gap-3 relative z-10">
         {/* Status Icon */}
         <div className="flex-shrink-0 mt-0.5">
           {status === "completed" && (
-            <CheckCircle2 className="w-5 h-5 text-gray-900 dark:text-gray-100" />
+            <CheckCircle2 className="w-5 h-5 text-white drop-shadow-lg" />
           )}
           {status === "in-progress" && (
-            <Clock className="w-5 h-5 text-blue-700 animate-pulse" />
+            <Clock className="w-5 h-5 text-blue-400 animate-pulse drop-shadow-lg" />
           )}
           {status === "pending" && (
-            <Circle className="w-5 h-5 text-gray-300 dark:text-gray-600" />
+            <Circle className="w-5 h-5 text-gray-400 drop-shadow-lg" />
           )}
         </div>
 
         {/* Content */}
         <div className="flex-1 min-w-0">
           <p className={cn(
-            "text-sm font-medium",
-            status === "completed" && "text-gray-900 dark:text-gray-100",
-            status === "in-progress" && "text-blue-800 dark:text-blue-400",
-            status === "pending" && "text-gray-500 dark:text-gray-400"
+            "text-sm font-medium drop-shadow-md",
+            status === "completed" && "text-white",
+            status === "in-progress" && "text-blue-300",
+            status === "pending" && "text-gray-400"
           )}>
             {step}
           </p>
-          <p className="text-xs text-gray-500 dark:text-gray-400 mt-0.5">
+          <p className="text-xs text-gray-300 mt-0.5 drop-shadow-sm">
             {description}
           </p>
         </div>
@@ -48,10 +53,10 @@ export function ProcessNotification({ step, description, status, className, show
         {/* Status Badge */}
         <div className="flex-shrink-0">
           <span className={cn(
-            "inline-flex items-center px-2 py-0.5 rounded text-xs font-medium",
-            status === "completed" && "bg-gray-900 text-white dark:bg-gray-100 dark:text-gray-900",
-            status === "in-progress" && "bg-blue-700 text-white dark:bg-blue-900/30 dark:text-blue-400",
-            status === "pending" && "bg-gray-100 text-gray-600 dark:bg-gray-800 dark:text-gray-400"
+            "inline-flex items-center px-2 py-0.5 rounded text-xs font-medium backdrop-blur-sm",
+            status === "completed" && "bg-white/20 text-white border border-white/30",
+            status === "in-progress" && "bg-blue-500/20 text-blue-300 border border-blue-400/30",
+            status === "pending" && "bg-white/10 text-gray-400 border border-white/20"
           )}>
             {status === "completed" && "Done"}
             {status === "in-progress" && "Active"}

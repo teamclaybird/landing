@@ -1,10 +1,6 @@
 'use client';
 
-import Link from 'next/link';
-import { Button } from '@/components/ui/button';
-import { ChevronRight } from 'lucide-react';
-import { LightRays } from '@/components/ui/light-rays';
-import { TrustedBySection } from '@/components/TrustedBySection';
+import { useState, useEffect } from 'react';
 
 interface HeroSectionProps {
   showBadge?: boolean;
@@ -14,59 +10,122 @@ interface HeroSectionProps {
 }
 
 export function HeroSection({ showBadge = true, heading, subheading, splitSubheading = true }: HeroSectionProps) {
-  return (
-    <section className="flex items-start justify-center px-6 relative pt-[12vh] pb-4 md:pb-6">
-      {/* Light rays decoration */}
-      <LightRays count={10} color="rgba(160, 210, 255, 0.3)" blur={40} speed={16} length="60vh" />
+  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
 
-      <div className="w-full mx-auto text-center relative z-10 px-8">
-        {/* Badge */}
-        {showBadge && (
+  useEffect(() => {
+    const handleMouseMove = (e: MouseEvent) => {
+      // Calculate mouse position relative to center of screen
+      const x = (e.clientX - window.innerWidth / 2) / window.innerWidth;
+      const y = (e.clientY - window.innerHeight / 2) / window.innerHeight;
+      setMousePosition({ x, y });
+    };
+
+    window.addEventListener('mousemove', handleMouseMove);
+    return () => window.removeEventListener('mousemove', handleMouseMove);
+  }, []);
+
+  return (
+    <section className="flex items-end justify-center px-6 relative h-screen overflow-hidden pb-[10vh]">
+      {/* Background Video with Parallax */}
+      <div
+        className="absolute inset-0 w-full h-full"
+        style={{
+          transform: `translate(${mousePosition.x * 60}px, ${mousePosition.y * 60}px) scale(1.4)`,
+          transition: 'transform 0.2s ease-out',
+        }}
+      >
+        <video
+          autoPlay
+          loop
+          muted
+          playsInline
+          className="w-full h-full object-cover"
+          style={{ transform: 'scale(1.1)' }}
+        >
+          <source src="/videos/Timeline 1.mov" type="video/mp4" />
+        </video>
+      </div>
+
+      {/* Vignette Overlay */}
+      <div
+        className="absolute inset-0 pointer-events-none"
+        style={{
+          background: 'radial-gradient(ellipse at center, transparent 0%, transparent 40%, rgba(0,0,0,0.4) 80%, rgba(0,0,0,0.7) 100%)'
+        }}
+      />
+
+      {/* Bottom Fade to Black */}
+      <div
+        className="absolute bottom-0 left-0 right-0 h-32 pointer-events-none"
+        style={{
+          background: 'linear-gradient(to bottom, transparent 0%, rgba(0,0,0,0.8) 50%, rgba(0,0,0,1) 100%)'
+        }}
+      />
+
+      {/* Launch Harder text */}
+      <div className="absolute left-0 right-0 z-10 flex items-center justify-center px-6" style={{
+        top: '76%',
+        transform: `translateY(-50%) translate(${mousePosition.x * -30}px, ${mousePosition.y * -30}px)`,
+        transition: 'transform 0.2s ease-out'
+      }}>
+        <h1 className="font-black whitespace-nowrap" style={{
+          fontSize: 'clamp(2.565rem, 12.825vw, 17.955rem)',
+          letterSpacing: '-0.08em',
+          lineHeight: '0.85',
+          transform: 'scaleY(1.5)',
+          color: '#FF0000',
+          WebkitTextStroke: '2px #FF0000',
+          paintOrder: 'stroke fill',
+          filter: 'url(#grain)',
+        }}>
+          LAUNCH HARDER
+        </h1>
+      </div>
+
+      {/* SVG filter for grain */}
+      <svg width="0" height="0" style={{ position: 'absolute' }}>
+        <defs>
+          <filter id="grain" x="-50%" y="-50%" width="200%" height="200%">
+            <feTurbulence
+              type="fractalNoise"
+              baseFrequency="1.8"
+              numOctaves="6"
+              seed="2"
+              result="noise"
+            />
+            <feColorMatrix
+              in="noise"
+              type="saturate"
+              values="0"
+              result="monoNoise"
+            />
+            <feComponentTransfer in="monoNoise" result="grain">
+              <feFuncA type="discrete" tableValues="1 0 1 0 1 0" />
+            </feComponentTransfer>
+            <feBlend in="SourceGraphic" in2="grain" mode="multiply" />
+            <feComposite in2="SourceAlpha" operator="in" />
+          </filter>
+        </defs>
+      </svg>
+
+      {/* Backed by YC badge */}
+      <div className="absolute bottom-8 left-0 right-0 z-10">
+        <p className="text-center text-xs text-white/80 flex items-center justify-center gap-1.5">
+          <span>Backed by</span>
           <a
-            href="https://www.youtube.com/watch?v=tjBOwU3I27g"
+            href="https://www.ycombinator.com/"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 px-4 py-2 mb-8 bg-white/20 dark:bg-white/10 backdrop-blur-sm border border-white/30 dark:border-white/20 rounded-full hover:bg-white/30 dark:hover:bg-white/20 transition-colors cursor-pointer"
+            className="inline-flex items-center gap-1 hover:opacity-80 transition-opacity"
           >
-            <span className="text-sm text-blue-600 dark:text-blue-400">Introducing Claybird Agent</span>
-            <ChevronRight className="w-4 h-4 text-blue-600 dark:text-blue-400" />
+            <span className="inline-flex w-5 h-5 bg-[#FF6600] items-center justify-center">
+              <span className="text-white font-bold text-sm">Y</span>
+            </span>
+            <span className="text-white/80">Combinator</span>
           </a>
-        )}
-
-        {/* Main Heading */}
-        <h1 className="text-3xl md:text-5xl font-bold font-serif text-gray-900 dark:text-gray-100 mb-8 md:mb-4">
-          {heading}
-        </h1>
-
-        {/* Subheading */}
-        <p className="hidden md:block text-xl text-gray-700 dark:text-gray-300 mb-8 max-w-3xl mx-auto">
-          {splitSubheading && subheading.length > 54 ? (
-            <>
-              {subheading.slice(0, 54)}
-              <br />
-              {subheading.slice(54)}
-            </>
-          ) : (
-            subheading
-          )}
         </p>
-
-        {/* CTA Buttons */}
-        <div className="mb-8 flex flex-col-reverse md:flex-row items-stretch md:items-center justify-center gap-3 max-w-md md:max-w-none mx-auto">
-          <Button asChild variant="secondary" size="lg" className="rounded-full px-6 w-full md:w-auto">
-            <Link href="/work">See our work</Link>
-          </Button>
-          <Button asChild variant="default" size="lg" className="rounded-full px-6 w-full md:w-auto md:min-w-[240px] justify-center">
-            <Link href="/book" className="gap-2 flex items-center justify-center">
-              Book a call
-              <ChevronRight className="w-4 h-4" />
-            </Link>
-          </Button>
-        </div>
-
-        {/* Trusted By Section */}
-        <TrustedBySection />
       </div>
+
     </section>
   );
 }
