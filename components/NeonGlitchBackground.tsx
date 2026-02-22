@@ -31,7 +31,7 @@ export function NeonGlitchBackground() {
       const id = Math.random().toString(36);
 
       // Only spawn in the edges/corners - completely avoid center where cards are
-      let x, y;
+      let x: number = 0, y: number = 0;
       let attempts = 0;
       const maxAttempts = 10;
 
