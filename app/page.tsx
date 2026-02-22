@@ -11,8 +11,6 @@ import { BentoCard } from '@/components/ui/bento-grid';
 import { ShimmerButton } from '@/components/ui/shimmer-button';
 import { TestimonialCard } from '@/components/testimonial-card';
 import testimonials from '@/data/testimonials.json';
-import DemoVideo from '@/components/DemoVideo';
-import { FloatingCTA } from '@/components/floating-cta';
 import { Lens } from '@/components/ui/lens';
 import { Card, CardContent, CardFooter, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import { AnimatedList } from '@/components/ui/animated-list';
@@ -23,36 +21,38 @@ import { PersonIcon } from '@radix-ui/react-icons';
 import { Header } from '@/components/Header';
 import { HeroSection } from '@/components/HeroSection';
 import { VideoShowcaseSection } from '@/components/VideoShowcaseSection';
+import { TrustedBySection } from '@/components/TrustedBySection';
+import { NeonGlitchBackground } from '@/components/NeonGlitchBackground';
 
 export default function Home() {
   const router = useRouter();
   const [openVideo, setOpenVideo] = useState<string | null>(null);
 
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen bg-black">
       <Header />
 
       {/* Main content */}
-      <main>
+      <main className="bg-black relative">
+        <NeonGlitchBackground />
+
         <HeroSection
           showBadge={true}
           heading="The Award-Winning AI Ad Company"
           subheading="We write and produce AI brand ads - then intelligently generate tailored retargeting videos for every audience segment."
         />
 
-        <VideoShowcaseSection />
-
-        {/* Case Studies Section */}
-        <section className="pt-8 pb-16 px-6">
-          <div className="max-w-7xl mx-auto">
+        {/* past launches Section */}
+        <section className="pt-8 pb-16 px-6 bg-transparent relative">
+          <div className="max-w-7xl mx-auto relative z-10">
             <div className="text-center mb-12">
-              <h2 className="text-lg md:text-xl font-mono text-gray-900 dark:text-gray-100">
-                CASE STUDIES
+              <h2 className="text-lg md:text-xl font-mono text-white">
+                past launches
               </h2>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               {/* Case Study 1 - Lunavo */}
-              <Card className="shadow-none">
+              <Card className="shadow-none bg-black border-white/10">
                 <CardHeader>
                   <Lens>
                     <div className="aspect-video w-full rounded-xl overflow-hidden">
@@ -67,16 +67,16 @@ export default function Home() {
                   </Lens>
                 </CardHeader>
                 <CardContent>
-                  <CardTitle className="text-xl mb-2">Lunavo</CardTitle>
-                  <CardDescription className="line-clamp-2">
+                  <CardTitle className="text-xl mb-2 text-white">Lunavo</CardTitle>
+                  <CardDescription className="line-clamp-2 text-gray-400">
                     For Lunavo&apos;s launch, we produced a cinematic brand video showcasing their innovative technology, blending stunning visuals with compelling storytelling to introduce a new era of logistics.
                   </CardDescription>
                 </CardContent>
                 <CardFooter className="gap-3">
-                  <Button size="sm" onClick={() => setOpenVideo('/videos/lunavo_launch_video.mp4')}>
+                  <Button size="sm" onClick={() => setOpenVideo('/videos/lunavo_launch_video.mp4')} className="bg-white/10 hover:bg-white/20 backdrop-blur-sm border border-white/20 text-white">
                     Watch ad
                   </Button>
-                  <Button asChild variant="secondary" size="sm">
+                  <Button asChild variant="secondary" size="sm" className="bg-white/5 hover:bg-white/10 backdrop-blur-sm border border-white/10 text-white">
                     <Link href="/book">
                       Read more
                     </Link>
@@ -84,14 +84,14 @@ export default function Home() {
                 </CardFooter>
               </Card>
 
-              {/* Case Study 2 - kēpos */}
-              <Card className="shadow-none">
+              {/* Case Study 2 - Automax */}
+              <Card className="shadow-none bg-black border-white/10">
                 <CardHeader>
                   <Lens>
                     <div className="aspect-video w-full rounded-xl overflow-hidden">
                       <Image
-                        src="/testimonials/kepos-case-study-thumbnail.png"
-                        alt="kēpos case study"
+                        src="/testimonials/mercor-case-study-thumbnail.png"
+                        alt="Automax case study"
                         width={600}
                         height={338}
                         className="w-full h-full object-cover"
@@ -100,16 +100,16 @@ export default function Home() {
                   </Lens>
                 </CardHeader>
                 <CardContent>
-                  <CardTitle className="text-xl mb-2">kēpos</CardTitle>
-                  <CardDescription className="line-clamp-2">
-                    To introduce a breast milk-inspired supplement for adult gut health, we wove together cinematic visuals of life, scientific innovation, and natural wellness—creating evocative storytelling that bridges nature and cutting-edge science.
+                  <CardTitle className="text-xl mb-2 text-white">Automax</CardTitle>
+                  <CardDescription className="line-clamp-2 text-gray-400">
+                    For Automax, we created a dynamic automotive showcase that highlights performance and innovation through compelling visuals and storytelling.
                   </CardDescription>
                 </CardContent>
                 <CardFooter className="gap-3">
-                  <Button size="sm" onClick={() => setOpenVideo('/videos/kepos_new.mp4')}>
+                  <Button size="sm" onClick={() => setOpenVideo('/videos/automax_v1.mp4')} className="bg-white/10 hover:bg-white/20 backdrop-blur-sm border border-white/20 text-white">
                     Watch ad
                   </Button>
-                  <Button asChild variant="secondary" size="sm">
+                  <Button asChild variant="secondary" size="sm" className="bg-white/5 hover:bg-white/10 backdrop-blur-sm border border-white/10 text-white">
                     <Link href="/book">
                       Read more
                     </Link>
@@ -118,7 +118,7 @@ export default function Home() {
               </Card>
 
               {/* Case Study 3 - Mercor */}
-              <Card className="shadow-none">
+              <Card className="shadow-none bg-black border-white/10">
                 <CardHeader>
                   <Lens>
                     <div className="aspect-video w-full rounded-xl overflow-hidden">
@@ -133,16 +133,16 @@ export default function Home() {
                   </Lens>
                 </CardHeader>
                 <CardContent>
-                  <CardTitle className="text-xl mb-2">Mercor</CardTitle>
-                  <CardDescription className="line-clamp-2">
+                  <CardTitle className="text-xl mb-2 text-white">Mercor</CardTitle>
+                  <CardDescription className="line-clamp-2 text-gray-400">
                     To challenge viewers to solve puzzles on the platform, we created a cinematic brand ad exploring humanity&apos;s greatest unsolved mathematical mysteries—transforming abstract problems into compelling visual invitations.
                   </CardDescription>
                 </CardContent>
                 <CardFooter className="gap-3">
-                  <Button size="sm" onClick={() => setOpenVideo('/videos/mercor_1.mp4')}>
+                  <Button size="sm" onClick={() => setOpenVideo('/videos/mercor_1.mp4')} className="bg-white/10 hover:bg-white/20 backdrop-blur-sm border border-white/20 text-white">
                     Watch ad
                   </Button>
-                  <Button asChild variant="secondary" size="sm">
+                  <Button asChild variant="secondary" size="sm" className="bg-white/5 hover:bg-white/10 backdrop-blur-sm border border-white/10 text-white">
                     <Link href="/book">
                       Read more
                     </Link>
@@ -154,22 +154,22 @@ export default function Home() {
         </section>
 
         {/* Book a Demo Section */}
-        <section className="px-6 pb-8 flex justify-center">
+        <section className="px-6 pb-8 flex justify-center bg-transparent relative z-10">
           <ShimmerButton
             className="text-xl font-semibold px-12 py-6 text-white"
             background="rgb(0, 0, 0)"
             shimmerColor="rgba(255, 255, 255, 0.5)"
             onClick={() => router.push('/book')}
           >
-            Start your first campaign
+            LAUNCH 🚀
           </ShimmerButton>
         </section>
 
         {/* Creative Process Section */}
-        <section className="pt-4 pb-16 px-6">
+        <section className="pt-4 pb-16 px-6 bg-transparent relative z-10">
           <div className="max-w-7xl mx-auto">
             <div className="text-center mb-12">
-              <h2 className="text-lg md:text-xl font-mono text-gray-900 dark:text-gray-100">
+              <h2 className="text-lg md:text-xl font-mono text-white">
                 HOW IT WORKS
               </h2>
             </div>
@@ -266,20 +266,23 @@ export default function Home() {
           </div>
         </section>
 
+        {/* Trusted By Section */}
+        <section className="pt-8 pb-8 bg-transparent relative z-10">
+          <TrustedBySection />
+        </section>
+
         {/* Book a Demo Section */}
-        <section className="px-6 pb-8 flex justify-center">
+        <section className="px-6 pb-16 flex justify-center bg-transparent relative z-10">
           <ShimmerButton
             className="text-xl font-semibold px-12 py-6 text-white"
             background="rgb(0, 0, 0)"
             shimmerColor="rgba(255, 255, 255, 0.5)"
             onClick={() => router.push('/book')}
           >
-            Start your first campaign
+            LAUNCH 🚀
           </ShimmerButton>
         </section>
 
-        {/* Demo Video Section */}
-        <DemoVideo />
 
         {/* How It Works - Bento Grid */}
         {/* <section className="pt-8 pb-16 px-6">
@@ -350,98 +353,47 @@ export default function Home() {
           </div>
         </section> */}
 
-        {/* Book a Demo Section */}
-        <section className="px-6 flex justify-center">
-          <ShimmerButton
-            className="text-xl font-semibold px-12 py-6 text-white"
-            background="rgb(0, 0, 0)"
-            shimmerColor="rgba(255, 255, 255, 0.5)"
-            onClick={() => router.push('/book')}
-          >
-            Start your first campaign
-          </ShimmerButton>
-        </section>
-
-        {/* Twitter Testimonials Section */}
-        <section id="testimonials" className="py-16 px-6">
-          <div className="max-w-7xl mx-auto mb-12 text-center">
-            <h2 className="text-xl md:text-2xl font-mono text-gray-900 dark:text-gray-100 flex items-center justify-center gap-3">
-              Marketers <Heart className="w-6 h-6 fill-black text-black" /> Claybird
-            </h2>
-          </div>
-
-          <div className="relative flex flex-col gap-4">
-            {/* First row - moving right */}
-            <Marquee className="[--duration:40s]">
-              {testimonials.slice(0, 4).map((tweet) => (
-                <TestimonialCard key={tweet.id} {...tweet} className="mx-2" />
-              ))}
-            </Marquee>
-
-            {/* Second row - moving left */}
-            <Marquee reverse className="[--duration:40s]">
-              {testimonials.slice(4, 8).map((tweet) => (
-                <TestimonialCard key={tweet.id} {...tweet} className="mx-2" />
-              ))}
-            </Marquee>
-          </div>
-        </section>
-
-        {/* Book a Demo Section */}
-        <section className="px-6 pb-16 flex justify-center">
-          <ShimmerButton
-            className="text-xl font-semibold px-12 py-6 text-white"
-            background="rgb(0, 0, 0)"
-            shimmerColor="rgba(255, 255, 255, 0.5)"
-            onClick={() => router.push('/book')}
-          >
-            Start your first campaign
-          </ShimmerButton>
-        </section>
-
         {/* Footer - White Card */}
-        <footer className="px-6 pb-12">
-          <div className="max-w-7xl mx-auto bg-white dark:bg-gray-800 rounded-3xl border border-gray-200 dark:border-gray-700 p-12">
+        <footer className="px-6 pt-8 pb-12 bg-transparent relative">
+          <div className="max-w-7xl mx-auto bg-black/40 backdrop-blur-lg rounded-3xl border border-white/10 p-12">
             <div className="grid grid-cols-2 md:grid-cols-3 gap-8 mb-12">
               {/* Product Column */}
               <div>
-                <h3 className="text-sm font-semibold text-gray-900 dark:text-gray-100 mb-4">Product</h3>
+                <h3 className="text-sm font-semibold text-white mb-4">Product</h3>
                 <ul className="space-y-3">
-                  <li><a href="#" className="text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100">Pricing</a></li>
-                  <li><a href="#" className="text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100">Features</a></li>
-                  <li><a href="#" className="text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100">Blog</a></li>
+                  <li><a href="#" className="text-sm text-gray-400 hover:text-white">Pricing</a></li>
+                  <li><a href="#" className="text-sm text-gray-400 hover:text-white">Features</a></li>
+                  <li><a href="#" className="text-sm text-gray-400 hover:text-white">Blog</a></li>
                 </ul>
               </div>
 
               {/* Resources Column */}
               <div>
-                <h3 className="text-sm font-semibold text-gray-900 dark:text-gray-100 mb-4">Resources</h3>
+                <h3 className="text-sm font-semibold text-white mb-4">Resources</h3>
                 <ul className="space-y-3">
-                  <li><a href="#" className="text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100">Help & guides</a></li>
-                  <li><a href="#" className="text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100">Support</a></li>
+                  <li><a href="#" className="text-sm text-gray-400 hover:text-white">Help & guides</a></li>
+                  <li><a href="#" className="text-sm text-gray-400 hover:text-white">Support</a></li>
                 </ul>
               </div>
 
               {/* Community Column */}
               <div>
-                <h3 className="text-sm font-semibold text-gray-900 dark:text-gray-100 mb-4">Community</h3>
+                <h3 className="text-sm font-semibold text-white mb-4">Community</h3>
                 <ul className="space-y-3">
-                  <li><a href="#" className="text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100">Discord</a></li>
-                  <li><a href="#" className="text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100">X / Twitter</a></li>
+                  <li><a href="#" className="text-sm text-gray-400 hover:text-white">Discord</a></li>
+                  <li><a href="#" className="text-sm text-gray-400 hover:text-white">X / Twitter</a></li>
                 </ul>
               </div>
             </div>
 
             {/* Footer Bottom */}
-            <div className="pt-8 border-t border-gray-200 dark:border-gray-700 text-center">
-              <p className="text-sm text-gray-600 dark:text-gray-400">© 2025 Claybird Inc.</p>
+            <div className="pt-8 border-t border-white/10 text-center">
+              <p className="text-sm text-gray-400">© 2025 Claybird Inc.</p>
             </div>
           </div>
         </footer>
       </main>
 
-      {/* Floating CTA */}
-      <FloatingCTA />
 
       {/* Video Dialog */}
       <AnimatePresence>

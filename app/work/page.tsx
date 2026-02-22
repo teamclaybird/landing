@@ -16,7 +16,7 @@ const shorts = [
   { src: '/videos/delve.mp4', type: 'short' },
   { src: '/videos/american_eagle_2.mp4', type: 'short' },
   { src: '/videos/handshake_short.mp4', type: 'short' },
-  { src: '/videos/kepos_new.mp4', type: 'short' },
+  { src: '/videos/automax_v1.mp4', type: 'short' },
   { src: '/videos/stratus.mp4', type: 'short' },
   { src: '/videos/channl.mp4', type: 'short' },
   { src: '/videos/mercor_1.mp4', type: 'short' },
@@ -26,6 +26,8 @@ const shorts = [
 
 // Horizontal videos data
 const horizontalVideos = [
+  { src: '/videos/tgpt_launch.mp4', title: 'TGPT Launch Video' },
+  { src: '/videos/yusuf_truth.mp4', title: 'YusufTruth' },
   // { src: '/videos/audi_ad.mp4', title: 'Audi F1 Spec Ad' },
   { src: '/videos/coke_holiday.mp4', title: 'Coke Holiday Ad' },
   { src: '/videos/running_brand.mp4', title: 'Running Brand Project' },
@@ -113,41 +115,44 @@ export default function Work() {
   };
 
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen bg-black">
       {/* Header */}
-      <header
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? 'bg-white dark:bg-black/95 backdrop-blur-sm' : 'bg-transparent'
+      <header className="fixed top-0 left-0 z-50 transition-all duration-300">
+        <div
+          className={`flex items-center gap-3 px-6 py-4 transition-all duration-500 ease-out ${
+            isScrolled ? 'bg-white/5 backdrop-blur-sm' : 'bg-transparent'
           }`}
-      >
-        <div className="max-w-[1400px] mx-auto px-6 py-4 flex items-center justify-between">
-          {/* Left side: Logo + Navigation */}
-          <div className="flex items-center gap-8">
-            {/* Logo */}
-            <Link href="/" className="flex items-center gap-1 cursor-pointer">
-              <Image src="/logo.svg" alt="Claybird logo" width={24} height={24} className="dark:invert" />
-              <span className="text-xl font-semibold text-gray-900 dark:text-gray-100">Cla<span className="italic">y</span><span className="italic">b</span>ird</span>
-            </Link>
+        >
+          {/* Logo */}
+          <Link href="/" className="flex items-center gap-1 cursor-pointer">
+            <Image src="/logo.svg" alt="Claybird logo" width={24} height={24} className="invert" />
+            <span className="text-xl font-semibold text-white italic">
+              Claybird
+            </span>
+          </Link>
 
-            {/* Navigation */}
-            <nav className="hidden md:flex items-center gap-8">
-              <Link href="/work" className="text-sm text-gray-700 hover:text-gray-900 dark:text-gray-300 dark:hover:text-gray-100">Portfolio</Link>
-              <Link href="/#testimonials" className="text-sm text-gray-700 hover:text-gray-900 dark:text-gray-300 dark:hover:text-gray-100">Testimonials</Link>
-              <Link href="/book" className="text-sm text-gray-700 hover:text-gray-900 dark:text-gray-300 dark:hover:text-gray-100">Contact</Link>
-            </nav>
+          {/* Arrow indicator */}
+          <div className="transition-opacity duration-300 opacity-100">
+            <ChevronRight className="w-4 h-4 text-white/60" />
           </div>
 
-          {/* Right side: CTA Buttons */}
-          <div className="flex items-center gap-3">
-            <ThemeToggle />
-            <Button asChild variant="ghost" className="text-sm text-gray-900 dark:text-gray-100 bg-white/60 dark:bg-white/10 hover:bg-white/80 dark:hover:bg-white/20 rounded-xl font-medium">
-              <Link href="/book">
-                Log in
-              </Link>
-            </Button>
-            <Button asChild className="bg-black dark:bg-white text-white dark:text-black text-sm rounded-xl hover:bg-gray-800 dark:hover:bg-gray-200 font-medium">
-              <Link href="/book">
-                Get started
-              </Link>
+          {/* Navigation */}
+          <nav className="flex items-center gap-8 whitespace-nowrap">
+            <Link href="/work" className="text-sm text-white hover:text-gray-200">
+              Portfolio
+            </Link>
+            <Link href="/book" className="text-sm text-white hover:text-gray-200">
+              Contact
+            </Link>
+          </nav>
+
+          {/* CTA Button */}
+          <div className="flex items-center gap-3 whitespace-nowrap ml-4">
+            <Button
+              asChild
+              className="bg-white text-black text-sm rounded-xl hover:bg-gray-200 font-medium"
+            >
+              <Link href="/book">Launch 🚀</Link>
             </Button>
           </div>
         </div>
@@ -161,35 +166,35 @@ export default function Work() {
         {/* Content */}
         <div className="relative z-10 max-w-7xl mx-auto">
           {/* Heading */}
-          <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-center text-gray-900 dark:text-gray-100 mb-12">
+          <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-center text-white mb-12">
             Our Work
           </h1>
 
           {/* Tabs */}
           <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full">
             <div className="flex justify-center mb-12">
-              <TabsList className="bg-gray-200/80 dark:bg-gray-800/80 backdrop-blur-sm rounded-full">
+              <TabsList className="bg-gray-800/80 backdrop-blur-sm rounded-full">
                 <TabsTrigger
                   value="all"
-                  className="rounded-full px-6 py-3.5 text-base data-[state=active]:bg-white data-[state=active]:text-gray-900 data-[state=active]:shadow-sm text-gray-600 dark:text-gray-400 data-[state=active]:dark:bg-white data-[state=active]:dark:text-gray-900"
+                  className="rounded-full px-6 py-3.5 text-base data-[state=active]:bg-white data-[state=active]:text-gray-900 data-[state=active]:shadow-sm text-gray-400 data-[state=active]:bg-white data-[state=active]:text-gray-900"
                 >
                   All
                 </TabsTrigger>
                 <TabsTrigger
                   value="videos"
-                  className="rounded-full px-6 py-3.5 text-base data-[state=active]:bg-white data-[state=active]:text-gray-900 data-[state=active]:shadow-sm text-gray-600 dark:text-gray-400 data-[state=active]:dark:bg-white data-[state=active]:dark:text-gray-900"
+                  className="rounded-full px-6 py-3.5 text-base data-[state=active]:bg-white data-[state=active]:text-gray-900 data-[state=active]:shadow-sm text-gray-400 data-[state=active]:bg-white data-[state=active]:text-gray-900"
                 >
                   Videos
                 </TabsTrigger>
                 <TabsTrigger
                   value="shorts"
-                  className="rounded-full px-6 py-3.5 text-base data-[state=active]:bg-white data-[state=active]:text-gray-900 data-[state=active]:shadow-sm text-gray-600 dark:text-gray-400 data-[state=active]:dark:bg-white data-[state=active]:dark:text-gray-900"
+                  className="rounded-full px-6 py-3.5 text-base data-[state=active]:bg-white data-[state=active]:text-gray-900 data-[state=active]:shadow-sm text-gray-400 data-[state=active]:bg-white data-[state=active]:text-gray-900"
                 >
                   Shorts
                 </TabsTrigger>
                 <TabsTrigger
                   value="images"
-                  className="rounded-full px-6 py-3.5 text-base data-[state=active]:bg-white data-[state=active]:text-gray-900 data-[state=active]:shadow-sm text-gray-600 dark:text-gray-400 data-[state=active]:dark:bg-white data-[state=active]:dark:text-gray-900"
+                  className="rounded-full px-6 py-3.5 text-base data-[state=active]:bg-white data-[state=active]:text-gray-900 data-[state=active]:shadow-sm text-gray-400 data-[state=active]:bg-white data-[state=active]:text-gray-900"
                 >
                   Images
                 </TabsTrigger>
@@ -205,10 +210,10 @@ export default function Work() {
                 {/* Videos Section */}
                 <div>
                   <div className="flex items-center justify-between mb-6">
-                    <h2 className="text-2xl font-bold text-gray-900 dark:text-gray-100">Videos</h2>
+                    <h2 className="text-2xl font-bold text-white">Videos</h2>
                     <button
                       onClick={() => setActiveTab('videos')}
-                      className="text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 font-medium"
+                      className="text-sm text-gray-400 hover:text-white font-medium"
                     >
                       View more →
                     </button>
@@ -240,10 +245,10 @@ export default function Work() {
                 {/* Shorts Section */}
                 <div className="pt-8">
                   <div className="flex items-center justify-between mb-6">
-                    <h2 className="text-2xl font-bold text-gray-900 dark:text-gray-100">Shorts</h2>
+                    <h2 className="text-2xl font-bold text-white">Shorts</h2>
                     <button
                       onClick={() => setActiveTab('shorts')}
-                      className="text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 font-medium"
+                      className="text-sm text-gray-400 hover:text-white font-medium"
                     >
                       View more →
                     </button>
@@ -271,10 +276,10 @@ export default function Work() {
                 {/* Images Section */}
                 <div className="pt-8">
                   <div className="flex items-center justify-between mb-6">
-                    <h2 className="text-2xl font-bold text-gray-900 dark:text-gray-100">Images</h2>
+                    <h2 className="text-2xl font-bold text-white">Images</h2>
                     <button
                       onClick={() => setActiveTab('images')}
-                      className="text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 font-medium"
+                      className="text-sm text-gray-400 hover:text-white font-medium"
                     >
                       View more →
                     </button>
@@ -306,11 +311,11 @@ export default function Work() {
                 animate={{ opacity: 1 }}
                 transition={{ duration: 0 }}
               >
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                <div className="flex flex-wrap justify-center gap-4">
                   {horizontalVideos.map((video, index) => (
                     <div
                       key={index}
-                      className="aspect-video overflow-hidden rounded-2xl bg-gray-900/50 cursor-pointer"
+                      className="w-full md:w-[calc(50%-0.5rem)] lg:w-[calc(33.333%-0.67rem)] aspect-video overflow-hidden rounded-2xl bg-gray-900/50 cursor-pointer"
                       onClick={(e) => handleMediaClick(e, { src: video.src, type: 'video' })}
                     >
                       <video

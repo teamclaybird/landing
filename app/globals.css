@@ -93,14 +93,18 @@
   30%, 60% {
     background-position: calc(100% + var(--shiny-width)) 0;}}}
 
+html {
+  background: #000000;
+}
+
 body {
-  background: #fafafa;
+  background: #000000;
   min-height: 100vh;
   position: relative;
 }
 
 .dark body {
-  background: #0a0a0a;
+  background: #000000;
 }
 
 :root {
