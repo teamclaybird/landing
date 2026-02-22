@@ -69,7 +69,7 @@ export function Header() {
           }}
           className="flex items-center gap-1 cursor-pointer"
         >
-          <Image src="/White_Logo.png" alt="Claybird logo" width={24} height={24} />
+          <Image src="/logo.svg" alt="Claybird logo" width={24} height={24} className="invert" />
           <span className="text-xl font-semibold text-white italic">
             Claybird
           </span>

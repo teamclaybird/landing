@@ -90,7 +90,7 @@ export default function Home() {
                   <Lens>
                     <div className="aspect-video w-full rounded-xl overflow-hidden">
                       <Image
-                        src="/testimonials/automax-case-study-thumbnail.png"
+                        src="/testimonials/mercor-case-study-thumbnail.png"
                         alt="Automax case study"
                         width={600}
                         height={338}
