@@ -161,7 +161,7 @@ export default function Home() {
         {/* That's It Section */}
         <section className="pt-16 pb-24 px-6 bg-transparent relative z-10">
           <div className="max-w-7xl mx-auto text-center">
-            <h2 className="text-2xl md:text-4xl font-mono text-white">
+            <h2 className="text-lg md:text-xl font-mono text-white">
               That's pretty much it, tbh
             </h2>
           </div>
@@ -237,43 +237,10 @@ export default function Home() {
           </div>
         </section> */}
 
-        {/* Footer - White Card */}
+        {/* Footer */}
         <footer className="px-6 pt-8 pb-12 bg-transparent relative">
-          <div className="max-w-7xl mx-auto bg-black/40 backdrop-blur-lg rounded-3xl border border-white/10 p-12">
-            <div className="grid grid-cols-2 md:grid-cols-3 gap-8 mb-12">
-              {/* Product Column */}
-              <div>
-                <h3 className="text-sm font-semibold text-white mb-4">Product</h3>
-                <ul className="space-y-3">
-                  <li><a href="#" className="text-sm text-gray-400 hover:text-white">Pricing</a></li>
-                  <li><a href="#" className="text-sm text-gray-400 hover:text-white">Features</a></li>
-                  <li><a href="#" className="text-sm text-gray-400 hover:text-white">Blog</a></li>
-                </ul>
-              </div>
-
-              {/* Resources Column */}
-              <div>
-                <h3 className="text-sm font-semibold text-white mb-4">Resources</h3>
-                <ul className="space-y-3">
-                  <li><a href="#" className="text-sm text-gray-400 hover:text-white">Help & guides</a></li>
-                  <li><a href="#" className="text-sm text-gray-400 hover:text-white">Support</a></li>
-                </ul>
-              </div>
-
-              {/* Community Column */}
-              <div>
-                <h3 className="text-sm font-semibold text-white mb-4">Community</h3>
-                <ul className="space-y-3">
-                  <li><a href="#" className="text-sm text-gray-400 hover:text-white">Discord</a></li>
-                  <li><a href="#" className="text-sm text-gray-400 hover:text-white">X / Twitter</a></li>
-                </ul>
-              </div>
-            </div>
-
-            {/* Footer Bottom */}
-            <div className="pt-8 border-t border-white/10 text-center">
-              <p className="text-sm text-gray-400">© 2025 Claybird Inc.</p>
-            </div>
+          <div className="max-w-7xl mx-auto text-center">
+            <p className="text-sm text-gray-400">© 2025 Claybird Inc.</p>
           </div>
         </footer>
       </main>
