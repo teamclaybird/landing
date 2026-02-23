@@ -51,8 +51,8 @@ export function Header() {
         <div className={`absolute top-0 left-1/2 -translate-x-1/2 transition-all duration-300 ${
           isExpanded ? 'opacity-100' : 'opacity-0 pointer-events-none'
         }`}>
-          {/* Container for all elements */}
-          <div className="relative flex items-center gap-8 bg-white/5 backdrop-blur-sm px-6 py-3 rounded-full border border-white/10">
+          {/* Container for Portfolio and Launch only */}
+          <div className="relative flex items-center gap-16 bg-white/5 backdrop-blur-sm px-6 py-3 rounded-full border border-white/10">
             {/* Portfolio - slides in from left */}
             <Link
               href="/work"
@@ -63,13 +63,8 @@ export function Header() {
               Portfolio
             </Link>
 
-            {/* Logo in center */}
-            <Image
-              src="/claybird_logo.jpeg"
-              alt="Claybird logo"
-              width={24}
-              height={24}
-            />
+            {/* Spacer for the logo in the middle */}
+            <div className="w-8"></div>
 
             {/* Launch - slides in from right */}
             <Button
