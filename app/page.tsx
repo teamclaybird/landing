@@ -28,9 +28,9 @@ export default function Home() {
           subheading="We write and produce AI brand ads - then intelligently generate tailored retargeting videos for every audience segment."
         />
 
-        {/* Portfolio and Launch Buttons Section */}
+        {/* Portfolio Button Section */}
         <section className="pt-8 pb-8 px-6 bg-transparent relative z-10">
-          <div className="max-w-7xl mx-auto flex flex-col items-center gap-4">
+          <div className="max-w-7xl mx-auto flex justify-center">
             <ShimmerButton
               className="text-xl font-semibold px-12 py-6 text-white"
               background="rgb(0, 0, 0)"
@@ -39,6 +39,21 @@ export default function Home() {
             >
               PORTFOLIO 🖼️
             </ShimmerButton>
+          </div>
+        </section>
+
+        {/* That's It Section */}
+        <section className="pt-16 pb-8 px-6 bg-transparent relative z-10">
+          <div className="max-w-7xl mx-auto text-center">
+            <h2 className="text-lg md:text-xl font-mono text-white">
+              that's pretty much it, tbh
+            </h2>
+          </div>
+        </section>
+
+        {/* Launch Button Section */}
+        <section className="pb-24 px-6 bg-transparent relative z-10">
+          <div className="max-w-7xl mx-auto flex justify-center">
             <ShimmerButton
               className="text-xl font-semibold px-12 py-6 text-white"
               background="rgb(0, 0, 0)"
@@ -47,15 +62,6 @@ export default function Home() {
             >
               LAUNCH 🚀
             </ShimmerButton>
-          </div>
-        </section>
-
-        {/* That's It Section */}
-        <section className="pt-16 pb-24 px-6 bg-transparent relative z-10">
-          <div className="max-w-7xl mx-auto text-center">
-            <h2 className="text-lg md:text-xl font-mono text-white">
-              that's pretty much it, tbh
-            </h2>
           </div>
         </section>
 
