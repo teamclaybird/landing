@@ -53,7 +53,7 @@ import { useEffect } from 'react';
 //       console.log('Qualified lead:', newAnswers);
 //       // You can send to API here to save the lead data
 //       // Redirect to calendar booking
-//       window.location.href = 'https://calendar.app.google/WnAhPmPW456bKBJ89';
+//       window.location.href = 'https://calendar.app.google/ygPCeVG2UMpz3jq69';
 //     } else {
 //       setCurrentStep(currentStep + 1);
 //       setCurrentAnswer('');
@@ -204,7 +204,7 @@ import { useEffect } from 'react';
 export default function BookPage() {
   useEffect(() => {
     // Redirect directly to Google Calendar
-    window.location.href = 'https://calendar.app.google/WnAhPmPW456bKBJ89';
+    window.location.href = 'https://calendar.app.google/ygPCeVG2UMpz3jq69';
   }, []);
 
   return (
