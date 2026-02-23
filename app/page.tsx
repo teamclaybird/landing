@@ -29,7 +29,7 @@ export default function Home() {
         />
 
         {/* Portfolio Button Section */}
-        <section className="pt-16 pb-16 px-6 bg-transparent relative z-10">
+        <section className="pt-16 pb-12 px-6 bg-transparent relative z-10">
           <div className="max-w-7xl mx-auto flex justify-center">
             <ShimmerButton
               className="text-xl font-semibold px-12 py-6 text-white"
@@ -43,7 +43,7 @@ export default function Home() {
         </section>
 
         {/* That's It Section */}
-        <section className="pb-16 px-6 bg-transparent relative z-10">
+        <section className="py-12 px-6 bg-transparent relative z-10">
           <div className="max-w-7xl mx-auto text-center">
             <h2 className="text-lg md:text-xl font-mono text-white">
               that's pretty much it, tbh
@@ -52,7 +52,7 @@ export default function Home() {
         </section>
 
         {/* Launch Button Section */}
-        <section className="pb-24 px-6 bg-transparent relative z-10">
+        <section className="pt-12 pb-24 px-6 bg-transparent relative z-10">
           <div className="max-w-7xl mx-auto flex justify-center">
             <ShimmerButton
               className="text-xl font-semibold px-12 py-6 text-white"
