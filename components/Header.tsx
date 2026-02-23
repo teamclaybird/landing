@@ -36,7 +36,7 @@ export function Header() {
             e.preventDefault();
             window.scrollTo({ top: 0, behavior: 'smooth' });
           }}
-          className="relative z-10 cursor-pointer"
+          className="relative z-10 cursor-pointer flex items-center"
         >
           <Image
             src="/claybird_logo.jpeg"
@@ -48,11 +48,11 @@ export function Header() {
         </a>
 
         {/* Expanded Content */}
-        <div className={`absolute top-0 left-1/2 -translate-x-1/2 transition-all duration-300 ${
+        <div className={`absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 transition-all duration-300 ${
           isExpanded ? 'opacity-100' : 'opacity-0 pointer-events-none'
         }`}>
           {/* Container for Portfolio and Launch only */}
-          <div className="relative flex items-center gap-16 bg-white/5 backdrop-blur-sm px-6 py-3 rounded-full border border-white/10">
+          <div className="relative flex items-center gap-16 bg-white/5 backdrop-blur-sm px-6 py-2.5 rounded-full border border-white/10">
             {/* Portfolio - slides in from left */}
             <Link
               href="/work"
@@ -64,7 +64,7 @@ export function Header() {
             </Link>
 
             {/* Spacer for the logo in the middle */}
-            <div className="w-8"></div>
+            <div className="w-8 h-8"></div>
 
             {/* Launch - slides in from right */}
             <Button
