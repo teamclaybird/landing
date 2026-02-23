@@ -69,14 +69,14 @@ export default function Home() {
                 </CardFooter>
               </Card>
 
-              {/* Case Study 2 - Automax */}
+              {/* Case Study 2 - Claybird */}
               <Card className="shadow-none bg-black border-white/10">
                 <CardHeader>
                   <Lens>
                     <div className="aspect-video w-full rounded-xl overflow-hidden">
                       <Image
                         src="/testimonials/mercor-case-study-thumbnail.png"
-                        alt="Automax case study"
+                        alt="Claybird case study"
                         width={600}
                         height={338}
                         className="w-full h-full object-cover"
@@ -85,7 +85,7 @@ export default function Home() {
                   </Lens>
                 </CardHeader>
                 <CardContent className="text-center">
-                  <CardTitle className="text-xl mb-2 text-white">Automax</CardTitle>
+                  <CardTitle className="text-xl mb-2 text-white">Claybird</CardTitle>
                 </CardContent>
                 <CardFooter className="justify-center">
                   <Button size="sm" onClick={() => setOpenVideo('/videos/automax_v1.mp4')} className="bg-white/10 hover:bg-white/20 backdrop-blur-sm border border-white/20 text-white">

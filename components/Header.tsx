@@ -39,7 +39,7 @@ export function Header() {
           className="relative z-10 cursor-pointer"
         >
           <Image
-            src="/White_Logo.png"
+            src="/claybird_logo.jpeg"
             alt="Claybird logo"
             width={32}
             height={32}
@@ -66,15 +66,15 @@ export function Header() {
             {/* Logo + Claybird text in center */}
             <div className="flex items-center gap-2">
               <Image
-                src="/White_Logo.png"
+                src="/claybird_logo.jpeg"
                 alt="Claybird logo"
                 width={24}
                 height={24}
               />
-              <span className={`text-base font-semibold text-white italic transition-all duration-300 ${
+              <span className={`text-base font-semibold text-white transition-all duration-300 ${
                 isExpanded ? 'translate-y-0 opacity-100' : '-translate-y-4 opacity-0'
               }`}>
-                Claybird
+                Clay<span className="italic">bird</span>
               </span>
             </div>
 
