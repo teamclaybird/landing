@@ -67,12 +67,7 @@ export default function Home() {
                 </CardContent>
                 <CardFooter className="gap-3">
                   <Button size="sm" onClick={() => setOpenVideo('/videos/lunavo_launch_video.mp4')} className="bg-white/10 hover:bg-white/20 backdrop-blur-sm border border-white/20 text-white">
-                    Watch ad
-                  </Button>
-                  <Button asChild variant="secondary" size="sm" className="bg-white/5 hover:bg-white/10 backdrop-blur-sm border border-white/10 text-white">
-                    <Link href="/book">
-                      Read more
-                    </Link>
+                    Watch
                   </Button>
                 </CardFooter>
               </Card>
@@ -100,12 +95,7 @@ export default function Home() {
                 </CardContent>
                 <CardFooter className="gap-3">
                   <Button size="sm" onClick={() => setOpenVideo('/videos/automax_v1.mp4')} className="bg-white/10 hover:bg-white/20 backdrop-blur-sm border border-white/20 text-white">
-                    Watch ad
-                  </Button>
-                  <Button asChild variant="secondary" size="sm" className="bg-white/5 hover:bg-white/10 backdrop-blur-sm border border-white/10 text-white">
-                    <Link href="/book">
-                      Read more
-                    </Link>
+                    Watch
                   </Button>
                 </CardFooter>
               </Card>
@@ -133,12 +123,7 @@ export default function Home() {
                 </CardContent>
                 <CardFooter className="gap-3">
                   <Button size="sm" onClick={() => setOpenVideo('/videos/mercor_1.mp4')} className="bg-white/10 hover:bg-white/20 backdrop-blur-sm border border-white/20 text-white">
-                    Watch ad
-                  </Button>
-                  <Button asChild variant="secondary" size="sm" className="bg-white/5 hover:bg-white/10 backdrop-blur-sm border border-white/10 text-white">
-                    <Link href="/book">
-                      Read more
-                    </Link>
+                    Watch
                   </Button>
                 </CardFooter>
               </Card>
