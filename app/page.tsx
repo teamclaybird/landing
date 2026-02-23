@@ -5,23 +5,16 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { Button } from '@/components/ui/button';
-import { Heart } from 'lucide-react';
 import { Marquee } from '@/components/ui/marquee';
-import { BentoCard } from '@/components/ui/bento-grid';
 import { ShimmerButton } from '@/components/ui/shimmer-button';
 import { TestimonialCard } from '@/components/testimonial-card';
 import testimonials from '@/data/testimonials.json';
 import { Lens } from '@/components/ui/lens';
 import { Card, CardContent, CardFooter, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
-import { AnimatedList } from '@/components/ui/animated-list';
-import { ProcessNotification } from '@/components/process-notification';
 import { motion, AnimatePresence } from 'motion/react';
-import { BsCircleFill } from 'react-icons/bs';
-import { PersonIcon } from '@radix-ui/react-icons';
 import { Header } from '@/components/Header';
 import { HeroSection } from '@/components/HeroSection';
 import { VideoShowcaseSection } from '@/components/VideoShowcaseSection';
-import { TrustedBySection } from '@/components/TrustedBySection';
 import { NeonGlitchBackground } from '@/components/NeonGlitchBackground';
 
 export default function Home() {
@@ -165,122 +158,13 @@ export default function Home() {
           </ShimmerButton>
         </section>
 
-        {/* Creative Process Section */}
-        <section className="pt-4 pb-16 px-6 bg-transparent relative z-10">
-          <div className="max-w-7xl mx-auto">
-            <div className="text-center mb-12">
-              <h2 className="text-lg md:text-xl font-mono text-white">
-                HOW IT WORKS
-              </h2>
-            </div>
-
-            <div className="flex flex-col lg:flex-row gap-8 items-start justify-center">
-              {/* Left Column - Bento Grid */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 max-w-2xl">
-                <BentoCard
-                  name="Strategy"
-                  className="col-span-1"
-                  background={<div className="absolute inset-0" />}
-                  Icon={() => <div className="text-gray-900 dark:text-gray-100 font-semibold text-md">1</div>}
-                  description="We understand your brand and audience, and create a content calendar and screenplays."
-                />
-                <BentoCard
-                  name="Approval"
-                  className="col-span-1"
-                  background={<div className="absolute inset-0" />}
-                  Icon={() => <div className="text-gray-900 dark:text-gray-100 font-semibold text-md">2</div>}
-                  description="You review and approve scripts before production begins, and we make revisions based on your feedback."
-                />
-                <BentoCard
-                  name="Production"
-                  className="col-span-1"
-                  background={<div className="absolute inset-0" />}
-                  Icon={() => <div className="text-gray-900 dark:text-gray-100 font-semibold text-md">3</div>}
-                  description="We produce and edit the first draft of the video ad, and it appears directly in your Claybird account."
-                />
-                <BentoCard
-                  name="Revisions"
-                  className="col-span-1"
-                  background={<div className="absolute inset-0" />}
-                  Icon={() => <div className="text-gray-900 dark:text-gray-100 font-semibold text-md">4</div>}
-                  description="We revise based on your feedback until you're happy with your video ad."
-                />
-                <BentoCard
-                  name="Claybird Platform"
-                  className="col-span-1"
-                  background={<div className="absolute inset-0" />}
-                  Icon={() => <BsCircleFill className="w-4 h-4" />}
-                  description="View drafts, request edits, and manage your video ads in one place."
-                />
-                <BentoCard
-                  name="Dedicated Expert"
-                  className="col-span-1"
-                  background={<div className="absolute inset-0" />}
-                  Icon={PersonIcon}
-                  description="A dedicated account executive will be available to you via Slack, email, and phone."
-                />
-              </div>
-
-              {/* Right Column - Animated Notifications */}
-              <div className="flex justify-center">
-                <AnimatedList delay={2000}>
-                  {/* <ProcessNotification
-                    key="strategy"
-                    step="Content Calendar Approved"
-                    description="Analyzing your target audience and defining campaign objectives"
-                    status="completed"
-                  /> */}
-                  <ProcessNotification
-                    key="screenplay"
-                    step="Screenplay Ready for Review"
-                    description="Crafting compelling narratives tailored to your brand voice"
-                    status="completed"
-                  />
-                  <ProcessNotification
-                    key="approval"
-                    step="Screenplay Approved"
-                    description="Your team reviews and approves the creative direction"
-                    status="completed"
-                  />
-                  <ProcessNotification
-                    key="draft"
-                    step="First Draft Available"
-                    description="Completed video ad ready for your review"
-                    status="completed"
-                  />
-                  <ProcessNotification
-                    key="revision"
-                    step="Revisions"
-                    description="Incorporating your feedback to perfect the final cut"
-                    status="pending"
-                  />
-                  <ProcessNotification
-                    key="payment"
-                    step="Payment - $999"
-                    description="Payment for completed video ad"
-                    status="pending"
-                  />
-                </AnimatedList>
-              </div>
-            </div>
+        {/* That's It Section */}
+        <section className="pt-16 pb-24 px-6 bg-transparent relative z-10">
+          <div className="max-w-7xl mx-auto text-center">
+            <h2 className="text-2xl md:text-4xl font-mono text-white">
+              That's pretty much it, tbh
+            </h2>
           </div>
-        </section>
-
-        {/* Trusted By Section */}
-        <section className="pt-8 pb-8 bg-transparent relative z-10">
-          <TrustedBySection />
-        </section>
-
-        {/* Book a Demo Section */}
-        <section className="px-6 pb-16 flex justify-center bg-transparent relative z-10">
-          <ShimmerButton
-            className="text-xl font-semibold px-12 py-6 text-white"
-            background="rgb(0, 0, 0)"
-            shimmerColor="rgba(255, 255, 255, 0.5)"
-            onClick={() => router.push('/book')}
-          >
-            LAUNCH 🚀
-          </ShimmerButton>
         </section>
 
 
