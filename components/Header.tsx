@@ -57,33 +57,26 @@ export function Header() {
             <Link
               href="/work"
               className={`text-sm text-white hover:text-gray-200 whitespace-nowrap transition-all duration-300 ${
-                isExpanded ? 'translate-x-0' : '-translate-x-8'
+                isExpanded ? 'translate-x-0 opacity-100' : '-translate-x-8 opacity-0'
               }`}
             >
               Portfolio
             </Link>
 
-            {/* Logo + Claybird text in center */}
-            <div className="flex items-center gap-2">
-              <Image
-                src="/claybird_logo.jpeg"
-                alt="Claybird logo"
-                width={24}
-                height={24}
-              />
-              <span className={`text-base font-semibold text-white transition-all duration-300 ${
-                isExpanded ? 'translate-y-0 opacity-100' : '-translate-y-4 opacity-0'
-              }`}>
-                Clay<span className="italic">bird</span>
-              </span>
-            </div>
+            {/* Logo in center */}
+            <Image
+              src="/claybird_logo.jpeg"
+              alt="Claybird logo"
+              width={24}
+              height={24}
+            />
 
             {/* Launch - slides in from right */}
             <Button
               asChild
               size="sm"
               className={`bg-white text-black text-sm rounded-full hover:bg-gray-200 font-medium transition-all duration-300 ${
-                isExpanded ? 'translate-x-0' : 'translate-x-8'
+                isExpanded ? 'translate-x-0 opacity-100' : 'translate-x-8 opacity-0'
               }`}
             >
               <Link href="/book">Launch 🚀</Link>
