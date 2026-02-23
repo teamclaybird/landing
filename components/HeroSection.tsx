@@ -77,7 +77,22 @@ export function HeroSection({ showBadge = true, heading, subheading, splitSubhea
         transform: `translateY(-50%) translate(${mousePosition.x * -30}px, ${mousePosition.y * -30}px)`,
         transition: 'transform 0.2s ease-out'
       }}>
-        <h1 className="font-black text-center" style={{
+        {/* Mobile: Two lines */}
+        <h1 className="md:hidden font-black text-center leading-[0.85]" style={{
+          fontSize: 'clamp(4rem, 20vw, 8rem)',
+          letterSpacing: '-0.08em',
+          transform: 'scaleY(1.5)',
+          color: '#FF0000',
+          WebkitTextStroke: '2px #FF0000',
+          paintOrder: 'stroke fill',
+          filter: 'url(#grain)',
+          maxWidth: '95%',
+        }}>
+          LAUNCH<br />HARDER
+        </h1>
+
+        {/* Desktop: One line */}
+        <h1 className="hidden md:block font-black whitespace-nowrap" style={{
           fontSize: 'clamp(2rem, 12.825vw, 17.955rem)',
           letterSpacing: '-0.08em',
           lineHeight: '0.85',
@@ -86,8 +101,6 @@ export function HeroSection({ showBadge = true, heading, subheading, splitSubhea
           WebkitTextStroke: '2px #FF0000',
           paintOrder: 'stroke fill',
           filter: 'url(#grain)',
-          maxWidth: '100%',
-          wordBreak: 'keep-all',
         }}>
           LAUNCH HARDER
         </h1>

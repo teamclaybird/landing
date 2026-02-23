@@ -162,7 +162,7 @@ export default function Home() {
         <section className="pt-16 pb-24 px-6 bg-transparent relative z-10">
           <div className="max-w-7xl mx-auto text-center">
             <h2 className="text-lg md:text-xl font-mono text-white">
-              That's pretty much it, tbh
+              that's pretty much it, tbh
             </h2>
           </div>
         </section>
