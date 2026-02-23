@@ -3,9 +3,7 @@
 import { useEffect, useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { Button } from '@/components/ui/button';
-import { ThemeToggle } from '@/components/theme-toggle';
-import { LightRays } from '@/components/ui/light-rays';
+import { Header } from '@/components/Header';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { motion, AnimatePresence } from 'motion/react';
 import { ChevronRight } from 'lucide-react';
@@ -28,7 +26,6 @@ const shorts = [
 const horizontalVideos = [
   { src: '/videos/tgpt_launch.mp4', title: 'TGPT Launch Video' },
   { src: '/videos/yusuf_truth.mp4', title: 'YusufTruth' },
-  // { src: '/videos/audi_ad.mp4', title: 'Audi F1 Spec Ad' },
   { src: '/videos/coke_holiday.mp4', title: 'Coke Holiday Ad' },
   { src: '/videos/running_brand.mp4', title: 'Running Brand Project' },
   { src: '/videos/lunavo_launch_video.mp4', title: 'Lunavo Lauch Video' },
@@ -59,27 +56,20 @@ const images = [
 ];
 
 export default function Work() {
-  const [isScrolled, setIsScrolled] = useState(false);
   const [activeTab, setActiveTab] = useState('all');
   const [openMedia, setOpenMedia] = useState<{ src: string; type: 'video' | 'image'; alt?: string } | null>(null);
   const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 10);
-    };
-
     // Check if mobile
     const checkMobile = () => {
       setIsMobile(window.innerWidth < 768);
     };
 
     checkMobile();
-    window.addEventListener('scroll', handleScroll);
     window.addEventListener('resize', checkMobile);
 
     return () => {
-      window.removeEventListener('scroll', handleScroll);
       window.removeEventListener('resize', checkMobile);
     };
   }, []);
@@ -116,53 +106,10 @@ export default function Work() {
 
   return (
     <div className="min-h-screen bg-black">
-      {/* Header */}
-      <header className="fixed top-0 left-0 z-50 transition-all duration-300">
-        <div
-          className={`flex items-center gap-3 px-6 py-4 transition-all duration-500 ease-out ${
-            isScrolled ? 'bg-white/5 backdrop-blur-sm' : 'bg-transparent'
-          }`}
-        >
-          {/* Logo */}
-          <Link href="/" className="flex items-center gap-1 cursor-pointer">
-            <Image src="/logo.svg" alt="Claybird logo" width={24} height={24} className="invert" />
-            <span className="text-xl font-semibold text-white italic">
-              Claybird
-            </span>
-          </Link>
-
-          {/* Arrow indicator */}
-          <div className="transition-opacity duration-300 opacity-100">
-            <ChevronRight className="w-4 h-4 text-white/60" />
-          </div>
-
-          {/* Navigation */}
-          <nav className="flex items-center gap-8 whitespace-nowrap">
-            <Link href="/work" className="text-sm text-white hover:text-gray-200">
-              Portfolio
-            </Link>
-            <Link href="/book" className="text-sm text-white hover:text-gray-200">
-              Contact
-            </Link>
-          </nav>
-
-          {/* CTA Button */}
-          <div className="flex items-center gap-3 whitespace-nowrap ml-4">
-            <Button
-              asChild
-              className="bg-white text-black text-sm rounded-xl hover:bg-gray-200 font-medium"
-            >
-              <Link href="/book">Launch 🚀</Link>
-            </Button>
-          </div>
-        </div>
-      </header>
+      <Header />
 
       {/* Main content */}
       <main className="relative min-h-screen pt-32 pb-16 px-6">
-        {/* Light rays decoration */}
-        <LightRays count={10} color="rgba(160, 210, 255, 0.3)" blur={40} speed={16} length="60vh" />
-
         {/* Content */}
         <div className="relative z-10 max-w-7xl mx-auto">
           {/* Heading */}
@@ -173,28 +120,28 @@ export default function Work() {
           {/* Tabs */}
           <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full">
             <div className="flex justify-center mb-12">
-              <TabsList className="bg-gray-800/80 backdrop-blur-sm rounded-full">
+              <TabsList className="bg-white/5 backdrop-blur-sm rounded-full border border-white/10">
                 <TabsTrigger
                   value="all"
-                  className="rounded-full px-6 py-3.5 text-base data-[state=active]:bg-white data-[state=active]:text-gray-900 data-[state=active]:shadow-sm text-gray-400 data-[state=active]:bg-white data-[state=active]:text-gray-900"
+                  className="rounded-full px-6 py-3.5 text-base data-[state=active]:bg-white data-[state=active]:text-black text-white/70"
                 >
                   All
                 </TabsTrigger>
                 <TabsTrigger
                   value="videos"
-                  className="rounded-full px-6 py-3.5 text-base data-[state=active]:bg-white data-[state=active]:text-gray-900 data-[state=active]:shadow-sm text-gray-400 data-[state=active]:bg-white data-[state=active]:text-gray-900"
+                  className="rounded-full px-6 py-3.5 text-base data-[state=active]:bg-white data-[state=active]:text-black text-white/70"
                 >
                   Videos
                 </TabsTrigger>
                 <TabsTrigger
                   value="shorts"
-                  className="rounded-full px-6 py-3.5 text-base data-[state=active]:bg-white data-[state=active]:text-gray-900 data-[state=active]:shadow-sm text-gray-400 data-[state=active]:bg-white data-[state=active]:text-gray-900"
+                  className="rounded-full px-6 py-3.5 text-base data-[state=active]:bg-white data-[state=active]:text-black text-white/70"
                 >
                   Shorts
                 </TabsTrigger>
                 <TabsTrigger
                   value="images"
-                  className="rounded-full px-6 py-3.5 text-base data-[state=active]:bg-white data-[state=active]:text-gray-900 data-[state=active]:shadow-sm text-gray-400 data-[state=active]:bg-white data-[state=active]:text-gray-900"
+                  className="rounded-full px-6 py-3.5 text-base data-[state=active]:bg-white data-[state=active]:text-black text-white/70"
                 >
                   Images
                 </TabsTrigger>
@@ -213,7 +160,7 @@ export default function Work() {
                     <h2 className="text-2xl font-bold text-white">Videos</h2>
                     <button
                       onClick={() => setActiveTab('videos')}
-                      className="text-sm text-gray-400 hover:text-white font-medium"
+                      className="text-sm text-white/70 hover:text-white font-medium"
                     >
                       View more →
                     </button>
@@ -222,7 +169,7 @@ export default function Work() {
                     {horizontalVideos.slice(0, 2).map((video, index) => (
                       <div
                         key={`horizontal-${index}`}
-                        className="aspect-video overflow-hidden rounded-2xl bg-gray-900/50 cursor-pointer"
+                        className="aspect-video overflow-hidden rounded-xl bg-black border border-white/10 cursor-pointer"
                         onClick={(e) => handleMediaClick(e, { src: video.src, type: 'video' })}
                       >
                         <video
@@ -248,7 +195,7 @@ export default function Work() {
                     <h2 className="text-2xl font-bold text-white">Shorts</h2>
                     <button
                       onClick={() => setActiveTab('shorts')}
-                      className="text-sm text-gray-400 hover:text-white font-medium"
+                      className="text-sm text-white/70 hover:text-white font-medium"
                     >
                       View more →
                     </button>
@@ -257,7 +204,7 @@ export default function Work() {
                     {shorts.slice(0, 6).map((video, index) => (
                       <div
                         key={`short-${index}`}
-                        className="aspect-[9/16] overflow-hidden rounded-2xl bg-gray-900/50 cursor-pointer"
+                        className="aspect-[9/16] overflow-hidden rounded-xl bg-black border border-white/10 cursor-pointer"
                         onClick={(e) => handleMediaClick(e, { src: video.src, type: 'video' })}
                       >
                         <video
@@ -279,7 +226,7 @@ export default function Work() {
                     <h2 className="text-2xl font-bold text-white">Images</h2>
                     <button
                       onClick={() => setActiveTab('images')}
-                      className="text-sm text-gray-400 hover:text-white font-medium"
+                      className="text-sm text-white/70 hover:text-white font-medium"
                     >
                       View more →
                     </button>
@@ -288,7 +235,7 @@ export default function Work() {
                     {images.slice(0, 6).map((image, index) => (
                       <div
                         key={`image-${index}`}
-                        className="aspect-[9/16] overflow-hidden rounded-2xl bg-gray-900/50 cursor-pointer"
+                        className="aspect-[9/16] overflow-hidden rounded-xl bg-black border border-white/10 cursor-pointer"
                         onClick={(e) => handleMediaClick(e, { src: image.src, type: 'image', alt: image.alt })}
                       >
                         <Image
@@ -315,7 +262,7 @@ export default function Work() {
                   {horizontalVideos.map((video, index) => (
                     <div
                       key={index}
-                      className="w-full md:w-[calc(50%-0.5rem)] lg:w-[calc(33.333%-0.67rem)] aspect-video overflow-hidden rounded-2xl bg-gray-900/50 cursor-pointer"
+                      className="w-full md:w-[calc(50%-0.5rem)] lg:w-[calc(33.333%-0.67rem)] aspect-video overflow-hidden rounded-xl bg-black border border-white/10 cursor-pointer"
                       onClick={(e) => handleMediaClick(e, { src: video.src, type: 'video' })}
                     >
                       <video
@@ -346,7 +293,7 @@ export default function Work() {
                   {shorts.map((video, index) => (
                     <div
                       key={index}
-                      className="aspect-[9/16] overflow-hidden rounded-2xl bg-gray-900/50 cursor-pointer"
+                      className="aspect-[9/16] overflow-hidden rounded-xl bg-black border border-white/10 cursor-pointer"
                       onClick={(e) => handleMediaClick(e, { src: video.src, type: 'video' })}
                     >
                       <video
@@ -373,7 +320,7 @@ export default function Work() {
                   {images.map((image, index) => (
                     <div
                       key={index}
-                      className="aspect-[9/16] overflow-hidden rounded-2xl bg-gray-900/50 cursor-pointer"
+                      className="aspect-[9/16] overflow-hidden rounded-xl bg-black border border-white/10 cursor-pointer"
                       onClick={(e) => handleMediaClick(e, { src: image.src, type: 'image', alt: image.alt })}
                     >
                       <Image
@@ -400,7 +347,7 @@ export default function Work() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             onClick={() => setOpenMedia(null)}
-            className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-md p-4"
+            className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 backdrop-blur-md p-4"
           >
             <motion.div
               initial={{ scale: 0.5, opacity: 0 }}
@@ -420,22 +367,12 @@ export default function Work() {
               </button>
               <div className="relative isolate overflow-hidden rounded-2xl border-2 border-white/20 bg-black flex items-center justify-center max-h-[90vh]">
                 {openMedia.type === 'video' ? (
-                  <>
-                    <video
-                      src={openMedia.src}
-                      className="max-w-full max-h-[90vh] w-auto h-auto"
-                      controls
-                      autoPlay
-                    />
-                    {/* Floating CTA Button */}
-                    <Link
-                      href="/book"
-                      className="absolute top-6 right-6 bg-white text-black hover:bg-gray-100 rounded-full px-8 py-4 shadow-lg font-medium z-10 flex items-center gap-2"
-                    >
-                      Try Claybird
-                      <ChevronRight className="w-4 h-4" />
-                    </Link>
-                  </>
+                  <video
+                    src={openMedia.src}
+                    className="max-w-full max-h-[90vh] w-auto h-auto"
+                    controls
+                    autoPlay
+                  />
                 ) : (
                   <Image
                     src={openMedia.src}
