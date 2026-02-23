@@ -73,6 +73,8 @@ export default function Work() {
                     videoElement.currentTime = 2.5;
                   }}
                   onLoadedData={() => handleVideoLoaded(index)}
+                  onCanPlay={() => handleVideoLoaded(index)}
+                  onPlay={() => handleVideoLoaded(index)}
                 />
 
                 {/* Hover overlay */}
