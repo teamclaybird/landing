@@ -48,11 +48,13 @@ export function Header() {
         </a>
 
         {/* Expanded Content */}
-        <div className={`absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 transition-all duration-300 ${
+        <div className={`absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 transition-all duration-500 ease-out ${
           isExpanded ? 'opacity-100' : 'opacity-0 pointer-events-none'
         }`}>
           {/* Container for Portfolio and Launch only */}
-          <div className="relative flex items-center gap-16 bg-white/5 backdrop-blur-sm px-6 py-2.5 rounded-full border border-white/10">
+          <div className={`relative flex items-center gap-16 px-6 py-2.5 rounded-full border transition-all duration-500 ease-out ${
+            isExpanded ? 'bg-white/5 backdrop-blur-sm border-white/10' : 'bg-white/0 backdrop-blur-none border-white/0'
+          }`}>
             {/* Portfolio - slides out to the left */}
             <Link
               href="/work"
