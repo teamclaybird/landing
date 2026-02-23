@@ -36,12 +36,36 @@ export function HeroSection({ showBadge = true, heading, subheading, splitSubhea
             muted
             playsInline
             webkit-playsinline="true"
+            preload="auto"
             className="absolute inset-0 w-full h-full object-cover"
-            onLoadedMetadata={(e) => {
-              const video = e.currentTarget;
+            onLoadedData={(e) => {
+              const video = e.currentTarget as HTMLVideoElement;
+              video.muted = true;
               video.play().catch(() => {
-                console.log('Autoplay prevented');
+                console.log('Autoplay prevented on loadeddata');
               });
+            }}
+            onCanPlay={(e) => {
+              const video = e.currentTarget as HTMLVideoElement;
+              video.muted = true;
+              video.play().catch(() => {
+                console.log('Autoplay prevented on canplay');
+              });
+            }}
+            onLoadedMetadata={(e) => {
+              const video = e.currentTarget as HTMLVideoElement;
+              video.muted = true;
+              video.play().catch(() => {
+                console.log('Autoplay prevented on loadedmetadata');
+              });
+            }}
+            ref={(el) => {
+              if (el) {
+                el.muted = true;
+                el.play().catch(() => {
+                  console.log('Autoplay prevented on ref');
+                });
+              }
             }}
           >
             <source src="/videos/landing.mov" type="video/mp4" />
@@ -109,8 +133,20 @@ export function HeroSection({ showBadge = true, heading, subheading, splitSubhea
             loop
             muted
             playsInline
+            preload="auto"
             className="w-full h-full object-cover"
             style={{ transform: 'scale(1.1)' }}
+            onLoadedData={(e) => {
+              const video = e.currentTarget as HTMLVideoElement;
+              video.muted = true;
+              video.play().catch(() => {});
+            }}
+            ref={(el) => {
+              if (el) {
+                el.muted = true;
+                el.play().catch(() => {});
+              }
+            }}
           >
             <source src="/videos/landing.mov" type="video/mp4" />
           </video>
