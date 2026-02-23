@@ -92,7 +92,7 @@ export function HeroSection({ showBadge = true, heading, subheading, splitSubhea
               }
             }}
           >
-            <source src="/videos/landing_final_hero.mov" type="video/mp4" />
+            <source src="/videos/landing_final_hero.mp4" type="video/mp4" />
           </video>
 
           {/* Bottom Fade to Black - larger on mobile */}
@@ -172,7 +172,7 @@ export function HeroSection({ showBadge = true, heading, subheading, splitSubhea
               }
             }}
           >
-            <source src="/videos/landing_final_hero.mov" type="video/mp4" />
+            <source src="/videos/landing_final_hero.mp4" type="video/mp4" />
           </video>
 
           {/* Loading buffer - positioned over theater screen - TEMPORARILY ALWAYS SHOWING */}
