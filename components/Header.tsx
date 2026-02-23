@@ -53,11 +53,11 @@ export function Header() {
         }`}>
           {/* Container for Portfolio and Launch only */}
           <div className="relative flex items-center gap-16 bg-white/5 backdrop-blur-sm px-6 py-2.5 rounded-full border border-white/10">
-            {/* Portfolio - slides in from left */}
+            {/* Portfolio - slides out to the left */}
             <Link
               href="/work"
               className={`text-sm text-white hover:text-gray-200 whitespace-nowrap transition-all duration-300 ${
-                isExpanded ? 'translate-x-0 opacity-100' : '-translate-x-8 opacity-0'
+                isExpanded ? 'translate-x-0 opacity-100' : 'translate-x-8 opacity-0'
               }`}
             >
               Portfolio
@@ -66,12 +66,12 @@ export function Header() {
             {/* Spacer for the logo in the middle */}
             <div className="w-8 h-8"></div>
 
-            {/* Launch - slides in from right */}
+            {/* Launch - slides out to the right */}
             <Button
               asChild
               size="sm"
               className={`bg-white text-black text-sm rounded-full hover:bg-gray-200 font-medium transition-all duration-300 ${
-                isExpanded ? 'translate-x-0 opacity-100' : 'translate-x-8 opacity-0'
+                isExpanded ? 'translate-x-0 opacity-100' : '-translate-x-8 opacity-0'
               }`}
             >
               <Link href="/book">Launch 🚀</Link>
