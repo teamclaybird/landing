@@ -59,13 +59,10 @@ export default function Home() {
                     </div>
                   </Lens>
                 </CardHeader>
-                <CardContent>
+                <CardContent className="text-center">
                   <CardTitle className="text-xl mb-2 text-white">Lunavo</CardTitle>
-                  <CardDescription className="line-clamp-2 text-gray-400">
-                    For Lunavo&apos;s launch, we produced a cinematic brand video showcasing their innovative technology, blending stunning visuals with compelling storytelling to introduce a new era of logistics.
-                  </CardDescription>
                 </CardContent>
-                <CardFooter className="gap-3">
+                <CardFooter className="justify-center">
                   <Button size="sm" onClick={() => setOpenVideo('/videos/lunavo_launch_video.mp4')} className="bg-white/10 hover:bg-white/20 backdrop-blur-sm border border-white/20 text-white">
                     Watch
                   </Button>
@@ -87,13 +84,10 @@ export default function Home() {
                     </div>
                   </Lens>
                 </CardHeader>
-                <CardContent>
+                <CardContent className="text-center">
                   <CardTitle className="text-xl mb-2 text-white">Automax</CardTitle>
-                  <CardDescription className="line-clamp-2 text-gray-400">
-                    For Automax, we created a dynamic automotive showcase that highlights performance and innovation through compelling visuals and storytelling.
-                  </CardDescription>
                 </CardContent>
-                <CardFooter className="gap-3">
+                <CardFooter className="justify-center">
                   <Button size="sm" onClick={() => setOpenVideo('/videos/automax_v1.mp4')} className="bg-white/10 hover:bg-white/20 backdrop-blur-sm border border-white/20 text-white">
                     Watch
                   </Button>
@@ -115,13 +109,10 @@ export default function Home() {
                     </div>
                   </Lens>
                 </CardHeader>
-                <CardContent>
+                <CardContent className="text-center">
                   <CardTitle className="text-xl mb-2 text-white">Corvera</CardTitle>
-                  <CardDescription className="line-clamp-2 text-gray-400">
-                    To challenge viewers to solve puzzles on the platform, we created a cinematic brand ad exploring humanity&apos;s greatest unsolved mathematical mysteries—transforming abstract problems into compelling visual invitations.
-                  </CardDescription>
                 </CardContent>
-                <CardFooter className="gap-3">
+                <CardFooter className="justify-center">
                   <Button size="sm" onClick={() => setOpenVideo('/videos/mercor_1.mp4')} className="bg-white/10 hover:bg-white/20 backdrop-blur-sm border border-white/20 text-white">
                     Watch
                   </Button>
