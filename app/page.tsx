@@ -75,7 +75,7 @@ export default function Home() {
                   <Lens>
                     <div className="aspect-video w-full rounded-xl overflow-hidden">
                       <Image
-                        src="/testimonials/mercor-case-study-thumbnail.png"
+                        src="/testimonials/claybird-case-study-thumbnail.png"
                         alt="Claybird case study"
                         width={600}
                         height={338}
@@ -88,7 +88,7 @@ export default function Home() {
                   <CardTitle className="text-xl mb-2 text-white">Claybird</CardTitle>
                 </CardContent>
                 <CardFooter className="justify-center">
-                  <Button size="sm" onClick={() => setOpenVideo('/videos/automax_v1.mp4')} className="bg-white/10 hover:bg-white/20 backdrop-blur-sm border border-white/20 text-white">
+                  <Button size="sm" onClick={() => setOpenVideo('/videos/claybird_final_compressed.mp4')} className="bg-white/10 hover:bg-white/20 backdrop-blur-sm border border-white/20 text-white">
                     Watch
                   </Button>
                 </CardFooter>
@@ -113,7 +113,7 @@ export default function Home() {
                   <CardTitle className="text-xl mb-2 text-white">Corvera</CardTitle>
                 </CardContent>
                 <CardFooter className="justify-center">
-                  <Button size="sm" onClick={() => setOpenVideo('/videos/mercor_1.mp4')} className="bg-white/10 hover:bg-white/20 backdrop-blur-sm border border-white/20 text-white">
+                  <Button size="sm" onClick={() => setOpenVideo('/videos/corvera_v2_compressed.mp4')} className="bg-white/10 hover:bg-white/20 backdrop-blur-sm border border-white/20 text-white">
                     Watch
                   </Button>
                 </CardFooter>
