@@ -52,9 +52,9 @@ export function Header() {
           isExpanded ? 'opacity-100' : 'opacity-0 pointer-events-none'
         }`}>
           {/* Container for Portfolio and Launch only */}
-          <div className={`relative flex items-center gap-4 md:gap-16 px-4 md:px-6 py-2.5 rounded-full border transition-all duration-500 ease-out ${
+          <div className={`relative flex items-center justify-between px-4 md:px-6 py-2.5 rounded-full border transition-all duration-500 ease-out ${
             isExpanded ? 'bg-white/5 backdrop-blur-sm border-white/10' : 'bg-white/0 backdrop-blur-none border-white/0'
-          }`}>
+          }`} style={{ minWidth: '280px' }}>
             {/* Portfolio - slides out to the left */}
             <Link
               href="/work"
@@ -62,7 +62,7 @@ export function Header() {
                 isExpanded ? 'translate-x-0 opacity-100' : 'translate-x-8 opacity-0'
               }`}
             >
-              Portfolio
+              🖼️ Portfolio
             </Link>
 
             {/* Spacer for the logo in the middle */}
