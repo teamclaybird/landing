@@ -51,7 +51,7 @@ export function HeroSection({ showBadge = true, heading, subheading, splitSubhea
             });
           }}
         >
-          <source src="/videos/Timeline 1.mov" type="video/mp4" />
+          <source src="/videos/landing.mov" type="video/mp4" />
         </video>
       </div>
 
