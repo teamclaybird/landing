@@ -30,12 +30,8 @@ export function Header() {
         className="relative flex items-center justify-center"
       >
         {/* Center Logo */}
-        <a
-          href="#"
-          onClick={(e) => {
-            e.preventDefault();
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-          }}
+        <Link
+          href="/"
           className="relative z-10 cursor-pointer flex items-center"
         >
           <Image
@@ -45,7 +41,7 @@ export function Header() {
             height={32}
             className="transition-transform duration-300"
           />
-        </a>
+        </Link>
 
         {/* Expanded Content */}
         <div className={`absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 transition-all duration-500 ease-out ${

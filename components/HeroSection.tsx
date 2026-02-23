@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
+import Image from 'next/image';
 
 interface HeroSectionProps {
   showBadge?: boolean;
@@ -11,6 +12,7 @@ interface HeroSectionProps {
 
 export function HeroSection({ showBadge = true, heading, subheading, splitSubheading = true }: HeroSectionProps) {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+  const [videoLoaded, setVideoLoaded] = useState(false); // TEMPORARILY SET TO ALWAYS SHOW: true
 
   useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => {
@@ -30,6 +32,27 @@ export function HeroSection({ showBadge = true, heading, subheading, splitSubhea
       <div className="md:hidden absolute inset-0 flex flex-col">
         {/* Video Container - fills available space */}
         <div className="relative flex-1 w-full">
+          {/* Loading buffer - positioned over theater screen - TEMPORARILY ALWAYS SHOWING */}
+          <div
+            className="absolute"
+            style={{
+              top: '35%',
+              left: '50%',
+              transform: 'translate(-50%, -50%)',
+              width: '42%',
+              aspectRatio: '16/9',
+              zIndex: 5,
+            }}
+          >
+            <Image
+              src="/videos/loading_buffer.gif"
+              alt="Loading..."
+              fill
+              className="object-cover rounded-lg"
+              unoptimized
+            />
+          </div>
+
           <video
             autoPlay
             loop
@@ -44,6 +67,7 @@ export function HeroSection({ showBadge = true, heading, subheading, splitSubhea
               video.play().catch(() => {
                 console.log('Autoplay prevented on loadeddata');
               });
+              setVideoLoaded(true);
             }}
             onCanPlay={(e) => {
               const video = e.currentTarget as HTMLVideoElement;
@@ -68,7 +92,7 @@ export function HeroSection({ showBadge = true, heading, subheading, splitSubhea
               }
             }}
           >
-            <source src="/videos/landing.mov" type="video/mp4" />
+            <source src="/videos/landing_final_hero.mov" type="video/mp4" />
           </video>
 
           {/* Bottom Fade to Black - larger on mobile */}
@@ -124,7 +148,7 @@ export function HeroSection({ showBadge = true, heading, subheading, splitSubhea
         <div
           className="absolute inset-0 w-full h-full"
           style={{
-            transform: `translate(${mousePosition.x * 60}px, ${mousePosition.y * 60}px) scale(1.4)`,
+            transform: `translate(${mousePosition.x * 60}px, ${mousePosition.y * 60}px)`,
             transition: 'transform 0.2s ease-out',
           }}
         >
@@ -134,12 +158,12 @@ export function HeroSection({ showBadge = true, heading, subheading, splitSubhea
             muted
             playsInline
             preload="auto"
-            className="w-full h-full object-cover"
-            style={{ transform: 'scale(1.1)' }}
+            className="w-full h-full object-cover relative z-0"
             onLoadedData={(e) => {
               const video = e.currentTarget as HTMLVideoElement;
               video.muted = true;
               video.play().catch(() => {});
+              setVideoLoaded(true);
             }}
             ref={(el) => {
               if (el) {
@@ -148,8 +172,29 @@ export function HeroSection({ showBadge = true, heading, subheading, splitSubhea
               }
             }}
           >
-            <source src="/videos/landing.mov" type="video/mp4" />
+            <source src="/videos/landing_final_hero.mov" type="video/mp4" />
           </video>
+
+          {/* Loading buffer - positioned over theater screen - TEMPORARILY ALWAYS SHOWING */}
+          <div
+            className="absolute"
+            style={{
+              top: '40%',
+              left: '50%',
+              transform: 'translate(-50%, -50%)',
+              width: '31.5%',
+              aspectRatio: '16/9',
+              zIndex: 5,
+            }}
+          >
+            <Image
+              src="/videos/loading_buffer.gif"
+              alt="Loading..."
+              fill
+              className="object-cover rounded-lg"
+              unoptimized
+            />
+          </div>
         </div>
 
         {/* Vignette Overlay */}
