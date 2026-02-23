@@ -32,8 +32,8 @@ export function HeroSection({ showBadge = true, heading, subheading, splitSubhea
       <div className="md:hidden absolute inset-0 flex flex-col">
         {/* Video Container - fills available space */}
         <div className="relative flex-1 w-full">
-          {/* Loading buffer - positioned over theater screen - TEMPORARILY ALWAYS SHOWING */}
-          <div
+          {/* Loading buffer - TEMPORARILY REMOVED */}
+          {/* <div
             className="absolute"
             style={{
               top: '35%',
@@ -51,7 +51,7 @@ export function HeroSection({ showBadge = true, heading, subheading, splitSubhea
               className="object-cover rounded-lg"
               unoptimized
             />
-          </div>
+          </div> */}
 
           <video
             autoPlay
@@ -92,7 +92,7 @@ export function HeroSection({ showBadge = true, heading, subheading, splitSubhea
               }
             }}
           >
-            <source src="/videos/landing_final_hero.mp4" type="video/mp4" />
+            <source src="/videos/Timeline 1.mov" type="video/mp4" />
           </video>
 
           {/* Bottom Fade to Black - larger on mobile */}
@@ -172,11 +172,11 @@ export function HeroSection({ showBadge = true, heading, subheading, splitSubhea
               }
             }}
           >
-            <source src="/videos/landing_final_hero.mp4" type="video/mp4" />
+            <source src="/videos/Timeline 1.mov" type="video/mp4" />
           </video>
 
-          {/* Loading buffer - positioned over theater screen - TEMPORARILY ALWAYS SHOWING */}
-          <div
+          {/* Loading buffer - TEMPORARILY REMOVED */}
+          {/* <div
             className="absolute"
             style={{
               top: '40%',
@@ -194,7 +194,7 @@ export function HeroSection({ showBadge = true, heading, subheading, splitSubhea
               className="object-cover rounded-lg"
               unoptimized
             />
-          </div>
+          </div> */}
         </div>
 
         {/* Vignette Overlay */}

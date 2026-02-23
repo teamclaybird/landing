@@ -29,7 +29,7 @@ export default function Home() {
         />
 
         {/* Portfolio Button Section */}
-        <section className="pt-16 pb-32 px-6 bg-transparent relative z-10">
+        <section className="pt-56 pb-32 px-6 bg-transparent relative z-10">
           <div className="max-w-7xl mx-auto flex justify-center">
             <ShimmerButton
               className="text-xl font-semibold px-12 py-6 text-white"
@@ -52,7 +52,7 @@ export default function Home() {
         </section>
 
         {/* Launch Button Section */}
-        <section className="pt-32 pb-24 px-6 bg-transparent relative z-10">
+        <section className="py-32 px-6 bg-transparent relative z-10">
           <div className="max-w-7xl mx-auto flex justify-center">
             <ShimmerButton
               className="text-xl font-semibold px-12 py-6 text-white"
@@ -136,7 +136,7 @@ export default function Home() {
         </section> */}
 
         {/* Footer */}
-        <footer className="px-6 pt-8 pb-12 bg-transparent relative">
+        <footer className="px-6 pt-32 pb-12 bg-transparent relative">
           <div className="max-w-7xl mx-auto text-center">
             <p className="text-sm text-gray-400">© 2025 Claybird Inc.</p>
           </div>
