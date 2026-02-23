@@ -14,23 +14,32 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Claybird | AI Video Ads",
-  description: "We write and produce AI brand ads - then intelligently generate tailored retargeting videos for every audience segment.",
+  title: "Claybird | Launch Harder",
+  description: "The Award-Winning AI Ad Company. We write and produce AI brand ads - then intelligently generate tailored retargeting videos for every audience segment.",
   icons: {
     icon: "/logo.svg",
   },
   openGraph: {
-    title: "Claybird | AI Video Ads",
-    description: "We write and produce AI brand ads - then intelligently generate tailored retargeting videos for every audience segment.",
+    title: "Claybird | Launch Harder",
+    description: "The Award-Winning AI Ad Company. We write and produce AI brand ads - then intelligently generate tailored retargeting videos for every audience segment.",
     url: "https://claybird.com",
     siteName: "Claybird",
     locale: "en_US",
     type: "website",
+    images: [
+      {
+        url: "/testimonials/claybird-case-study-thumbnail.png",
+        width: 1200,
+        height: 630,
+        alt: "Claybird - Launch Harder",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Claybird | AI Video Ads",
-    description: "We write and produce AI brand ads - then intelligently generate tailored retargeting videos for every audience segment.",
+    title: "Claybird | Launch Harder",
+    description: "The Award-Winning AI Ad Company. We write and produce AI brand ads - then intelligently generate tailored retargeting videos for every audience segment.",
+    images: ["/testimonials/claybird-case-study-thumbnail.png"],
   },
 };
 
