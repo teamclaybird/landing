@@ -117,14 +117,14 @@ export default function Home() {
                 </CardFooter>
               </Card>
 
-              {/* Case Study 3 - Mercor */}
+              {/* Case Study 3 - Corvera */}
               <Card className="shadow-none bg-black border-white/10">
                 <CardHeader>
                   <Lens>
                     <div className="aspect-video w-full rounded-xl overflow-hidden">
                       <Image
-                        src="/testimonials/mercor-case-study-thumbnail.png"
-                        alt="Mercor case study"
+                        src="/testimonials/corvera-thumbnail.png"
+                        alt="Corvera case study"
                         width={600}
                         height={338}
                         className="w-full h-full object-cover"
@@ -133,7 +133,7 @@ export default function Home() {
                   </Lens>
                 </CardHeader>
                 <CardContent>
-                  <CardTitle className="text-xl mb-2 text-white">Mercor</CardTitle>
+                  <CardTitle className="text-xl mb-2 text-white">Corvera</CardTitle>
                   <CardDescription className="line-clamp-2 text-gray-400">
                     To challenge viewers to solve puzzles on the platform, we created a cinematic brand ad exploring humanity&apos;s greatest unsolved mathematical mysteries—transforming abstract problems into compelling visual invitations.
                   </CardDescription>

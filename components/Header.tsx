@@ -51,60 +51,74 @@ export function Header() {
 
   return (
     <header
-      className={`fixed top-0 left-0 z-50 transition-all duration-300`}
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300`}
     >
       <div
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}
-        className={`flex items-center gap-3 px-6 py-4 transition-all duration-500 ease-out ${
+        className={`flex items-center justify-between gap-3 px-4 md:px-6 py-3 md:py-4 transition-all duration-500 ease-out ${
           isExpanded ? 'bg-white/5 backdrop-blur-sm' : 'bg-transparent'
         }`}
       >
-        {/* Logo */}
-        <a
-          href="#"
-          onClick={(e) => {
-            e.preventDefault();
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-          }}
-          className="flex items-center gap-1 cursor-pointer"
-        >
-          <Image src="/logo.svg" alt="Claybird logo" width={24} height={24} className="invert" />
-          <span className="text-xl font-semibold text-white italic">
-            Claybird
-          </span>
-        </a>
+        {/* Left side: Logo + Desktop expandable nav */}
+        <div className="flex items-center gap-3">
+          {/* Logo */}
+          <a
+            href="#"
+            onClick={(e) => {
+              e.preventDefault();
+              window.scrollTo({ top: 0, behavior: 'smooth' });
+            }}
+            className="flex items-center gap-1 cursor-pointer"
+          >
+            <Image src="/White_Logo.png" alt="Claybird logo" width={20} height={20} className="md:w-6 md:h-6" />
+            <span className="text-base md:text-xl font-semibold text-white italic">
+              Claybird
+            </span>
+          </a>
 
-        {/* Arrow indicator */}
-        <div className={`transition-opacity duration-300 ${
-          isExpanded ? 'opacity-0' : 'opacity-100'
-        }`}>
-          <ChevronRight className="w-4 h-4 text-white/60" />
+          {/* Arrow indicator - Desktop only */}
+          <div className={`hidden md:block transition-opacity duration-300 ${
+            isExpanded ? 'opacity-0' : 'opacity-100'
+          }`}>
+            <ChevronRight className="w-4 h-4 text-white/60" />
+          </div>
+
+          {/* Expandable content - Desktop only */}
+          <div className={`hidden md:flex items-center gap-8 overflow-hidden transition-all duration-500 ease-out ${
+            isExpanded ? 'max-w-[1000px] opacity-100' : 'max-w-0 opacity-0'
+          }`}>
+            {/* Navigation */}
+            <nav className="flex items-center gap-8 whitespace-nowrap">
+              <Link href="/work" className="text-sm text-white hover:text-gray-200">
+                Portfolio
+              </Link>
+              <Link href="/book" className="text-sm text-white hover:text-gray-200">
+                Contact
+              </Link>
+            </nav>
+
+            {/* CTA Buttons */}
+            <div className="flex items-center gap-3 whitespace-nowrap">
+              <Button
+                asChild
+                className="bg-white text-black text-sm rounded-xl hover:bg-gray-200 font-medium"
+              >
+                <Link href="/book">Launch 🚀</Link>
+              </Button>
+            </div>
+          </div>
         </div>
 
-        {/* Expandable content */}
-        <div className={`flex items-center gap-8 overflow-hidden transition-all duration-500 ease-out ${
-          isExpanded ? 'max-w-[1000px] opacity-100' : 'max-w-0 opacity-0'
-        }`}>
-          {/* Navigation */}
-          <nav className="flex items-center gap-8 whitespace-nowrap">
-            <Link href="/work" className="text-sm text-white hover:text-gray-200">
-              Portfolio
-            </Link>
-            <Link href="/book" className="text-sm text-white hover:text-gray-200">
-              Contact
-            </Link>
-          </nav>
-
-          {/* CTA Buttons */}
-          <div className="flex items-center gap-3 whitespace-nowrap">
-            <Button
-              asChild
-              className="bg-white text-black text-sm rounded-xl hover:bg-gray-200 font-medium"
-            >
-              <Link href="/book">Launch 🚀</Link>
-            </Button>
-          </div>
+        {/* Mobile CTA Button - Always visible on mobile */}
+        <div className="md:hidden">
+          <Button
+            asChild
+            size="sm"
+            className="bg-white text-black text-xs rounded-lg hover:bg-gray-200 font-medium px-3 py-1.5"
+          >
+            <Link href="/book">Launch 🚀</Link>
+          </Button>
         </div>
       </div>
     </header>

@@ -25,7 +25,7 @@ export function HeroSection({ showBadge = true, heading, subheading, splitSubhea
   }, []);
 
   return (
-    <section className="flex items-end justify-center px-6 relative h-screen overflow-hidden pb-[10vh]">
+    <section className="flex items-end justify-center px-4 md:px-6 relative h-screen overflow-hidden pb-[10vh]">
       {/* Background Video with Parallax */}
       <div
         className="absolute inset-0 w-full h-full"
@@ -39,8 +39,17 @@ export function HeroSection({ showBadge = true, heading, subheading, splitSubhea
           loop
           muted
           playsInline
+          webkit-playsinline="true"
           className="w-full h-full object-cover"
           style={{ transform: 'scale(1.1)' }}
+          onLoadedMetadata={(e) => {
+            // Force play on mobile
+            const video = e.currentTarget;
+            video.play().catch(() => {
+              // Fallback if autoplay fails
+              console.log('Autoplay prevented');
+            });
+          }}
         >
           <source src="/videos/Timeline 1.mov" type="video/mp4" />
         </video>
@@ -63,13 +72,13 @@ export function HeroSection({ showBadge = true, heading, subheading, splitSubhea
       />
 
       {/* Launch Harder text */}
-      <div className="absolute left-0 right-0 z-10 flex items-center justify-center px-6" style={{
+      <div className="absolute left-0 right-0 z-10 flex items-center justify-center px-4 md:px-6" style={{
         top: '76%',
         transform: `translateY(-50%) translate(${mousePosition.x * -30}px, ${mousePosition.y * -30}px)`,
         transition: 'transform 0.2s ease-out'
       }}>
-        <h1 className="font-black whitespace-nowrap" style={{
-          fontSize: 'clamp(2.565rem, 12.825vw, 17.955rem)',
+        <h1 className="font-black text-center" style={{
+          fontSize: 'clamp(2rem, 12.825vw, 17.955rem)',
           letterSpacing: '-0.08em',
           lineHeight: '0.85',
           transform: 'scaleY(1.5)',
@@ -77,6 +86,8 @@ export function HeroSection({ showBadge = true, heading, subheading, splitSubhea
           WebkitTextStroke: '2px #FF0000',
           paintOrder: 'stroke fill',
           filter: 'url(#grain)',
+          maxWidth: '100%',
+          wordBreak: 'keep-all',
         }}>
           LAUNCH HARDER
         </h1>
