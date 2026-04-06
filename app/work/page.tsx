@@ -6,10 +6,10 @@ import { motion, AnimatePresence } from 'motion/react';
 
 // Portfolio videos
 const videos = [
-  { src: '/videos/automax_compressed.mp4', title: 'Automax' },
+  { src: '/videos/lunavo_compressed.mp4', title: 'Lunavo' },
   { src: '/videos/claybird_compressed.mp4', title: 'Claybird' },
   { src: '/videos/corvera_compressed.mp4', title: 'Corvera' },
-  { src: '/videos/lunavo_compressed.mp4', title: 'Lunavo' },
+  { src: '/videos/automax_compressed.mp4', title: 'Automax' },
 ];
 
 export default function Work() {

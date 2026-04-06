@@ -37,7 +37,7 @@ export default function Home() {
               shimmerColor="rgba(255, 255, 255, 0.5)"
               onClick={() => router.push('/work')}
             >
-              PORTFOLIO 🖼️
+              PORTFOLIO
             </ShimmerButton>
           </div>
         </section>
@@ -60,7 +60,7 @@ export default function Home() {
               shimmerColor="rgba(255, 255, 255, 0.5)"
               onClick={() => router.push('/book')}
             >
-              LAUNCH 🚀
+              LAUNCH
             </ShimmerButton>
           </div>
         </section>

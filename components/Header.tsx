@@ -81,7 +81,7 @@ export function Header() {
                 isExpanded ? 'translate-x-0 opacity-100' : 'translate-x-8 opacity-0'
               }`}
             >
-              🖼️ Portfolio
+              Portfolio
             </Link>
 
             {/* Spacer for the logo in the middle */}
@@ -95,7 +95,7 @@ export function Header() {
                 isExpanded ? 'translate-x-0 opacity-100' : '-translate-x-8 opacity-0'
               }`}
             >
-              <Link href="/book">Launch 🚀</Link>
+              <Link href="/book">Launch</Link>
             </Button>
           </div>
         </div>
