@@ -1,7 +1,6 @@
 'use client';
 
 import { useState } from 'react';
-import Image from 'next/image';
 import { Header } from '@/components/Header';
 import { motion, AnimatePresence } from 'motion/react';
 
@@ -15,14 +14,9 @@ const videos = [
 
 export default function Work() {
   const [openVideo, setOpenVideo] = useState<string | null>(null);
-  const [loadedVideos, setLoadedVideos] = useState<Set<number>>(new Set());
 
   const handleVideoClick = (src: string) => {
     setOpenVideo(src);
-  };
-
-  const handleVideoLoaded = (index: number) => {
-    setLoadedVideos(prev => new Set(prev).add(index));
   };
 
   return (
@@ -48,19 +42,6 @@ export default function Work() {
                 className="group relative aspect-video overflow-hidden rounded-2xl bg-black border border-white/10 cursor-pointer hover:border-white/30 transition-all"
                 onClick={() => handleVideoClick(video.src)}
               >
-                {/* Loading GIF buffer */}
-                {!loadedVideos.has(index) && (
-                  <div className="absolute inset-0 z-10">
-                    <Image
-                      src="/videos/loading_buffer.gif"
-                      alt="Loading..."
-                      fill
-                      className="object-cover"
-                      unoptimized
-                    />
-                  </div>
-                )}
-
                 <video
                   autoPlay
                   loop
@@ -72,9 +53,6 @@ export default function Work() {
                     const videoElement = e.currentTarget;
                     videoElement.currentTime = 2.5;
                   }}
-                  onLoadedData={() => handleVideoLoaded(index)}
-                  onCanPlay={() => handleVideoLoaded(index)}
-                  onPlay={() => handleVideoLoaded(index)}
                 />
 
                 {/* Hover overlay */}

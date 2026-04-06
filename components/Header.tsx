@@ -1,13 +1,34 @@
 'use client';
 
-import { useState, useRef } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 
 export function Header() {
   const [isExpanded, setIsExpanded] = useState(false);
+  const [showLogo, setShowLogo] = useState(true);
   const timeoutRef = useRef<NodeJS.Timeout | null>(null);
+  const lastScrollY = useRef(0);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const currentScrollY = window.scrollY;
+
+      if (currentScrollY > lastScrollY.current && currentScrollY > 50) {
+        // Scrolling down - hide logo
+        setShowLogo(false);
+      } else if (currentScrollY < lastScrollY.current) {
+        // Scrolling up - show logo
+        setShowLogo(true);
+      }
+
+      lastScrollY.current = currentScrollY;
+    };
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   const handleMouseEnter = () => {
     if (timeoutRef.current) {
@@ -32,7 +53,9 @@ export function Header() {
         {/* Center Logo */}
         <Link
           href="/"
-          className="relative z-10 cursor-pointer flex items-center"
+          className={`relative z-10 cursor-pointer flex items-center transition-opacity duration-200 ${
+            showLogo ? 'opacity-100' : 'opacity-0 pointer-events-none'
+          }`}
         >
           <Image
             src="/claybird_logo.jpeg"
