@@ -10,6 +10,23 @@ const videos = [
   { src: '/videos/claybird_compressed.mp4', title: 'Claybird' },
   { src: '/videos/corvera_compressed.mp4', title: 'Corvera' },
   { src: '/videos/automax_compressed.mp4', title: 'Automax' },
+  { src: '/videos/american_eagle_1.mp4', title: 'American Eagle 1' },
+  { src: '/videos/delve.mp4', title: 'Delve' },
+  { src: '/videos/american_eagle_2.mp4', title: 'American Eagle 2' },
+  { src: '/videos/handshake_short.mp4', title: 'Handshake Short' },
+  { src: '/videos/kepos_new.mp4', title: 'Kepos' },
+  { src: '/videos/stratus.mp4', title: 'Stratus' },
+  { src: '/videos/channl.mp4', title: 'Channl' },
+  { src: '/videos/mercor_1.mp4', title: 'Mercor' },
+  { src: '/videos/agape.mp4', title: 'Agape' },
+  { src: '/videos/sellraze_gorilla_gen_z_video.mp4', title: 'Sellraze' },
+  { src: '/videos/handshake_alex_phd.mp4', title: 'Handshake Alex PhD' },
+  { src: '/videos/audi_ad.mp4', title: 'Audi F1 Spec Ad' },
+  { src: '/videos/coke_holiday.mp4', title: 'Coke Holiday Ad' },
+  { src: '/videos/running_brand.mp4', title: 'Running Brand' },
+  { src: '/videos/lunavo_launch_video.mp4', title: 'Lunavo Launch Video' },
+  { src: '/videos/automax_v1.mp4', title: 'Automax V1' },
+  { src: '/videos/lunabill_v5_compressed.mp4', title: 'Lunabill' },
 ];
 
 export default function Work() {
