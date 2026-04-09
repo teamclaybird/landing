@@ -1,0 +1,332 @@
+export interface Project {
+  id: string;
+  title: string;
+  client: string;
+  category: 'Launch Videos' | 'Brand Content' | 'Shorts';
+  tagline: string;
+  videoUrl: string;
+  thumbnailTime: number; // Time in seconds for the best thumbnail frame
+  stats: {
+    views: number;
+    likes: number;
+    comments: number;
+  };
+  roles: ('Director' | 'DP' | 'Editor')[];
+  duration: string;
+  date: string;
+  description: string;
+  isFeatured?: boolean;
+}
+
+export const CATEGORIES = [
+  'Launch Videos',
+  'Brand Content',
+  'Shorts',
+] as const;
+
+export const PROJECTS: Project[] = [
+  // Launch Videos
+  {
+    id: 'asimov',
+    title: 'ASIMOV LAUNCH',
+    client: 'Asimov',
+    category: 'Launch Videos',
+    tagline: '',
+    videoUrl: '/videos/asimov_v5.mov',
+    thumbnailTime: 0,
+    stats: { views: 0, likes: 0, comments: 0 },
+    roles: ['Director', 'DP', 'Editor'],
+    duration: '',
+    date: '2024-04-09',
+    description: '',
+    isFeatured: true,
+  },
+  {
+    id: 'corvera',
+    title: 'SUPPLY CHAIN, UNCHAINED',
+    client: 'Corvera',
+    category: 'Launch Videos',
+    tagline: 'Breaking free from traditional logistics',
+    videoUrl: '/videos/corvera_compressed.mp4',
+    thumbnailTime: 26,
+    stats: { views: 45000, likes: 1200, comments: 89 },
+    roles: ['Director', 'DP', 'Editor'],
+    duration: '1:45',
+    date: '2024-02-15',
+    description: 'A cinematic journey through modern supply chain innovation that transforms the way businesses think about logistics.',
+    isFeatured: true,
+  },
+  {
+    id: 'claybird',
+    title: 'REBRAND',
+    client: 'Claybird',
+    category: 'Launch Videos',
+    tagline: 'Evolution of identity',
+    videoUrl: '/videos/claybird_compressed.mp4',
+    thumbnailTime: 1,
+    stats: { views: 52000, likes: 1800, comments: 145 },
+    roles: ['Director', 'DP', 'Editor'],
+    duration: '2:10',
+    date: '2023-12-10',
+    description: 'Documenting the transformative journey of Claybird as it redefines its visual identity and mission.',
+    isFeatured: true,
+  },
+  {
+    id: 'lunavo',
+    title: 'LUNAVO LAUNCH',
+    client: 'Lunavo',
+    category: 'Launch Videos',
+    tagline: 'Healthcare reimagined',
+    videoUrl: '/videos/lunavo_compressed.mp4',
+    thumbnailTime: 18,
+    stats: { views: 38500, likes: 950, comments: 67 },
+    roles: ['Director', 'DP'],
+    duration: '1:30',
+    date: '2024-01-20',
+    description: 'Showcasing how Lunavo revolutionizes healthcare technology with an elegant, patient-first approach.',
+    isFeatured: true,
+  },
+  {
+    id: 'automax',
+    title: 'AUTOMAX',
+    client: 'Automax',
+    category: 'Launch Videos',
+    tagline: 'Automotive excellence',
+    videoUrl: '/videos/automax_compressed.mp4',
+    thumbnailTime: 42,
+    stats: { views: 29000, likes: 780, comments: 52 },
+    roles: ['Director', 'Editor'],
+    duration: '1:40',
+    date: '2023-11-05',
+    description: 'Capturing the precision and innovation behind Automax automotive solutions.',
+  },
+
+  // Brand Content
+  {
+    id: 'audi-ad',
+    title: 'AUDI F1 SPEC',
+    client: 'Audi',
+    category: 'Brand Content',
+    tagline: 'Performance meets precision',
+    videoUrl: '/videos/audi_ad.mp4',
+    thumbnailTime: 12,
+    stats: { views: 89000, likes: 2400, comments: 178 },
+    roles: ['Director', 'DP'],
+    duration: '0:30',
+    date: '2024-03-10',
+    description: 'High-octane commercial showcasing Audi F1 engineering excellence.',
+  },
+  {
+    id: 'coke-holiday',
+    title: 'COKE HOLIDAY',
+    client: 'Coca-Cola',
+    category: 'Brand Content',
+    tagline: 'Moments of joy',
+    videoUrl: '/videos/coke_holiday.mp4',
+    thumbnailTime: 18,
+    stats: { views: 124000, likes: 3200, comments: 245 },
+    roles: ['Director', 'DP', 'Editor'],
+    duration: '0:45',
+    date: '2023-12-01',
+    description: 'Festive campaign capturing the warmth and connection of the holiday season.',
+  },
+  {
+    id: 'running-brand',
+    title: 'RUNNING BRAND',
+    client: 'Athletic Co',
+    category: 'Brand Content',
+    tagline: 'Push your limits',
+    videoUrl: '/videos/running_brand.mp4',
+    thumbnailTime: 28,
+    stats: { views: 67000, likes: 1850, comments: 134 },
+    roles: ['Director', 'DP'],
+    duration: '1:15',
+    date: '2024-02-20',
+    description: 'Dynamic brand film showcasing the spirit of athletic performance and determination.',
+  },
+  {
+    id: 'lunabill',
+    title: 'LUNABILL',
+    client: 'Lunabill',
+    category: 'Brand Content',
+    tagline: 'Financial clarity',
+    videoUrl: '/videos/lunabill_v5_compressed.mp4',
+    thumbnailTime: 35,
+    stats: { views: 41000, likes: 1100, comments: 87 },
+    roles: ['Director', 'Editor'],
+    duration: '1:25',
+    date: '2023-10-15',
+    description: 'Simplifying financial management with elegant design and intuitive technology.',
+  },
+
+  // Shorts
+  {
+    id: 'american-eagle-1',
+    title: 'AMERICAN EAGLE',
+    client: 'American Eagle',
+    category: 'Shorts',
+    tagline: 'Style in motion',
+    videoUrl: '/videos/american_eagle_1.mp4',
+    thumbnailTime: 6,
+    stats: { views: 156000, likes: 4200, comments: 312 },
+    roles: ['Director', 'Editor'],
+    duration: '0:15',
+    date: '2024-03-15',
+    description: 'Bold vertical content capturing American Eagle brand energy.',
+  },
+  {
+    id: 'american-eagle-2',
+    title: 'AMERICAN EAGLE 2',
+    client: 'American Eagle',
+    category: 'Shorts',
+    tagline: 'Urban vibes',
+    videoUrl: '/videos/american_eagle_2.mp4',
+    thumbnailTime: 7,
+    stats: { views: 142000, likes: 3900, comments: 287 },
+    roles: ['Director', 'Editor'],
+    duration: '0:15',
+    date: '2024-03-16',
+    description: 'Second installment of American Eagle vertical series.',
+  },
+  {
+    id: 'delve',
+    title: 'DELVE',
+    client: 'Delve',
+    category: 'Shorts',
+    tagline: 'Deep dive',
+    videoUrl: '/videos/delve.mp4',
+    thumbnailTime: 8,
+    stats: { views: 98000, likes: 2700, comments: 198 },
+    roles: ['Director', 'DP'],
+    duration: '0:20',
+    date: '2024-02-10',
+    description: 'Immersive short-form content for Delve platform.',
+  },
+  {
+    id: 'handshake-short',
+    title: 'HANDSHAKE',
+    client: 'Handshake',
+    category: 'Shorts',
+    tagline: 'Connect careers',
+    videoUrl: '/videos/handshake_short.mp4',
+    thumbnailTime: 7,
+    stats: { views: 87000, likes: 2300, comments: 165 },
+    roles: ['Director', 'Editor'],
+    duration: '0:18',
+    date: '2024-01-25',
+    description: 'Quick-hit vertical showcasing Handshake career platform.',
+  },
+  {
+    id: 'handshake-alex',
+    title: 'HANDSHAKE: ALEX PHD',
+    client: 'Handshake',
+    category: 'Shorts',
+    tagline: 'Success stories',
+    videoUrl: '/videos/handshake_alex_phd.mp4',
+    thumbnailTime: 10,
+    stats: { views: 104000, likes: 2950, comments: 221 },
+    roles: ['Director', 'DP', 'Editor'],
+    duration: '0:25',
+    date: '2024-01-28',
+    description: 'Profile short featuring PhD student career journey.',
+  },
+  {
+    id: 'kepos',
+    title: 'KEPOS',
+    client: 'Kepos',
+    category: 'Shorts',
+    tagline: 'Fresh perspective',
+    videoUrl: '/videos/kepos_new.mp4',
+    thumbnailTime: 9,
+    stats: { views: 76000, likes: 2100, comments: 145 },
+    roles: ['Director', 'DP'],
+    duration: '0:22',
+    date: '2024-02-05',
+    description: 'Vertical content showcasing Kepos brand identity.',
+  },
+  {
+    id: 'stratus',
+    title: 'STRATUS',
+    client: 'Stratus',
+    category: 'Shorts',
+    tagline: 'Cloud innovation',
+    videoUrl: '/videos/stratus.mp4',
+    thumbnailTime: 8,
+    stats: { views: 91000, likes: 2600, comments: 183 },
+    roles: ['Director', 'Editor'],
+    duration: '0:20',
+    date: '2024-03-01',
+    description: 'Tech-forward short for Stratus cloud platform.',
+  },
+  {
+    id: 'channl',
+    title: 'CHANNL',
+    client: 'Channl',
+    category: 'Shorts',
+    tagline: 'Communication evolved',
+    videoUrl: '/videos/channl.mp4',
+    thumbnailTime: 7,
+    stats: { views: 83000, likes: 2200, comments: 157 },
+    roles: ['Director', 'DP'],
+    duration: '0:17',
+    date: '2024-02-18',
+    description: 'Vertical format highlighting Channl messaging platform.',
+  },
+  {
+    id: 'mercor',
+    title: 'MERCOR',
+    client: 'Mercor',
+    category: 'Shorts',
+    tagline: 'Talent redefined',
+    videoUrl: '/videos/mercor_1.mp4',
+    thumbnailTime: 8,
+    stats: { views: 72000, likes: 1950, comments: 134 },
+    roles: ['Director', 'Editor'],
+    duration: '0:19',
+    date: '2024-01-12',
+    description: 'Short-form content for Mercor talent platform.',
+  },
+  {
+    id: 'agape',
+    title: 'AGAPE',
+    client: 'Agape',
+    category: 'Shorts',
+    tagline: 'Love in action',
+    videoUrl: '/videos/agape.mp4',
+    thumbnailTime: 10,
+    stats: { views: 95000, likes: 2850, comments: 209 },
+    roles: ['Director', 'DP', 'Editor'],
+    duration: '0:23',
+    date: '2024-02-14',
+    description: 'Heartfelt vertical content for Agape community.',
+  },
+  {
+    id: 'sellraze',
+    title: 'SELLRAZE',
+    client: 'Sellraze',
+    category: 'Shorts',
+    tagline: 'Gen Z energy',
+    videoUrl: '/videos/sellraze_gorilla_gen_z_video.mp4',
+    thumbnailTime: 6,
+    stats: { views: 187000, likes: 5100, comments: 423 },
+    roles: ['Director', 'Editor'],
+    duration: '0:16',
+    date: '2024-03-20',
+    description: 'High-energy viral short targeting Gen Z audience.',
+  },
+];
+
+export function formatNumber(num: number): string {
+  if (num >= 1000000) {
+    return (num / 1000000).toFixed(1) + 'M';
+  }
+  if (num >= 1000) {
+    return (num / 1000).toFixed(1) + 'K';
+  }
+  return num.toString();
+}
+
+export function formatDate(dateString: string): string {
+  const date = new Date(dateString);
+  return date.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
+}
