@@ -16,8 +16,9 @@ export function Header() {
       const currentScrollY = window.scrollY;
 
       if (currentScrollY > lastScrollY.current && currentScrollY > 50) {
-        // Scrolling down - hide logo
+        // Scrolling down - hide logo and collapse nav
         setShowLogo(false);
+        setIsExpanded(false);
       } else if (currentScrollY < lastScrollY.current) {
         // Scrolling up - show logo
         setShowLogo(true);
@@ -30,29 +31,40 @@ export function Header() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const handleMouseEnter = () => {
-    if (timeoutRef.current) {
-      clearTimeout(timeoutRef.current);
+  const handleHeaderEnter = () => {
+    if (timeoutRef.current) clearTimeout(timeoutRef.current);
+    setShowLogo(true);
+    // Only auto-expand if not scrolled — logo was already visible
+    if (window.scrollY <= 50) {
+      setIsExpanded(true);
     }
-    setIsExpanded(true);
   };
 
-  const handleMouseLeave = () => {
+  const handleHeaderLeave = () => {
     timeoutRef.current = setTimeout(() => {
       setIsExpanded(false);
+      if (window.scrollY > 50) {
+        setShowLogo(false);
+      }
     }, 300);
+  };
+
+  const handleLogoEnter = () => {
+    if (timeoutRef.current) clearTimeout(timeoutRef.current);
+    setIsExpanded(true);
   };
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 flex items-start justify-center pt-6">
       <div
-        onMouseEnter={handleMouseEnter}
-        onMouseLeave={handleMouseLeave}
+        onMouseEnter={handleHeaderEnter}
+        onMouseLeave={handleHeaderLeave}
         className="relative flex items-center justify-center"
       >
         {/* Center Logo */}
         <Link
           href="/"
+          onMouseEnter={handleLogoEnter}
           className={`relative z-10 cursor-pointer flex items-center transition-opacity duration-200 ${
             showLogo ? 'opacity-100' : 'opacity-0 pointer-events-none'
           }`}
